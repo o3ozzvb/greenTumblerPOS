@@ -26,7 +26,7 @@
 
 <script>
 	$('#myMenuModal').on('shown.bs.modal', function (e) {
-		let tumbler = JSON.parse('${ sessionScope.tumblerJson }');
+		// let tumbler = JSON.parse('${ sessionScope.tumblerJson }');
 	 	let url = "/greenTumblerServer/pos/getPrivateMenu" ;
 	 	let method = "GET";
 	 	
