@@ -95,6 +95,8 @@ public class HomeController extends ApplicationController {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+		session.removeAttribute("tumblerJson");
+		session.removeAttribute("tumbler");
 		session.setAttribute("tumblerJson", tumblerJson);
 		session.setAttribute("tumbler", tumbler);
 		
@@ -168,6 +170,8 @@ public class HomeController extends ApplicationController {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+		session.removeAttribute("tumblerJson");
+		session.removeAttribute("tumbler");
 		session.setAttribute("tumblerJson", tumblerJson);
 		session.setAttribute("tumbler", tumbler);
 	}
