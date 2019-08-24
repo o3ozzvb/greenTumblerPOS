@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+<mapper namespace="com.sinc.greentumbler.tumbler">
+	<select id="selectOne" parameterType="String" resultType="tumbler">
+		SELECT	T.TUMBLER_ID, T.TUMBLER_MONEY, T.NFC_ID, A.ACCOUNT_ID, A.NICKNAME, T.LOST_YN, T.PAY_YN
+		FROM	SGT_TUMBLER	T
+		JOIN	SGT_ACCOUNT A ON T.ACCOUNT_ID = A.ACCOUNT_ID
+		WHERE	T.NFC_ID = #{nfcId}
+	</select>
+	<select id="updateRow" parameterType="tumbler" resultType="tumbler">
+		UPDATE SGT_TUMBLER
+		SET TUMBLER_MONEY = #{ tumbler_Money }
+		WHERE NFC_ID = #{ nfc_id }
+		RETURNING NFC_ID, ACCOUNT_ID, TUMBLER_MONEY, LOST_YN, PAY_YN
+	</select>
+	
+</mapper>

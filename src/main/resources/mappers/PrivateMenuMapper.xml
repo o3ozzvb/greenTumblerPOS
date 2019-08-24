@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+<mapper namespace="com.sinc.greentumbler.privateMenu">
+	<select id="selectAll" parameterType="String" resultType="privateMenu">
+		SELECT M.MENU_ID, M.MENU_NAME, PM.CUP, PM.ACCOUNT_ID, PM.SHOT, PM.SYRUP, PM.WHIPPED_CREAM, PM.DRIZZLE, PM.SIZE, PM.OPTION_SUM, PM.PRICE 
+		FROM SGT_PRIVATE_MENU AS PM
+		JOIN SGT_MENU M 
+		ON PM.MENU_ID=M.MENU_ID
+		WHERE ACCOUNT_ID=#{ accountId } LIMIT 3
+	</select>
+</mapper>

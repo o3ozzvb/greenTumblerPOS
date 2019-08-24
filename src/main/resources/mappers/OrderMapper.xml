@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.sinc.greentumbler.order">
+	<select id="insertRow" parameterType="order" resultType="order">
+		INSERT INTO SGT_ORDER (ORDER_ID, ACCOUNT_ID, PRICE, TUMBLER_ID)
+		VALUES (NEXTVAL('SGT_ORDER_SEQ'), #{ account_id }, #{ price }, #{ tumbler_id })
+		RETURNING ORDER_ID, ACCOUNT_ID, TUMBLER_ID, PRICE
+	</select>
+	<select id="insertOrderItem" parameterType="orderDetail" resultType="int">
+		INSERT INTO SGT_ORDERDETAILS (ORDER_ID, LINE_ID, MENU_ID, SHOT, SYRUP, WHIPPED_CREAM, DRIZZLE, SIZE, OPTION_SUM, MENU_CNT, PRICE)
+		VALUES (#{ order_id }, #{ line_id }, #{ menu_id }, #{ shot }, #{ syrup }, #{ whipped_cream }, #{ drizzle }, #{ size }, #{ option_sum }, #{ menu_cnt }, #{ price })
+	</select>
+</mapper> 
+

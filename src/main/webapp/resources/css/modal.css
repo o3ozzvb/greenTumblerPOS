@@ -1,0 +1,21 @@
+@charset "UTF-8";
+
+.modal-content {
+	background-color: black;
+	color: white;
+}
+
+.modal-title {
+	color: white;
+}
+
+.white-box {
+	color: black;
+	border: 1px solid black;
+	background-color: white;
+	height: 120px;
+}
+
+.white-box.charge-box {
+	height: 50px !important;
+}
