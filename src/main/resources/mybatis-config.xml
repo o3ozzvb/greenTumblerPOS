@@ -22,5 +22,6 @@
 		<typeAlias type="com.sinc.greentumbler.vo.PrivateMenuVO" alias="privateMenu"/>
 		<typeAlias type="com.sinc.greentumbler.vo.OrderVO" alias="order"/>
 		<typeAlias type="com.sinc.greentumbler.vo.OrderDetailVO" alias="orderDetail"/>
+		<typeAlias type="com.sinc.greentumbler.vo.RecentOrderVO" alias="recentOrder"/>
     </typeAliases> 
 </configuration>

@@ -16,8 +16,14 @@
         <p id="paymentMsg">결제 중입니다...</p>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">취소</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">확인</button>
       </div>
     </div>
   </div>
 </div>
+<script>
+	$('#payingModal').on('hidden.bs.modal', function (e) {
+		window.location.reload();
+	});
+
+</script>

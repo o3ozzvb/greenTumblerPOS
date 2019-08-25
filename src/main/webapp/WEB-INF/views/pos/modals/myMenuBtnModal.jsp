@@ -82,12 +82,21 @@
 		let menu_name = dataset.menu_name;
 		let size = dataset.size;
 		let cup = dataset.cup;
-		let drizzle = dataset.drizzle;
-		let shot = parseInt(dataset.shot)
-		let syrup = parseInt(dataset.syrup)
-		let whipped_cream = dataset.whipped_cream;
+		let drizzle = (dataset.drizzle == "true");
+		let shot = parseInt(dataset.shot);
+		let syrup = parseInt(dataset.syrup);
+		let whipped_cream = (dataset.whipped_cream == "true");
 		let price = parseInt(dataset.price);
 		let menu_id = parseInt(dataset.menu_id);
+		let option_sum = 0;
+		let private_menu_yn = true;
+		let is_tumbler = true;
+		
+		option_sum += (drizzle ? optionPrice : 0);
+		option_sum += (whipped_cream ? optionPrice : 0);
+		option_sum += (shot * optionPrice);
+		option_sum += (syrup * optionPrice);
+		
 		
 		selectedMenu = {
 			menu_name: menu_name,
@@ -100,7 +109,10 @@
 			line_id: orderIdx++,
 			price: price,
 			menu_id: menu_id,
-			menu_cnt: 1
+			menu_cnt: 1,
+			option_sum: option_sum,
+			private_menu_yn: private_menu_yn,
+			is_tumbler: is_tumbler
 		};
 		
 		updateOrderList(orderList, selectedMenu);

@@ -18,6 +18,7 @@
     </head>
 
     <body class="background">
+    	<%@include file="./navbar.jsp"%>
         <div class="container mt-3">
             <div class="row">
                 <div class="col-6 grid-upper grid-gray white">
@@ -40,49 +41,49 @@
                     	</div>
                     	<div class="col-9">
                     		<div class="row">
-                    			<div class="col-4">
+                    			<div class="col-4 pos-menu-grid">
                     				<div class="pos-btn pos-menu-btn"></div>
                     			</div>
-                    			<div class="col-4">
+                    			<div class="col-4 pos-menu-grid">
                     				<div class="pos-btn pos-menu-btn"></div>
                     			</div>
-                    			<div class="col-4">
+                    			<div class="col-4 pos-menu-grid">
                     				<div class="pos-btn pos-menu-btn"></div>
                     			</div>
-                    			<div class="col-4">
+                    			<div class="col-4 pos-menu-grid">
                     				<div class="pos-btn pos-menu-btn"></div>
                     			</div>
-                    			<div class="col-4">
+                    			<div class="col-4 pos-menu-grid">
                     				<div class="pos-btn pos-menu-btn"></div>
                     			</div>
-                    			<div class="col-4">
+                    			<div class="col-4 pos-menu-grid">
                     				<div class="pos-btn pos-menu-btn"></div>
                     			</div>
-                    			<div class="col-4">
+                    			<div class="col-4 pos-menu-grid">
                     				<div class="pos-btn pos-menu-btn"></div>
                     			</div>
-                    			<div class="col-4">
+                    			<div class="col-4 pos-menu-grid">
                     				<div class="pos-btn pos-menu-btn"></div>
                     			</div>
-                    			<div class="col-4">
+                    			<div class="col-4 pos-menu-grid">
                     				<div class="pos-btn pos-menu-btn"></div>
                     			</div>
-                    			<div class="col-4">
+                    			<div class="col-4 pos-menu-grid">
                     				<div class="pos-btn pos-menu-btn"></div>
                     			</div>
-                    			<div class="col-4">
+                    			<div class="col-4 pos-menu-grid">
                     				<div class="pos-btn pos-menu-btn"></div>
                     			</div>
-                    			<div class="col-4">
+                    			<div class="col-4 pos-menu-grid">
                     				<div class="pos-btn pos-menu-btn"></div>
                     			</div>
-                    			<div class="col-4">
+                    			<div class="col-4 pos-menu-grid">
                     				<div class="pos-btn pos-menu-btn"></div>
                     			</div>
-                    			<div class="col-4">
+                    			<div class="col-4 pos-menu-grid">
                     				<div class="pos-btn pos-menu-btn"></div>
                     			</div>
-                    			<div class="col-4">
+                    			<div class="col-4 pos-menu-grid">
                     				<div class="pos-btn pos-menu-btn"></div>
                     			</div>
                     		</div>
@@ -254,6 +255,8 @@
 						
 						selectedMenu["whipped_cream"] = false;
 						selectedMenu["drizzle"] = false;
+						selectedMenu["private_menu_yn"] = false;
+						selectedMenu["is_tumbler"] = false;
 						
 						if(e.type == "touchend") {
 							updateOrderList(orderList, selectedMenu);
@@ -300,7 +303,7 @@
 				// 결제 버튼이 클릭되었을 때
 				$("#payBtn").on("click", function(e){
 					
-					let url = "/greenTumblerServer/pos/pay";
+					let url = "/greenTumblerServer/pos/pay/" + tumblerInfo.nfc_id;
 					let method = "POST";
 					orderList = validateOrderList(orderList);
 					
@@ -322,14 +325,22 @@
 			
 			function validateOrderList(orderList) {
 				for(var i = 0 ; i < orderList.length ; i++) {
-					orderList[i]["drizzle"] = (orderList[i]["drizzle"] == "true");
+					if(orderList[i]["drizzle"] == "true" || orderList[i]["drizzle"] == "false") {
+						orderList[i]["drizzle"] = (orderList[i]["drizzle"] == "true");	
+					}
+					if(orderList[i]["whipped_cream"] == "true" || orderList[i]["whipped_cream"] == "false") {
+						orderList[i]["whipped_cream"] = (orderList[i]["whipped_cream"] == "true");	
+					}
+					
 					orderList[i]["menu_cnt"] = parseInt(orderList[i]["menu_cnt"]);
 					orderList[i]["option_sum"] = parseInt(orderList[i]["option_sum"]);
 					orderList[i]["line_id"] = parseInt(orderList[i]["line_id"]);
 					orderList[i]["price"] = parseInt(orderList[i]["price"]);
 					orderList[i]["shot"] = parseInt(orderList[i]["shot"]);
 					orderList[i]["syrup"] = parseInt(orderList[i]["syrup"]);
-					orderList[i]["whipped_cream"] = (orderList[i]["drizzle"] == "true");
+					
+					orderList[i]["private_menu_yn"] = (orderList[i]["private_menu_yn"] ? true : false);
+					
 				}
 				return orderList;
 			}
@@ -354,7 +365,7 @@
 			function updateOrderList(orderList, selectedMenu) {
 				let totalAmount = 0;
 				let totalCnt = 0;
-				let optionSum = 0;
+				
 				
 				if(selectedMenu != null) {
 					let _selectedMenu = $.extend({}, selectedMenu);
@@ -364,6 +375,7 @@
 				$("#order-list-area").html("");
 				
 				for(var i = 0 ; i < orderList.length ; i++) {
+					let optionSum = 0;
 					if(orderList[i].option_sum == null) {
 						orderList[i]["option_sum"] = 0;
 					}

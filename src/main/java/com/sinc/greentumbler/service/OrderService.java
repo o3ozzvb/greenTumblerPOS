@@ -33,8 +33,7 @@ public class OrderService implements DefaultService {
 
 	@Override
 	public Object selectOne(Object obj) {
-		// TODO Auto-generated method stub
-		return null;
+		return dao.selectOne((String)obj);
 	}
 
 	@Override

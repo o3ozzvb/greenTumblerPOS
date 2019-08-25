@@ -15,6 +15,7 @@ import org.codehaus.jackson.map.ObjectMapper;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -29,6 +30,7 @@ import com.sinc.greentumbler.vo.MenuVO;
 import com.sinc.greentumbler.vo.OrderDetailVO;
 import com.sinc.greentumbler.vo.OrderVO;
 import com.sinc.greentumbler.vo.PrivateMenuVO;
+import com.sinc.greentumbler.vo.RecentOrderVO;
 import com.sinc.greentumbler.vo.TumblerVO;
 
 
@@ -119,10 +121,14 @@ public class HomeController extends ApplicationController {
 		return tumbService.updateRow(tumbler);
 	}
 	
-	@RequestMapping(value="/pay", method=RequestMethod.POST)
+	@RequestMapping(value="/pay/{nfcId}", method=RequestMethod.POST)
 	@ResponseBody
 	@Transactional
-	public TumblerVO pay(@RequestBody OrderDetailVO[] orderList, HttpSession session) {
+	public TumblerVO pay(@RequestBody OrderDetailVO[] orderList, @PathVariable String nfcId, HttpSession session) {
+		
+		System.out.println(nfcId);
+		
+		TumblerVO tumbler = getTumbler(nfcId, session);
 		
 		// 잔액이 부족한 경우 고려해야 됨
 		
@@ -130,10 +136,10 @@ public class HomeController extends ApplicationController {
 		for(OrderDetailVO vo : orderList) {
 			int menuCnt = vo.getMenu_cnt();
 			int menuPrice = vo.getPrice();
+			int optionSum = vo.getOption_sum();
 			price += menuCnt * menuPrice;
+			price += optionSum;
 		}
-		
-		TumblerVO tumbler = (TumblerVO) session.getAttribute("tumbler");
 		
 		if(tumbler.getTumbler_Money() < price) {
 			
@@ -144,14 +150,12 @@ public class HomeController extends ApplicationController {
 			order = orderService.insertRow(order);
 			int orderId = order.getOrder_id();
 			
-			//
-			/*
-			 * for(OrderDetailVO od: orderList) { od.setOrder_id(orderId);
-			 * System.out.println(od); orderService.insertOrderItem(od); }
-			 */
+			for(OrderDetailVO od: orderList) { 
+				od.setOrder_id(orderId);
+				System.out.println(od); 
+				orderService.insertOrderItem(od); 
+			}
 			
-			orderList[0].setOrder_id(orderId);
-			orderService.insertOrderItem(orderList[0]);
 			tumbler.setTumbler_Money(tumbler.getTumbler_Money() - order.getPrice());
 			return tumbService.updateRow(tumbler);
 			
@@ -174,5 +178,13 @@ public class HomeController extends ApplicationController {
 		session.removeAttribute("tumbler");
 		session.setAttribute("tumblerJson", tumblerJson);
 		session.setAttribute("tumbler", tumbler);
+	}
+	
+	@RequestMapping(value="/getRecentOrder/{accountId}", method=RequestMethod.POST)
+	@ResponseBody
+	public Object getRecntOrder(@PathVariable String accountId) {
+		System.out.println(accountId);
+		System.out.println((RecentOrderVO)(orderService.selectOne(accountId)));
+		return orderService.selectOne(accountId);
 	}
 }
