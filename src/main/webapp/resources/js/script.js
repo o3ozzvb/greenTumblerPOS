@@ -17,10 +17,11 @@ $(function(){
         for(var i = 0 ; i < menus.length ; i++) {
         	
         	if(menus[i].category2 == category2) {
-        		console.log(menus[i].menu_name)
+        		
         		posMenuBtns[idx].innerText = menus[i].menu_name;
         		posMenuBtns[idx].dataset.price = menus[i].price;
         		posMenuBtns[idx].dataset.menu_name = menus[i].menu_name;
+        		posMenuBtns[idx].dataset.menu_id = menus[i].menu_id;
         		posMenuBtns[idx++].dataset.category2 = menus[i].category2;
         	}
         }
