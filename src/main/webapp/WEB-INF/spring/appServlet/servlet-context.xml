@@ -30,7 +30,6 @@
 	<context:component-scan base-package="com.sinc.greentumbler.**" />
 	
 	<beans:bean id="cors" class="com.sinc.greentumbler.interceptor.CORSInterceptor" />
-	
 	<interceptors>
 		<interceptor>
 			<mapping path="/mobile/**"/>

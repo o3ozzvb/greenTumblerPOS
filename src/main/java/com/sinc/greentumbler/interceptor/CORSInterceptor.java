@@ -5,11 +5,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
-/*
- * 모바일에서 AJAX 요청을 하면,
- * 기본적으로 CORS 정책에 의해 차단된다.
- * 이를 막기 위해 요청의 헤더에 권한을 추가해주는 Interceptor 이다.
- */
 
 public class CORSInterceptor extends HandlerInterceptorAdapter {
 	public static final String CREDENTIALS_NAME = "Access-Control-Allow-Credentials";

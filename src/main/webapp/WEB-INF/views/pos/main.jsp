@@ -182,6 +182,7 @@
         <%@include file="./modals/chargeBtnModal.jsp"%>
         <%@include file="./modals/tumblerBtnModal.jsp"%>
         <%@include file="./modals/payingModal.jsp"%>
+        <%@include file="./modals/errorModal.jsp"%>
         <%@include file="./spinner.jsp"%>
 
 		<script>
@@ -241,29 +242,34 @@
 		        }	
 				// Tall Grande, Venti 버튼이 클릭되었을 때
 				$(".size-btn").on("click touchstart", function(e){
+					let handled = false;
 					
-					if(selectedMenu.menu_name != null){
-						let handled = false;
-						let size = e.target.dataset.size;
-						
-						selectedMenu["size"] = size=="tall" ? "T" : size=="grande" ? "G" : "V";
-						selectedMenu["menu_cnt"] = 1;
-						selectedMenu["line_id"] = orderIdx++;
-						selectedMenu["shot"] = 0;
-						selectedMenu["syrup"] = 0;
-						selectedMenu["option_sum"] = 0;
-						
-						selectedMenu["whipped_cream"] = false;
-						selectedMenu["drizzle"] = false;
-						selectedMenu["private_menu_yn"] = false;
-						selectedMenu["is_tumbler"] = false;
-						
-						if(e.type == "touchend") {
-							updateOrderList(orderList, selectedMenu);
-							handled = true;
-						} else if(e.type=="click" && !handled) {
-							updateOrderList(orderList, selectedMenu);
-						}						
+					if(e.type == "touchend") {
+						handled = true;
+					} else if(e.type=="click" && !handled) {
+						if(selectedMenu.menu_name != null){
+							
+							let size = e.target.dataset.size;
+							
+							selectedMenu["size"] = size=="tall" ? "T" : size=="grande" ? "G" : "V";
+							selectedMenu["menu_cnt"] = 1;
+							selectedMenu["line_id"] = orderIdx++;
+							selectedMenu["shot"] = 0;
+							selectedMenu["syrup"] = 0;
+							selectedMenu["option_sum"] = 0;
+							
+							selectedMenu["whipped_cream"] = false;
+							selectedMenu["drizzle"] = false;
+							selectedMenu["private_menu_yn"] = false;
+							selectedMenu["is_tumbler"] = false;
+							
+							if(e.type == "touchend") {
+								updateOrderList(orderList, selectedMenu);
+								handled = true;
+							} else if(e.type=="click" && !handled) {
+								updateOrderList(orderList, selectedMenu);
+							}						
+						}
 					}
 				})
 				

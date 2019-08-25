@@ -27,15 +27,31 @@
 <script>
 
 	$(function(){
+		let typingTimer;
+		let doneTypingInterval = 300;
+		
 		
 		$('#tumblerModal').on("shown.bs.modal", function (e) {
 		  $("#nfcId").focus();
 		})
 		
-		$('#nfcId').on("input", function (e) {
-			$("#getTumblerBtn").click();
+		$('#nfcId').on("keyup", function (e) {
+			clearTimeout(typingTimer);
 			
+			typingTimer = setTimeout(function(){
+				$("#getTumblerBtn").click();	
+			}, doneTypingInterval);
 		})
+		
+		$('#nfcId').on("keydown", function (e) {
+			if(e.keyCode==13) {
+				
+				//$("#nfcId").val($("#nfcId").val().slice(0, -1));
+				
+			}
+			clearTimeout(typingTimer);
+		});
+		
 		
 		function tumblerConfirmed(tumbler) {
 			deactiveSpinner();
@@ -62,6 +78,8 @@
 			}
 		}
 		
+		
+		
 		$("#getTumblerBtn").on("click", function() {
 			activateSpinner();
 			let nfcId = $("#nfcId").val().replace(/ /g, "");
@@ -75,6 +93,11 @@
 				success: function(result){
 					if(result == "" || result == null) {
 						console.log("텀블러 조회 정보 실패");
+						deactiveSpinner();
+						$("#errorMsg").text("텀블러 정보 조회 실패");
+						$("#tumblerModal").modal("hide");
+						$("#errorModal").modal("show");
+						
 							
 					} else {
 						tumblerConfirmed(result);	
