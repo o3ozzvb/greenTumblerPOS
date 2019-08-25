@@ -37,9 +37,11 @@
             <param-value>UTF-8</param-value>
         </init-param>
     </filter>
+
     <!-- filter-mapping : 필터가 언제 설정되어야 하는지 나타내는 부분 -->
     <filter-mapping>
         <filter-name>encoding</filter-name>
         <url-pattern>/*</url-pattern>
     </filter-mapping>
+ 
 </web-app>
