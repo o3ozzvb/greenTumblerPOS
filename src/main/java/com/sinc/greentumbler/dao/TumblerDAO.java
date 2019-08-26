@@ -37,4 +37,9 @@ public class TumblerDAO {
 		System.out.println(session.insert("com.sinc.greentumbler.tumbler.addTumbler",tumbler));
 		return session.insert("com.sinc.greentumbler.tumbler.addTumbler",tumbler);
 	}
+	
+	public int chargeTumbler(TumblerVO tumbler) {
+		System.out.println(session.update("com.sinc.greentumbler.tumbler.chargeTumbler",tumbler));
+		return session.update("com.sinc.greentumbler.tumbler.chargeTumbler",tumbler);
+	}
 }

@@ -65,4 +65,10 @@ public class TumblerService implements DefaultService{
 		System.out.println("service addTumbler");
 		return dao.addTumbler(tumbler);
 	}
+	
+	//charge moeny to Tumbler
+		public int chargeTumbler(TumblerVO tumbler) {
+			System.out.println("service chargeTumbler");
+			return dao.chargeTumbler(tumbler);
+		}
 }
