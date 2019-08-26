@@ -42,4 +42,8 @@ public class TumblerDAO {
 		System.out.println(session.update("com.sinc.greentumbler.tumbler.chargeTumbler",tumbler));
 		return session.update("com.sinc.greentumbler.tumbler.chargeTumbler",tumbler);
 	}
+	
+	public TumblerVO selectOneById(int tumblerId) {
+		return session.selectOne("com.sinc.greentumbler.tumbler.selectOneById", tumblerId);
+	}
 }

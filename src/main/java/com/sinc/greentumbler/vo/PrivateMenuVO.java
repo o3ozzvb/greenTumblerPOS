@@ -3,6 +3,7 @@ package com.sinc.greentumbler.vo;
 public class PrivateMenuVO {
 	private String cup;
 	private String account_id;
+	private String image;
 	private int menu_id;
 	private int shot;
 	private int syrup;
@@ -15,11 +16,12 @@ public class PrivateMenuVO {
 	
 	public PrivateMenuVO() {}
 	
-	public PrivateMenuVO(String cup, String account_id, int menu_id, int shot, int syrup, boolean whipped_cream,
-	        boolean drizzle, String size, int option_sum, int price, String menu_name) {
+	public PrivateMenuVO(String cup, String account_id, String image, int menu_id, int shot, int syrup,
+			boolean whipped_cream, boolean drizzle, String size, int option_sum, int price, String menu_name) {
 		super();
 		this.cup = cup;
 		this.account_id = account_id;
+		this.image = image;
 		this.menu_id = menu_id;
 		this.shot = shot;
 		this.syrup = syrup;
@@ -30,9 +32,15 @@ public class PrivateMenuVO {
 		this.price = price;
 		this.menu_name = menu_name;
 	}
+	
+	public String getImage() {
+		return image;
+	}
 
-	
-	
+	public void setImage(String image) {
+		this.image = image;
+	}
+
 	public String getMenu_name() {
 		return menu_name;
 	}
@@ -104,9 +112,10 @@ public class PrivateMenuVO {
 
 	@Override
 	public String toString() {
-		return "PrivateMenuVO [cup=" + cup + ", account_id=" + account_id + ", menu_id=" + menu_id + ", shot=" + shot
-		        + ", syrup=" + syrup + ", whipped_cream=" + whipped_cream + ", drizzle=" + drizzle + ", size=" + size
-		        + ", option_sum=" + option_sum + ", price=" + price + ", menu_name=" + menu_name + "]";
+		return "PrivateMenuVO [cup=" + cup + ", account_id=" + account_id + ", image=" + image + ", menu_id=" + menu_id
+				+ ", shot=" + shot + ", syrup=" + syrup + ", whipped_cream=" + whipped_cream + ", drizzle=" + drizzle
+				+ ", size=" + size + ", option_sum=" + option_sum + ", price=" + price + ", menu_name=" + menu_name
+				+ "]";
 	}
 	
 }

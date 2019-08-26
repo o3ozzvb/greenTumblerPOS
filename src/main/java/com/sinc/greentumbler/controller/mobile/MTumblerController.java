@@ -3,7 +3,6 @@ package com.sinc.greentumbler.controller.mobile;
 
 
 import java.util.List;
-import java.util.HashMap;
 
 import javax.annotation.Resource;
 
@@ -13,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.sinc.greentumbler.service.AccountService;
 import com.sinc.greentumbler.service.TumblerService;
 import com.sinc.greentumbler.vo.TumblerVO;
 
@@ -21,8 +21,10 @@ import com.sinc.greentumbler.vo.TumblerVO;
 public class MTumblerController {
 	@Resource(name="tumblerService")
 	private TumblerService service;
+	@Resource(name="accountService")
+	private AccountService accountService;
 	
-	@RequestMapping(value="/{accountId}", method=RequestMethod.GET)
+	@RequestMapping(value="/{accountId}", method=RequestMethod.POST)
 	@ResponseBody
 	public List<TumblerVO> getTumbler(@PathVariable String accountId){
 		List<TumblerVO> tumblerList = service.selectTumb(accountId);
@@ -53,5 +55,13 @@ public class MTumblerController {
 		tumbler.setTumbler_Money(afterMoney);
 		int result = service.chargeTumbler(tumbler);
 		return result;
+	}
+	
+	@RequestMapping(value="/greenSeed/{tumblerId}", method=RequestMethod.POST)
+	@ResponseBody
+	public int getGreenSeed(@PathVariable int tumblerId){
+		System.out.println("tumblerId : " + tumblerId);
+		TumblerVO tumbler = service.selectOneById(tumblerId);
+		return tumbler.getGreen_seed();
 	}
 }

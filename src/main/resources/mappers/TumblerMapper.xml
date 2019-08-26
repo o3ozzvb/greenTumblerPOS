@@ -5,10 +5,16 @@
 	
 <mapper namespace="com.sinc.greentumbler.tumbler">
 	<select id="selectOne" parameterType="String" resultType="tumbler">
-		SELECT	T.TUMBLER_ID, T.TUMBLER_MONEY, T.NFC_ID, A.ACCOUNT_ID, A.NICKNAME, T.LOST_YN, T.PAY_YN, T.IMAGE
+		SELECT	T.TUMBLER_ID, T.TUMBLER_MONEY, T.NFC_ID, A.ACCOUNT_ID, A.NICKNAME, T.LOST_YN, T.PAY_YN, T.IMAGE, T.GREEN_SEED
 		FROM	SGT_TUMBLER	T
 		JOIN	SGT_ACCOUNT A ON T.ACCOUNT_ID = A.ACCOUNT_ID
 		WHERE	T.NFC_ID = #{nfcId}
+	</select>
+	<select id="selectOneById" parameterType="int" resultType="tumbler">
+		SELECT	T.TUMBLER_ID, T.TUMBLER_MONEY, T.NFC_ID, A.ACCOUNT_ID, A.NICKNAME, T.LOST_YN, T.PAY_YN, T.IMAGE, T.GREEN_SEED
+		FROM	SGT_TUMBLER	T
+		JOIN	SGT_ACCOUNT A ON T.ACCOUNT_ID = A.ACCOUNT_ID
+		WHERE	T.TUMBLER_ID = #{tumbler_id}
 	</select>
 	<select id="updateRow" parameterType="tumbler" resultType="tumbler">
 		UPDATE SGT_TUMBLER
@@ -41,4 +47,5 @@
 		UPDATE SGT_TUMBLER SET TUMBLER_MONEY = #{tumbler_Money}
 		WHERE TUMBLER_ID = #{tumbler_id}
 	</update>
+	
 </mapper>
