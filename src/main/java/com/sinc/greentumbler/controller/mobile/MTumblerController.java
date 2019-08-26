@@ -22,7 +22,7 @@ public class MTumblerController {
 	@Resource(name="tumblerService")
 	private TumblerService service;
 	
-	@RequestMapping(value="/{accountId}", method=RequestMethod.GET)
+	@RequestMapping(value="/{accountId}", method=RequestMethod.POST)
 	@ResponseBody
 	public List<TumblerVO> getTumbler(@PathVariable String accountId){
 		List<TumblerVO> tumblerList = service.selectTumb(accountId);
