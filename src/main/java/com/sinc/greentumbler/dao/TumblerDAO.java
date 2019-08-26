@@ -1,5 +1,7 @@
 package com.sinc.greentumbler.dao;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 
 import org.apache.ibatis.session.SqlSession;
@@ -21,4 +23,18 @@ public class TumblerDAO {
 		return session.selectOne("com.sinc.greentumbler.tumbler.updateRow", tumbler);
 	}
 	
+	public List<TumblerVO> selectTumb(String accountId) {
+		System.out.println(session.selectList("com.sinc.greentumbler.tumbler.selectTumb", accountId));
+		return session.selectList("com.sinc.greentumbler.tumbler.selectTumb", accountId);
+	}
+	
+	public TumblerVO updatePayYn(TumblerVO tumbler) {
+		System.out.println(session.selectOne("com.sinc.greentumbler.tumbler.updatePayYn",tumbler));
+		return session.selectOne("com.sinc.greentumbler.tumbler.updatePayYn",tumbler);
+	}
+	
+	public TumblerVO addTumbler(TumblerVO tumbler) {
+		System.out.println(session.selectOne("com.sinc.greentumbler.tumbler.addTumbler",tumbler));
+		return session.selectOne("com.sinc.greentumbler.tumbler.addTumbler",tumbler);
+	}
 }

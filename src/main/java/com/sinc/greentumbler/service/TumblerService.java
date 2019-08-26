@@ -48,4 +48,21 @@ public class TumblerService implements DefaultService{
 		return 0;
 	}
 
+	//get Tumbler List
+	public List<TumblerVO> selectTumb(String accountId) {
+		System.out.println("service selectTumb");
+		return dao.selectTumb(accountId);
+	}
+	
+	//update payYn column 
+	public TumblerVO updatePayYn(TumblerVO tumbler) {
+		System.out.println("service updatePayYn");
+		return dao.updatePayYn(tumbler);
+	}
+	
+	//add new Tumbler
+	public TumblerVO addTumbler(TumblerVO tumbler) {
+		System.out.println("service addTumbler");
+		return dao.addTumbler(tumbler);
+	}
 }

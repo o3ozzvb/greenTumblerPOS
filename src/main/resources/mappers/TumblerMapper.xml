@@ -16,5 +16,22 @@
 		WHERE NFC_ID = #{ nfc_id }
 		RETURNING NFC_ID, ACCOUNT_ID, TUMBLER_MONEY, LOST_YN, PAY_YN
 	</select>
-	
+	<select id="selectTumb" parameterType="String" resultType="tumbler">
+		SELECT	T.TUMBLER_ID, T.TUMBLER_MONEY, T.NFC_ID, A.ACCOUNT_ID, A.NICKNAME, T.LOST_YN, T.PAY_YN
+		FROM	SGT_TUMBLER	T
+		JOIN	SGT_ACCOUNT A ON T.ACCOUNT_ID = A.ACCOUNT_ID
+		WHERE	T.ACCOUNT_ID = #{accountId}
+	</select>
+	<select id="updatePayYn" parameterType="tumbler" resultType="tumbler">
+		UPDATE SGT_TUMBLER
+		<if test='pay_yn.equals(true)'>
+		SET PAY_YN = FALSE 
+		</if>
+		<if test='pay_yn.equals(false)'>
+		SET PAY_YN = TRUE
+		</if>
+		WHERE TUMBLER_ID = #{tumbler_id}
+		RETURNING NFC_ID, ACCOUNT_ID, TUMBLER_MONEY, LOST_YN, PAY_YN
+	</select>
+
 </mapper>
