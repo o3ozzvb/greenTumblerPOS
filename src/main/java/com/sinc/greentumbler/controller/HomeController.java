@@ -49,6 +49,13 @@ public class HomeController extends ApplicationController {
 	@Resource(name="orderService")
 	private OrderService orderService;
 	
+	
+	@RequestMapping("/main-test")
+	public String mainTest(Model model) {
+		List<MenuVO> menu = menuService.selectAll();
+		model.addAttribute("menus", menu);
+		return "/pos/main-test";
+	}
 	@RequestMapping("/main")
 	public String posMain(Model model) {
 		List<MenuVO> menu = menuService.selectAll();

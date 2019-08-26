@@ -19,12 +19,21 @@ public class MOrderDetailController {
 	@Resource(name="orderService")
 	OrderService orderService;
 	
-	@RequestMapping("/getOrderDetails/{accountId}")
+	@RequestMapping("/getOrderDetails/accounts/{accountId}")
 	@ResponseBody
-	public Object getOrderDetailsWithTumbler(@PathVariable String accountId) {
+	public Object getOrderDetailsWithAccountId(@PathVariable String accountId) {
 		System.out.println(accountId);
-		List<RecentOrderVO> list = orderService.selectOrderList(accountId);
-		System.out.println(list);
-		return list;
+		List<RecentOrderVO> recentOrders = orderService.selectOrderListWithAccountId(accountId);
+		
+		return recentOrders;
+	}
+	
+	@RequestMapping("/getOrderDetails/tumblers/{tumblerId}")
+	@ResponseBody
+	public Object getOrderDetailsWithTumblerId(@PathVariable int tumblerId) {
+		System.out.println(tumblerId);
+		List<RecentOrderVO> recentOrders = orderService.selectOrderListWithTumblerId(tumblerId);
+		
+		return recentOrders;
 	}
 }

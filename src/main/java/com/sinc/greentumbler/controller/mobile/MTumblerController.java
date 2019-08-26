@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.sinc.greentumbler.controller.ApplicationController;
 import com.sinc.greentumbler.service.TumblerService;
 import com.sinc.greentumbler.vo.TumblerVO;
 
@@ -23,6 +24,7 @@ public class MTumblerController {
 	@ResponseBody
 	public List<TumblerVO> getTumbler(@PathVariable String accountId){
 		List<TumblerVO> tumblerList = service.selectTumb(accountId);
+		
 		return tumblerList;
 	}
 	
