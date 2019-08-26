@@ -36,8 +36,12 @@ public class OrderService implements DefaultService {
 		return dao.selectOne((String)obj);
 	}
 	
-	public List<RecentOrderVO> selectOrderList(String account_id) {
-		return dao.selectOrderList(account_id);
+	public List<RecentOrderVO> selectOrderListWithAccountId(String account_id) {
+		return dao.selectOrderListWithAccountId(account_id);
+	}
+	
+	public List<RecentOrderVO> selectOrderListWithTumblerId(int tumbler_id) {
+		return dao.selectOrderListWithTumblerId(tumbler_id);
 	}
 
 	@Override

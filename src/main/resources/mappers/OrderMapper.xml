@@ -13,7 +13,7 @@
 		INSERT INTO SGT_ORDERDETAILS (ORDER_ID, LINE_ID, MENU_ID, SHOT, SYRUP, WHIPPED_CREAM, DRIZZLE, SIZE, OPTION_SUM, MENU_CNT, PRICE, PRIVATE_MENU_YN, IS_TUMBLER)
 		VALUES (#{ order_id }, #{ line_id }, #{ menu_id }, #{ shot }, #{ syrup }, #{ whipped_cream }, #{ drizzle }, #{ size }, #{ option_sum }, #{ menu_cnt }, #{ price }, #{ private_menu_yn }, #{ is_tumbler })
 	</select>
-	<select id="selectOrderList" parameterType="String" resultType="recentOrder">
+	<select id="selectOrderListWithAccountId" parameterType="String" resultType="recentOrder">
 		SELECT *  
 		FROM (
 			SELECT		M.MENU_NAME, 
@@ -41,6 +41,38 @@
 			JOIN		SGT_ORDERDETAILS OD ON O.ORDER_ID = OD.ORDER_ID
 			JOIN		SGT_MENU M ON OD.MENU_ID = M.MENU_ID
 			WHERE 		ACCOUNT_ID = #{ accountId }
+			AND			OD.IS_TUMBLER = TRUE
+		) AS RO
+		ORDER BY RO.ORDER_TIME DESC
+	</select>
+	<select id="selectOrderListWithTumblerId" parameterType="int" resultType="recentOrder">
+		SELECT *  
+		FROM (
+			SELECT		M.MENU_NAME, 
+						(CASE OD.SIZE 	WHEN 'T' THEN 'Tall'
+										WHEN 'G' THEN 'Grande'
+										WHEN 'V' THEN 'Venti' END) SIZE,
+						O.ORDER_ID,
+						O.TUMBLER_ID,
+						O.ORDER_TIME ORDER_TIME,
+						O.STORE_NAME STORE_NAME,
+						O.PRICE PRICE,
+						O.ACCOUNT_ID,
+						OD.DRIZZLE,
+						OD.IS_TUMBLER,
+						OD.LINE_ID,
+						OD.MENU_CNT,
+						OD.MENU_ID,
+						OD.OPTION_SUM,
+						OD.PRIVATE_MENU_YN,
+						OD.SHOT,
+						OD.SYRUP,
+						OD.WHIPPED_CREAM,
+						OD.PRICE AS DETAIL_PRICE
+			FROM		SGT_ORDER O
+			JOIN		SGT_ORDERDETAILS OD ON O.ORDER_ID = OD.ORDER_ID
+			JOIN		SGT_MENU M ON OD.MENU_ID = M.MENU_ID
+			WHERE 		TUMBLER_ID = #{ tumblerId }
 			AND			OD.IS_TUMBLER = TRUE
 		) AS RO
 		ORDER BY RO.ORDER_TIME DESC
