@@ -29,14 +29,14 @@ public class MMymenuController {
 	@Resource(name="privateMenuService")
 	PrivateMenuService privateMenuService;
 	
-	@RequestMapping(value="/getMyMenus/{accountId}", method=RequestMethod.GET)
+	@RequestMapping(value="/getMyMenus/{accountId}", method=RequestMethod.POST)
 	@ResponseBody
-	public List<MenuVO> getMyMenus(@PathVariable String accountId){
-		List<MenuVO> myMenus = accountService.getMyMenus(accountId);
+	public List<PrivateMenuVO> getMyMenus(@PathVariable String accountId){
+		List<PrivateMenuVO> myMenus = privateMenuService.selectAll(accountId);
 		return myMenus;
 	}
 	
-	@RequestMapping(value="/new", method=RequestMethod.GET)
+	@RequestMapping(value="/new", method=RequestMethod.POST)
 	@ResponseBody
 	public List<MenuVO> newPrivateMenu(){
 		List<MenuVO> menu = menuService.selectAll();

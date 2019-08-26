@@ -7,6 +7,7 @@ public class TumblerVO {
 	//tumbler attributes
 	
 	private int tumbler_id;
+	private String image;
 	private String nfc_id;
 	private String account_id;
 	private String tumbler_name;
@@ -24,11 +25,14 @@ public class TumblerVO {
 		
 	}
 
-	public TumblerVO(int tumbler_id, String nfc_id, String account_id, String tumbler_name, String tumbler_pin,
-			int size, int tumbler_Money, int green_seed, boolean lost_yn, boolean pay_yn, int private_menu_id,
-			String nickName) {
+	
+
+	public TumblerVO(int tumbler_id, String image, String nfc_id, String account_id, String tumbler_name,
+			String tumbler_pin, int size, int tumbler_Money, int green_seed, boolean lost_yn, boolean pay_yn,
+			int private_menu_id, String nickName) {
 		super();
 		this.tumbler_id = tumbler_id;
+		this.image = image;
 		this.nfc_id = nfc_id;
 		this.account_id = account_id;
 		this.tumbler_name = tumbler_name;
@@ -41,6 +45,20 @@ public class TumblerVO {
 		this.private_menu_id = private_menu_id;
 		this.nickName = nickName;
 	}
+
+
+
+	public String getImage() {
+		return image;
+	}
+
+
+
+	public void setImage(String image) {
+		this.image = image;
+	}
+
+
 
 	public int getTumbler_id() {
 		return tumbler_id;
@@ -138,12 +156,16 @@ public class TumblerVO {
 		this.nickName = nickName;
 	}
 
+
+
 	@Override
 	public String toString() {
-		return "TumblerVO [tumbler_id=" + tumbler_id + ", nfc_id=" + nfc_id + ", account_id=" + account_id
-				+ ", tumbler_name=" + tumbler_name + ", tumbler_pin=" + tumbler_pin + ", size=" + size
+		return "TumblerVO [tumbler_id=" + tumbler_id + ", image=" + image + ", nfc_id=" + nfc_id + ", account_id="
+				+ account_id + ", tumbler_name=" + tumbler_name + ", tumbler_pin=" + tumbler_pin + ", size=" + size
 				+ ", tumbler_Money=" + tumbler_Money + ", green_seed=" + green_seed + ", lost_yn=" + lost_yn
 				+ ", pay_yn=" + pay_yn + ", private_menu_id=" + private_menu_id + ", nickName=" + nickName + "]";
 	}
 
+	
+	
 }
