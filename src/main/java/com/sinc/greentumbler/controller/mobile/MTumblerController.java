@@ -39,7 +39,9 @@ public class MTumblerController {
 	
 	@RequestMapping(value="/create", method=RequestMethod.POST)
 	@ResponseBody
-	public int addTumbler(TumblerVO tumbler){
+	public int addTumbler(String accountId, TumblerVO tumbler){
+		System.out.println("accountId : " + accountId);
+		tumbler.setAccount_id(accountId);
 		int result = service.addTumbler(tumbler);
 		return result;
 	}
@@ -52,6 +54,13 @@ public class MTumblerController {
 		int afterMoney = tumbMoney + chargeMoney;
 		tumbler.setTumbler_Money(afterMoney);
 		int result = service.chargeTumbler(tumbler);
+		return result;
+	}
+	
+	@RequestMapping(value="/lost", method=RequestMethod.POST)
+	@ResponseBody
+	public int lostTumbler(int tumblerId){
+		int result = service.lostTumbler(tumblerId);
 		return result;
 	}
 }
