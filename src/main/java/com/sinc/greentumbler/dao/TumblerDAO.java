@@ -34,8 +34,8 @@ public class TumblerDAO {
 	}
 	
 	public int addTumbler(TumblerVO tumbler) {
-		System.out.println(session.insert("com.sinc.greentumbler.tumbler.addTumbler",tumbler));
-		return session.insert("com.sinc.greentumbler.tumbler.addTumbler",tumbler);
+		System.out.println(session.update("com.sinc.greentumbler.tumbler.addTumbler",tumbler));
+		return session.update("com.sinc.greentumbler.tumbler.addTumbler",tumbler);
 	}
 	
 	public int chargeTumbler(TumblerVO tumbler) {
@@ -46,4 +46,9 @@ public class TumblerDAO {
 	public TumblerVO selectOneById(int tumblerId) {
 		return session.selectOne("com.sinc.greentumbler.tumbler.selectOneById", tumblerId);
 	}
+	public int lostTumbler(int tumblerId) {
+		System.out.println(session.update("com.sinc.greentumbler.tumbler.lostTumbler",tumblerId));
+		return session.update("com.sinc.greentumbler.tumbler.lostTumbler",tumblerId);
+	}
+	
 }
