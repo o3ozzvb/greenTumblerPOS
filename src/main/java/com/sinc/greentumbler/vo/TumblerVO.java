@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 public class TumblerVO {
 	//tumbler attributes
 	
-	private String tumbler_id;
+	private int tumbler_id;
 	private String nfc_id;
 	private String account_id;
 	private String tumbler_name;
@@ -24,7 +24,7 @@ public class TumblerVO {
 		
 	}
 
-	public TumblerVO(String tumbler_id, String nfc_id, String account_id, String tumbler_name, String tumbler_pin,
+	public TumblerVO(int tumbler_id, String nfc_id, String account_id, String tumbler_name, String tumbler_pin,
 			int size, int tumbler_Money, int green_seed, boolean lost_yn, boolean pay_yn, int private_menu_id,
 			String nickName) {
 		super();
@@ -42,11 +42,11 @@ public class TumblerVO {
 		this.nickName = nickName;
 	}
 
-	public String getTumbler_id() {
+	public int getTumbler_id() {
 		return tumbler_id;
 	}
 
-	public void setTumbler_id(String tumbler_id) {
+	public void setTumbler_id(int tumbler_id) {
 		this.tumbler_id = tumbler_id;
 	}
 
