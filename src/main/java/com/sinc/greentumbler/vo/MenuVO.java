@@ -5,27 +5,37 @@ public class MenuVO {
 	private String category1;
 	private String category2;
 	private String menu_name;
-	private int size;
+	private String size;
+	private String image;
 	private int price;
 	
 	
 	public MenuVO() {}
 	
-	public MenuVO(int menu_id, String category1, String category2, String menu_name, int size, int price) {
+	public MenuVO(int menu_id, String category1, String category2, String menu_name, String size, String image,
+			int price) {
 		super();
 		this.menu_id = menu_id;
 		this.category1 = category1;
 		this.category2 = category2;
 		this.menu_name = menu_name;
 		this.size = size;
+		this.image = image;
 		this.price = price;
 	}
-	
+
+	public String getImage() {
+		return image;
+	}
+
+	public void setImage(String image) {
+		this.image = image;
+	}
 
 	@Override
 	public String toString() {
 		return "MenuVO [menu_id=" + menu_id + ", category1=" + category1 + ", category2=" + category2 + ", menu_name="
-				+ menu_name + ", size=" + size + ", price=" + price + "]";
+				+ menu_name + ", size=" + size + ", image=" + image + ", price=" + price + "]";
 	}
 
 	public int getMenu_id() {
@@ -52,10 +62,10 @@ public class MenuVO {
 	public void setMenu_name(String menu_name) {
 		this.menu_name = menu_name;
 	}
-	public int getSize() {
+	public String getSize() {
 		return size;
 	}
-	public void setSize(int size) {
+	public void setSize(String size) {
 		this.size = size;
 	}
 	public int getPrice() {

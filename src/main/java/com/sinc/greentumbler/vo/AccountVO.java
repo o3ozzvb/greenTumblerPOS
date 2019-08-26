@@ -4,29 +4,29 @@ import org.springframework.stereotype.Service;
 
 @Service("accountVO")
 public class AccountVO {
-	private String id;
+	private String account_id;
 	private String pwd;
-	private String nickName;
-	private String starType;
-	private int starCnt;
+	private String nickname;
+	private String star_type;
+	private int star_cnt;
 	
 	public AccountVO() {}
-	
-	public AccountVO(String id, String pwd, String nickName, String starType, int starCnt) {
+
+	public AccountVO(String account_id, String pwd, String nickname, String star_type, int star_cnt) {
 		super();
-		this.id = id;
+		this.account_id = account_id;
 		this.pwd = pwd;
-		this.nickName = nickName;
-		this.starType = starType;
-		this.starCnt = starCnt;
+		this.nickname = nickname;
+		this.star_type = star_type;
+		this.star_cnt = star_cnt;
 	}
 
-	public String getId() {
-		return id;
+	public String getAccount_id() {
+		return account_id;
 	}
 
-	public void setId(String id) {
-		this.id = id;
+	public void setAccount_id(String account_id) {
+		this.account_id = account_id;
 	}
 
 	public String getPwd() {
@@ -37,34 +37,34 @@ public class AccountVO {
 		this.pwd = pwd;
 	}
 
-	public String getNickName() {
-		return nickName;
+	public String getNickname() {
+		return nickname;
 	}
 
-	public void setNickName(String nickName) {
-		this.nickName = nickName;
+	public void setNickname(String nickname) {
+		this.nickname = nickname;
 	}
 
-	public String getStarType() {
-		return starType;
+	public String getStar_type() {
+		return star_type;
 	}
 
-	public void setStarType(String starType) {
-		this.starType = starType;
+	public void setStar_type(String star_type) {
+		this.star_type = star_type;
 	}
 
-	public int getStarCnt() {
-		return starCnt;
+	public int getStar_cnt() {
+		return star_cnt;
 	}
 
-	public void setStarCnt(int starCnt) {
-		this.starCnt = starCnt;
+	public void setStar_cnt(int star_cnt) {
+		this.star_cnt = star_cnt;
 	}
 
 	@Override
 	public String toString() {
-		return "AccountVO [id=" + id + ", pwd=" + pwd + ", nickName=" + nickName + ", starType=" + starType
-				+ ", starCnt=" + starCnt + "]";
+		return "AccountVO [account_id=" + account_id + ", pwd=" + pwd + ", nickname=" + nickname + ", star_type="
+				+ star_type + ", star_cnt=" + star_cnt + "]";
 	}
 
 }

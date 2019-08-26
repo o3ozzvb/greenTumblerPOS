@@ -31,6 +31,8 @@ public class PrivateMenuVO {
 		this.menu_name = menu_name;
 	}
 
+	
+	
 	public String getMenu_name() {
 		return menu_name;
 	}

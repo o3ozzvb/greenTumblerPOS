@@ -18,6 +18,10 @@ public class MenuDAO {
 		return session.selectList("com.sinc.greentumbler.menu.selectAll");
 	}
 	
+	public MenuVO selectOne(int menuId) {
+		return session.selectOne("com.sinc.greentumbler.menu.selectOne", menuId);
+	}
+	
 	public List<String> selectCategory2() {
 		return session.selectList("com.sinc.greentumbler.menu.selectCategory2");
 	}

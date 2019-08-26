@@ -17,4 +17,8 @@ public class PrivateMenuDAO {
 	public List<PrivateMenuVO> selectAll(String accountId) {
 		return session.selectList("com.sinc.greentumbler.privateMenu.selectAll", accountId);
 	}
+	
+	public int insertRow(PrivateMenuVO privateMenu) {
+		return session.insert("com.sinc.greentumbler.privateMenu.insertRow", privateMenu);
+	}
 }

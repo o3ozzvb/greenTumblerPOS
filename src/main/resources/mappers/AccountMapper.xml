@@ -5,8 +5,23 @@
   
 <mapper namespace="com.sinc.greentumbler.account">
 	<select id="selectAll" resultType="account">
-		SELECT  ID, PWD
-		FROM    ACCOUNT
+		SELECT  ACCOUNT_ID, PWD
+		FROM    SGT_ACCOUNT
+	</select>
+	<select id="selectOne" resultType="account">
+		SELECT  ACCOUNT_ID, PWD, NICKNAME, STAR_TYPE, STAR_CNT
+		FROM    SGT_ACCOUNT
+		WHERE 	ACCOUNT_ID=#{ account_id }
+	</select>
+	<select id="getMyMenus" resultType="menu">
+		SELECT  PM.PRIVATE_MENU_ID, PM.CUP, PM.ACCOUNT_ID, PM.MENU_ID, PM.SHOT, PM.SYRUP, PM.WHIPPED_CREAM, PM.DRIZZLE, PM.SIZE, PM.OPTION_SUM, PM.PRICE,
+				M.MENU_NAME, M.CATEGORY1, M.CATEGORY2
+		FROM    SGT_PRIVATE_MENU PM
+		JOIN	SGT_MENU M
+		ON		PM.MENU_ID = M.MENU_ID
+		WHERE 	PM.ACCOUNT_ID=#{ account_id }
 	</select>
 </mapper> 
+ 
+
 

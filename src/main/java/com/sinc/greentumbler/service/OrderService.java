@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import com.sinc.greentumbler.dao.OrderDAO;
 import com.sinc.greentumbler.vo.OrderDetailVO;
 import com.sinc.greentumbler.vo.OrderVO;
-import com.sinc.greentumbler.vo.TumblerVO;
+import com.sinc.greentumbler.vo.RecentOrderVO;
 
 @Service("orderService")
 public class OrderService implements DefaultService {
@@ -34,6 +34,10 @@ public class OrderService implements DefaultService {
 	@Override
 	public Object selectOne(Object obj) {
 		return dao.selectOne((String)obj);
+	}
+	
+	public List<RecentOrderVO> selectOrderList(String account_id) {
+		return dao.selectOrderList(account_id);
 	}
 
 	@Override

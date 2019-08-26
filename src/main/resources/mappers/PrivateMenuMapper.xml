@@ -11,4 +11,8 @@
 		ON PM.MENU_ID=M.MENU_ID
 		WHERE ACCOUNT_ID=#{ accountId } LIMIT 3
 	</select>
+	<select id="insertRow" parameterType="privateMenu" resultType="int">
+		INSERT INTO SGT_PRIVATE_MENU (PRIVATE_MENU_ID, MENU_ID, ACCOUNT_ID, SHOT, SYRUP, WHIPPED_CREAM, DRIZZLE, SIZE, OPTION_SUM, PRICE, CUP)
+		VALUES (NEXTVAL('SGT_PRIVATE_MENU_SEQ'), #{ menu_id }, #{ account_id }, #{ shot }, #{ syrup }, #{ whipped_cream }, #{ drizzle }, #{ size }, #{ option_sum }, #{ price }, #{ cup })
+	</select>
 </mapper>

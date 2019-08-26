@@ -1,5 +1,7 @@
 package com.sinc.greentumbler.dao;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 
 import org.apache.ibatis.session.SqlSession;
@@ -15,7 +17,6 @@ public class OrderDAO {
 	private SqlSession session;
 	
 	public OrderVO insertRow(OrderVO order) {
-		System.out.println(order);
 		return session.selectOne("com.sinc.greentumbler.order.insertRow", order);
 	}
 	
@@ -26,4 +27,8 @@ public class OrderDAO {
 	public RecentOrderVO selectOne(String account_id) {
 		return session.selectOne("com.sinc.greentumbler.order.selectOne", account_id);
 	}
+	public List<RecentOrderVO> selectOrderList(String account_id) {
+		return session.selectList("com.sinc.greentumbler.order.selectOrderList", account_id);
+	}
+	
 }

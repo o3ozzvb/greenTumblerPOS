@@ -31,6 +31,7 @@ CREATE TABLE SGT_ACCOUNT (
  
 CREATE TABLE SGT_MENU (
 	MENU_ID 		NUMERIC PRIMARY KEY,
+	IMAGE			VARCHAR,
 	CATEGORY1		VARCHAR,
 	CATEGORY2		VARCHAR,
 	MENU_NAME		VARCHAR,
@@ -105,87 +106,87 @@ INSERT INTO SGT_TUMBLER VALUES ( NEXTVAL('SGT_TUMBLER_SEQ'), '0001705096', 'test
 
 -- MENU DUMMY
 -- ESPRESSO
-INSERT INTO SGT_MENU (MENU_ID, CATEGORY1, CATEGORY2, MENU_NAME, SIZE, PRICE)
-VALUES (NEXTVAL('SGT_MENU_SEQ'), '음료', '에스프레소', '아이스 카페 아메리카노', 1, 4100);
+INSERT INTO SGT_MENU (MENU_ID, IMAGE, CATEGORY1, CATEGORY2, MENU_NAME, SIZE, PRICE)
+VALUES (NEXTVAL('SGT_MENU_SEQ'), 'https://green-tumbler-server-s3.s3.ap-northeast-2.amazonaws.com/menus/cafe-latte.jpg', '음료', '에스프레소', '아이스 카페 아메리카노', 1, 4100);
 
-INSERT INTO SGT_MENU (MENU_ID, CATEGORY1, CATEGORY2, MENU_NAME, SIZE, PRICE)
-VALUES (NEXTVAL('SGT_MENU_SEQ'), '음료', '에스프레소', '에스프레소', 1, 3600);
+INSERT INTO SGT_MENU (MENU_ID, IMAGE, CATEGORY1, CATEGORY2, MENU_NAME, SIZE, PRICE)
+VALUES (NEXTVAL('SGT_MENU_SEQ'), 'https://green-tumbler-server-s3.s3.ap-northeast-2.amazonaws.com/menus/cafe-latte.jpg', '음료', '에스프레소', '에스프레소', 1, 3600);
 
-INSERT INTO SGT_MENU (MENU_ID, CATEGORY1, CATEGORY2, MENU_NAME, SIZE, PRICE)
-VALUES (NEXTVAL('SGT_MENU_SEQ'), '음료', '에스프레소', '아이스 카페모카', 1, 5100 );
+INSERT INTO SGT_MENU (MENU_ID, IMAGE, CATEGORY1, CATEGORY2, MENU_NAME, SIZE, PRICE)
+VALUES (NEXTVAL('SGT_MENU_SEQ'), 'https://green-tumbler-server-s3.s3.ap-northeast-2.amazonaws.com/menus/cafe-latte.jpg', '음료', '에스프레소', '아이스 카페모카', 1, 5100 );
 
-INSERT INTO SGT_MENU (MENU_ID, CATEGORY1, CATEGORY2, MENU_NAME, SIZE, PRICE)
-VALUES (NEXTVAL('SGT_MENU_SEQ'), '음료', '에스프레소', '아이스 카페라떼', 1, 4600);
+INSERT INTO SGT_MENU (MENU_ID, IMAGE, CATEGORY1, CATEGORY2, MENU_NAME, SIZE, PRICE)
+VALUES (NEXTVAL('SGT_MENU_SEQ'), 'https://green-tumbler-server-s3.s3.ap-northeast-2.amazonaws.com/menus/cafe-latte.jpg', '음료', '에스프레소', '아이스 카페라떼', 1, 4600);
 
-INSERT INTO SGT_MENU (MENU_ID, CATEGORY1, CATEGORY2, MENU_NAME, SIZE, PRICE)
-VALUES (NEXTVAL('SGT_MENU_SEQ'), '음료', '에스프레소', '아이스 카푸치노', 1, 5100);
+INSERT INTO SGT_MENU (MENU_ID, IMAGE, CATEGORY1, CATEGORY2, MENU_NAME, SIZE, PRICE)
+VALUES (NEXTVAL('SGT_MENU_SEQ'), 'https://green-tumbler-server-s3.s3.ap-northeast-2.amazonaws.com/menus/cafe-latte.jpg', '음료', '에스프레소', '아이스 카푸치노', 1, 5100);
 
-INSERT INTO SGT_MENU (MENU_ID, CATEGORY1, CATEGORY2, MENU_NAME, SIZE, PRICE)
-VALUES (NEXTVAL('SGT_MENU_SEQ'), '음료', '에스프레소', '돌체 콜드 브루', 1, 5800);
+INSERT INTO SGT_MENU (MENU_ID, IMAGE, CATEGORY1, CATEGORY2, MENU_NAME, SIZE, PRICE)
+VALUES (NEXTVAL('SGT_MENU_SEQ'), 'https://green-tumbler-server-s3.s3.ap-northeast-2.amazonaws.com/menus/cafe-latte.jpg', '음료', '에스프레소', '돌체 콜드 브루', 1, 5800);
 
 -- 프라푸치노
-INSERT INTO SGT_MENU (MENU_ID, CATEGORY1, CATEGORY2, MENU_NAME, SIZE, PRICE)
-VALUES (NEXTVAL('SGT_MENU_SEQ'), '음료', '프라푸치노', '모카 프라푸치노', 1, 6300);
+INSERT INTO SGT_MENU (MENU_ID, IMAGE, CATEGORY1, CATEGORY2, MENU_NAME, SIZE, PRICE)
+VALUES (NEXTVAL('SGT_MENU_SEQ'), 'https://green-tumbler-server-s3.s3.ap-northeast-2.amazonaws.com/menus/cafe-latte.jpg', '음료', '프라푸치노', '모카 프라푸치노', 1, 6300);
 
-INSERT INTO SGT_MENU (MENU_ID, CATEGORY1, CATEGORY2, MENU_NAME, SIZE, PRICE)
-VALUES (NEXTVAL('SGT_MENU_SEQ'), '음료', '프라푸치노', '아몬드 모카 프라푸치노', 1, 7000);
+INSERT INTO SGT_MENU (MENU_ID, IMAGE, CATEGORY1, CATEGORY2, MENU_NAME, SIZE, PRICE)
+VALUES (NEXTVAL('SGT_MENU_SEQ'), 'https://green-tumbler-server-s3.s3.ap-northeast-2.amazonaws.com/menus/cafe-latte.jpg', '음료', '프라푸치노', '아몬드 모카 프라푸치노', 1, 7000);
 
-INSERT INTO SGT_MENU (MENU_ID, CATEGORY1, CATEGORY2, MENU_NAME, SIZE, PRICE)
-VALUES (NEXTVAL('SGT_MENU_SEQ'), '음료', '프라푸치노', '에스프레소 프라푸치노', 1, 6500);
+INSERT INTO SGT_MENU (MENU_ID, IMAGE, CATEGORY1, CATEGORY2, MENU_NAME, SIZE, PRICE)
+VALUES (NEXTVAL('SGT_MENU_SEQ'), 'https://green-tumbler-server-s3.s3.ap-northeast-2.amazonaws.com/menus/cafe-latte.jpg', '음료', '프라푸치노', '에스프레소 프라푸치노', 1, 6500);
 
-INSERT INTO SGT_MENU (MENU_ID, CATEGORY1, CATEGORY2, MENU_NAME, SIZE, PRICE)
-VALUES (NEXTVAL('SGT_MENU_SEQ'), '음료', '프라푸치노', '카라멜 프라푸치노', 1, 7200);
+INSERT INTO SGT_MENU (MENU_ID, IMAGE, CATEGORY1, CATEGORY2, MENU_NAME, SIZE, PRICE)
+VALUES (NEXTVAL('SGT_MENU_SEQ'), 'https://green-tumbler-server-s3.s3.ap-northeast-2.amazonaws.com/menus/cafe-latte.jpg', '음료', '프라푸치노', '카라멜 프라푸치노', 1, 7200);
 
-INSERT INTO SGT_MENU (MENU_ID, CATEGORY1, CATEGORY2, MENU_NAME, SIZE, PRICE)
-VALUES (NEXTVAL('SGT_MENU_SEQ'), '음료', '프라푸치노', '바닐라 크림 프라푸치노', 1, 7000);
+INSERT INTO SGT_MENU (MENU_ID, IMAGE, CATEGORY1, CATEGORY2, MENU_NAME, SIZE, PRICE)
+VALUES (NEXTVAL('SGT_MENU_SEQ'), 'https://green-tumbler-server-s3.s3.ap-northeast-2.amazonaws.com/menus/cafe-latte.jpg', '음료', '프라푸치노', '바닐라 크림 프라푸치노', 1, 7000);
 
 -- 블랜디드
-INSERT INTO SGT_MENU (MENU_ID, CATEGORY1, CATEGORY2, MENU_NAME, SIZE, PRICE)
-VALUES (NEXTVAL('SGT_MENU_SEQ'), '음료', '블렌디드', '디카페인 아포가토 블렌디드', 1, 6100);
+INSERT INTO SGT_MENU (MENU_ID, IMAGE, CATEGORY1, CATEGORY2, MENU_NAME, SIZE, PRICE)
+VALUES (NEXTVAL('SGT_MENU_SEQ'), 'https://green-tumbler-server-s3.s3.ap-northeast-2.amazonaws.com/menus/cafe-latte.jpg', '음료', '블렌디드', '디카페인 아포가토 블렌디드', 1, 6100);
 
-INSERT INTO SGT_MENU (MENU_ID, CATEGORY1, CATEGORY2, MENU_NAME, SIZE, PRICE)
-VALUES (NEXTVAL('SGT_MENU_SEQ'), '음료', '블렌디드', '망고 패션 후르츠 블렌디드', 1, 5000);
+INSERT INTO SGT_MENU (MENU_ID, IMAGE, CATEGORY1, CATEGORY2, MENU_NAME, SIZE, PRICE)
+VALUES (NEXTVAL('SGT_MENU_SEQ'), 'https://green-tumbler-server-s3.s3.ap-northeast-2.amazonaws.com/menus/cafe-latte.jpg', '음료', '블렌디드', '망고 패션 후르츠 블렌디드', 1, 5000);
 
-INSERT INTO SGT_MENU (MENU_ID, CATEGORY1, CATEGORY2, MENU_NAME, SIZE, PRICE)
-VALUES (NEXTVAL('SGT_MENU_SEQ'), '음료', '블렌디드', '제주 호두 당근 블랜디드', 1, 6000);
+INSERT INTO SGT_MENU (MENU_ID, IMAGE, CATEGORY1, CATEGORY2, MENU_NAME, SIZE, PRICE)
+VALUES (NEXTVAL('SGT_MENU_SEQ'), 'https://green-tumbler-server-s3.s3.ap-northeast-2.amazonaws.com/menus/cafe-latte.jpg', '음료', '블렌디드', '제주 호두 당근 블랜디드', 1, 6000);
 
-INSERT INTO SGT_MENU (MENU_ID, CATEGORY1, CATEGORY2, MENU_NAME, SIZE, PRICE)
-VALUES (NEXTVAL('SGT_MENU_SEQ'), '음료', '블렌디드', '딸기 요거트 블랜디드', 1, 6100);
+INSERT INTO SGT_MENU (MENU_ID, IMAGE, CATEGORY1, CATEGORY2, MENU_NAME, SIZE, PRICE)
+VALUES (NEXTVAL('SGT_MENU_SEQ'), 'https://green-tumbler-server-s3.s3.ap-northeast-2.amazonaws.com/menus/cafe-latte.jpg', '음료', '블렌디드', '딸기 요거트 블랜디드', 1, 6100);
 
-INSERT INTO SGT_MENU (MENU_ID, CATEGORY1, CATEGORY2, MENU_NAME, SIZE, PRICE)
-VALUES (NEXTVAL('SGT_MENU_SEQ'), '음료', '블렌디드', '망고 바나나 블랜디드', 1, 6300);
+INSERT INTO SGT_MENU (MENU_ID, IMAGE, CATEGORY1, CATEGORY2, MENU_NAME, SIZE, PRICE)
+VALUES (NEXTVAL('SGT_MENU_SEQ'), 'https://green-tumbler-server-s3.s3.ap-northeast-2.amazonaws.com/menus/cafe-latte.jpg', '음료', '블렌디드', '망고 바나나 블랜디드', 1, 6300);
 
 -- 피지오
-INSERT INTO SGT_MENU (MENU_ID, CATEGORY1, CATEGORY2, MENU_NAME, SIZE, PRICE)
-VALUES (NEXTVAL('SGT_MENU_SEQ'), '음료', '피지오', '블랙 티 레모네이드 피지오', 1, 5400);
+INSERT INTO SGT_MENU (MENU_ID, IMAGE, CATEGORY1, CATEGORY2, MENU_NAME, SIZE, PRICE)
+VALUES (NEXTVAL('SGT_MENU_SEQ'), 'https://green-tumbler-server-s3.s3.ap-northeast-2.amazonaws.com/menus/cafe-latte.jpg', '음료', '피지오', '블랙 티 레모네이드 피지오', 1, 5400);
 
-INSERT INTO SGT_MENU (MENU_ID, CATEGORY1, CATEGORY2, MENU_NAME, SIZE, PRICE)
-VALUES (NEXTVAL('SGT_MENU_SEQ'), '음료', '피지오', '쿨 라임 피지오', 1, 5900);
+INSERT INTO SGT_MENU (MENU_ID, IMAGE, CATEGORY1, CATEGORY2, MENU_NAME, SIZE, PRICE)
+VALUES (NEXTVAL('SGT_MENU_SEQ'), 'https://green-tumbler-server-s3.s3.ap-northeast-2.amazonaws.com/menus/cafe-latte.jpg', '음료', '피지오', '쿨 라임 피지오', 1, 5900);
 
-INSERT INTO SGT_MENU (MENU_ID, CATEGORY1, CATEGORY2, MENU_NAME, SIZE, PRICE)
-VALUES (NEXTVAL('SGT_MENU_SEQ'), '음료', '피지오', '핑크 자몽 피지오', 1, 6300);
+INSERT INTO SGT_MENU (MENU_ID, IMAGE, CATEGORY1, CATEGORY2, MENU_NAME, SIZE, PRICE)
+VALUES (NEXTVAL('SGT_MENU_SEQ'), 'https://green-tumbler-server-s3.s3.ap-northeast-2.amazonaws.com/menus/cafe-latte.jpg', '음료', '피지오', '핑크 자몽 피지오', 1, 6300);
 
-INSERT INTO SGT_MENU (MENU_ID, CATEGORY1, CATEGORY2, MENU_NAME, SIZE, PRICE)
-VALUES (NEXTVAL('SGT_MENU_SEQ'), '음료', '피지오', '패션 탱고 티 레모네이드 피지오', 1, 5400);
+INSERT INTO SGT_MENU (MENU_ID, IMAGE, CATEGORY1, CATEGORY2, MENU_NAME, SIZE, PRICE)
+VALUES (NEXTVAL('SGT_MENU_SEQ'), 'https://green-tumbler-server-s3.s3.ap-northeast-2.amazonaws.com/menus/cafe-latte.jpg', '음료', '피지오', '패션 탱고 티 레모네이드 피지오', 1, 5400);
 
 -- 티
-INSERT INTO SGT_MENU (MENU_ID, CATEGORY1, CATEGORY2, MENU_NAME, SIZE, PRICE)
-VALUES (NEXTVAL('SGT_MENU_SEQ'), '음료', '티', '말차 레모네이드', 1, 6100);
+INSERT INTO SGT_MENU (MENU_ID, IMAGE, CATEGORY1, CATEGORY2, MENU_NAME, SIZE, PRICE)
+VALUES (NEXTVAL('SGT_MENU_SEQ'), 'https://green-tumbler-server-s3.s3.ap-northeast-2.amazonaws.com/menus/cafe-latte.jpg', '음료', '티', '말차 레모네이드', 1, 6100);
 
-INSERT INTO SGT_MENU (MENU_ID, CATEGORY1, CATEGORY2, MENU_NAME, SIZE, PRICE)
-VALUES (NEXTVAL('SGT_MENU_SEQ'), '음료', '티', '별다방 아이스 티', 1, 5600);
+INSERT INTO SGT_MENU (MENU_ID, IMAGE, CATEGORY1, CATEGORY2, MENU_NAME, SIZE, PRICE)
+VALUES (NEXTVAL('SGT_MENU_SEQ'), 'https://green-tumbler-server-s3.s3.ap-northeast-2.amazonaws.com/menus/cafe-latte.jpg', '음료', '티', '별다방 아이스 티', 1, 5600);
 
-INSERT INTO SGT_MENU (MENU_ID, CATEGORY1, CATEGORY2, MENU_NAME, SIZE, PRICE)
-VALUES (NEXTVAL('SGT_MENU_SEQ'), '음료', '티', '핑크베리 유스베리', 1, 7100);
+INSERT INTO SGT_MENU (MENU_ID, IMAGE, CATEGORY1, CATEGORY2, MENU_NAME, SIZE, PRICE)
+VALUES (NEXTVAL('SGT_MENU_SEQ'), 'https://green-tumbler-server-s3.s3.ap-northeast-2.amazonaws.com/menus/cafe-latte.jpg', '음료', '티', '핑크베리 유스베리', 1, 7100);
 
-INSERT INTO SGT_MENU (MENU_ID, CATEGORY1, CATEGORY2, MENU_NAME, SIZE, PRICE)
-VALUES (NEXTVAL('SGT_MENU_SEQ'), '음료', '티', '말차 레모네이드', 1, 6100);
+INSERT INTO SGT_MENU (MENU_ID, IMAGE, CATEGORY1, CATEGORY2, MENU_NAME, SIZE, PRICE)
+VALUES (NEXTVAL('SGT_MENU_SEQ'), 'https://green-tumbler-server-s3.s3.ap-northeast-2.amazonaws.com/menus/cafe-latte.jpg', '음료', '티', '말차 레모네이드', 1, 6100);
 
-INSERT INTO SGT_MENU (MENU_ID, CATEGORY1, CATEGORY2, MENU_NAME, SIZE, PRICE)
-VALUES (NEXTVAL('SGT_MENU_SEQ'), '음료', '티', '그랜마 애플 블랙 티', 1, 7500);
+INSERT INTO SGT_MENU (MENU_ID, IMAGE, CATEGORY1, CATEGORY2, MENU_NAME, SIZE, PRICE)
+VALUES (NEXTVAL('SGT_MENU_SEQ'), 'https://green-tumbler-server-s3.s3.ap-northeast-2.amazonaws.com/menus/cafe-latte.jpg', '음료', '티', '그랜마 애플 블랙 티', 1, 7500);
 
-INSERT INTO SGT_MENU (MENU_ID, CATEGORY1, CATEGORY2, MENU_NAME, SIZE, PRICE)
-VALUES (NEXTVAL('SGT_MENU_SEQ'), '음료', '티', '라임 패션 티', 1, 5300);
+INSERT INTO SGT_MENU (MENU_ID, IMAGE, CATEGORY1, CATEGORY2, MENU_NAME, SIZE, PRICE)
+VALUES (NEXTVAL('SGT_MENU_SEQ'), 'https://green-tumbler-server-s3.s3.ap-northeast-2.amazonaws.com/menus/cafe-latte.jpg', '음료', '티', '라임 패션 티', 1, 5300);
 
 --주문정보(헤더)
 INSERT INTO SGT_ORDER VALUES ( 2019082301, 'test', '20190823', 6100, '남산스테이트점', 1 );

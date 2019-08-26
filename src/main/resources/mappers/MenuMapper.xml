@@ -5,8 +5,13 @@
   
 <mapper namespace="com.sinc.greentumbler.menu">
 	<select id="selectAll" resultType="menu">
-		SELECT 	MENU_ID, CATEGORY1, CATEGORY2, MENU_NAME, SIZE, PRICE
+		SELECT 	MENU_ID, IMAGE, CATEGORY1, CATEGORY2, MENU_NAME, SIZE, PRICE
 		FROM	SGT_MENU
+	</select>
+	<select id="selectOne" parameterType="int" resultType="menu">
+		SELECT 	MENU_ID, IMAGE, CATEGORY1, CATEGORY2, MENU_NAME, SIZE, PRICE
+		FROM	SGT_MENU
+		WHERE	MENU_ID=#{ menuId }
 	</select>
 	<select id="selectCategory2" resultType="String">
 		SELECT 	 DISTINCT CATEGORY2

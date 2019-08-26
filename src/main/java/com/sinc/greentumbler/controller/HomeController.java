@@ -61,18 +61,9 @@ public class HomeController extends ApplicationController {
 			}
 		});
 		
-		String menuJson = null;
-		try {
-			menuJson = new ObjectMapper().writeValueAsString(menu);
-		} catch (JsonGenerationException e) {
-			e.printStackTrace();
-		} catch (JsonMappingException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		
+		String menuJson = super.convertToJSON(menu);
 		model.addAttribute("menus", menuJson);
+		System.out.println(menuJson);
 		model.addAttribute("category2", category2);
 		
 		// 샷, 시럽, 
@@ -85,32 +76,12 @@ public class HomeController extends ApplicationController {
 	public TumblerVO getTumbler(String nfcId, HttpSession session) {
 		TumblerVO tumbler = (TumblerVO)(tumbService.selectOne(nfcId));
 		
-		// updateTumblerInfo(tumbler, session);
-		
-		String tumblerJson = "";
-		try {
-			tumblerJson = new ObjectMapper().writeValueAsString(tumbler);
-		} catch (JsonGenerationException e) {
-			e.printStackTrace();
-		} catch (JsonMappingException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		session.removeAttribute("tumblerJson");
-		session.removeAttribute("tumbler");
-		session.setAttribute("tumblerJson", tumblerJson);
-		session.setAttribute("tumbler", tumbler);
-		
 		return tumbler;
 	}
 	
 	@RequestMapping(value="/getPrivateMenu", method=RequestMethod.GET)
 	@ResponseBody
-	// public List<PrivateMenuVO> getPrivateMenu(TumblerVO tumbler) {
 	public List<PrivateMenuVO> getPrivateMenu(@RequestParam("accountId") String accountId) {
-		//return privateMenuService.selectAll(tumbler.getAccount_id());
-		System.out.println(accountId);
 		return privateMenuService.selectAll(accountId);
 	}
 
@@ -161,23 +132,6 @@ public class HomeController extends ApplicationController {
 			
 		}
 		
-	}
-	
-	public void updateTumblerInfo(TumblerVO tumbler, HttpSession session) {
-		String tumblerJson = "";
-		try {
-			tumblerJson = new ObjectMapper().writeValueAsString(tumbler);
-		} catch (JsonGenerationException e) {
-			e.printStackTrace();
-		} catch (JsonMappingException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		session.removeAttribute("tumblerJson");
-		session.removeAttribute("tumbler");
-		session.setAttribute("tumblerJson", tumblerJson);
-		session.setAttribute("tumbler", tumbler);
 	}
 	
 	@RequestMapping(value="/getRecentOrder/{accountId}", method=RequestMethod.POST)

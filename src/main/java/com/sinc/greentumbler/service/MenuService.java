@@ -26,8 +26,9 @@ public class MenuService implements DefaultService {
 
 	@Override
 	public Object selectOne(Object obj) {
-		// TODO Auto-generated method stub
-		return null;
+		int menuId = (Integer)obj;
+		
+		return dao.selectOne(menuId);
 	}
 
 	@Override

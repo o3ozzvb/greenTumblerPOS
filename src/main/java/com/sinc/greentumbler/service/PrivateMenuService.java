@@ -31,7 +31,8 @@ public class PrivateMenuService implements DefaultService {
 
 	@Override
 	public int insertRow(Object obj) {
-		return 0;
+		PrivateMenuVO privateMenu = (PrivateMenuVO)obj;
+		return dao.insertRow(privateMenu);
 	}
 
 	@Override
