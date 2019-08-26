@@ -15,7 +15,7 @@ import com.sinc.greentumbler.vo.TumblerVO;
 
 @Controller
 @RequestMapping("/mobile/tumbler")
-public class TumbController {
+public class MTumblerController {
 	@Resource(name="tumblerService")
 	private TumblerService service;
 	
@@ -35,8 +35,10 @@ public class TumbController {
 	
 	@RequestMapping(value="/create", method=RequestMethod.POST)
 	@ResponseBody
-	public TumblerVO addTumbler(TumblerVO tumbler){
-		TumblerVO result = service.updatePayYn(tumbler);
+	public int addTumbler(TumblerVO tumbler){
+		int result = service.addTumbler(tumbler);
 		return result;
 	}
+	
+
 }

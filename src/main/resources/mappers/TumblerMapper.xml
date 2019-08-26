@@ -33,5 +33,8 @@
 		WHERE TUMBLER_ID = #{tumbler_id}
 		RETURNING NFC_ID, ACCOUNT_ID, TUMBLER_MONEY, LOST_YN, PAY_YN
 	</select>
-
+	<insert id="addTumbler" parameterType="tumbler" >
+		INSERT INTO SGT_TUMBLER (TUMBLER_ID, NFC_ID, TUMBLER_PIN, TUMBLER_NAME, ACCOUNT_ID)
+		VALUES (NEXTVAL('SGT_TUMBLER_SEQ'), #{tumbler_pin}, #{tumbler_pin}, #{tumbler_name}, #{account_id})
+	</insert>
 </mapper>

@@ -61,7 +61,7 @@ public class TumblerService implements DefaultService{
 	}
 	
 	//add new Tumbler
-	public TumblerVO addTumbler(TumblerVO tumbler) {
+	public int addTumbler(TumblerVO tumbler) {
 		System.out.println("service addTumbler");
 		return dao.addTumbler(tumbler);
 	}

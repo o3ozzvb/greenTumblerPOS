@@ -33,8 +33,8 @@ public class TumblerDAO {
 		return session.selectOne("com.sinc.greentumbler.tumbler.updatePayYn",tumbler);
 	}
 	
-	public TumblerVO addTumbler(TumblerVO tumbler) {
-		System.out.println(session.selectOne("com.sinc.greentumbler.tumbler.addTumbler",tumbler));
-		return session.selectOne("com.sinc.greentumbler.tumbler.addTumbler",tumbler);
+	public int addTumbler(TumblerVO tumbler) {
+		System.out.println(session.insert("com.sinc.greentumbler.tumbler.addTumbler",tumbler));
+		return session.insert("com.sinc.greentumbler.tumbler.addTumbler",tumbler);
 	}
 }
