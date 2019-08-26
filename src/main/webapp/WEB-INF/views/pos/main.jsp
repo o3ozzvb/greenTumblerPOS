@@ -182,7 +182,7 @@
         <%@include file="./modals/chargeBtnModal.jsp"%>
         <%@include file="./modals/tumblerBtnModal.jsp"%>
         <%@include file="./modals/payingModal.jsp"%>
-        <%@include file="./modals/errorModal.jsp"%>
+        <%@include file="./modals/alertModal.jsp"%>
         <%@include file="./spinner.jsp"%>
 
 		<script>
@@ -221,6 +221,11 @@
 						console.log(JSON.stringify(request,status,error));
 					}
 				});
+			}
+			function showAlert(msg, closeModal, showModal) {
+				$("#errorMsg").text(msg);
+				$("#" + closeModal).modal("hide");
+				$("#" + showModal).modal("show");
 			}
 			
 			$(function(){

@@ -94,14 +94,13 @@
 					if(result == "" || result == null) {
 						console.log("텀블러 조회 정보 실패");
 						deactiveSpinner();
-						$("#errorMsg").text("텀블러 정보 조회 실패");
-						$("#tumblerModal").modal("hide");
-						$("#errorModal").modal("show");
 						
+						showAlert("텀블러 정보 조회 실패", "tumblerModal", "alertModal");
 							
 					} else {
 						tumblerConfirmed(result);	
 					}
+					$("#nfcId").val("");
 				}
 			});
 		})
