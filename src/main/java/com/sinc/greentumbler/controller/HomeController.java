@@ -1,6 +1,5 @@
 package com.sinc.greentumbler.controller;
 
-import java.io.IOException;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
@@ -9,9 +8,6 @@ import java.util.List;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
 
-import org.codehaus.jackson.JsonGenerationException;
-import org.codehaus.jackson.map.JsonMappingException;
-import org.codehaus.jackson.map.ObjectMapper;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
@@ -22,10 +18,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.sinc.greentumbler.service.AccountService;
 import com.sinc.greentumbler.service.MenuService;
 import com.sinc.greentumbler.service.OrderService;
 import com.sinc.greentumbler.service.PrivateMenuService;
 import com.sinc.greentumbler.service.TumblerService;
+import com.sinc.greentumbler.vo.AccountVO;
 import com.sinc.greentumbler.vo.MenuVO;
 import com.sinc.greentumbler.vo.OrderDetailVO;
 import com.sinc.greentumbler.vo.OrderVO;
@@ -49,6 +47,8 @@ public class HomeController extends ApplicationController {
 	@Resource(name="orderService")
 	private OrderService orderService;
 	
+	@Resource(name="accountService")
+	private AccountService accountService;
 	
 	@RequestMapping("/main-test")
 	public String mainTest(Model model) {
@@ -154,4 +154,7 @@ public class HomeController extends ApplicationController {
 		System.out.println((RecentOrderVO)(orderService.selectOne(accountId)));
 		return orderService.selectOne(accountId);
 	}
+	
+	
+	
 }

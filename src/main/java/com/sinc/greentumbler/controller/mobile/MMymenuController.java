@@ -36,6 +36,13 @@ public class MMymenuController {
 		return myMenus;
 	}
 	
+	@RequestMapping(value="/menus/{menuId}", method=RequestMethod.POST)
+	@ResponseBody
+	public MenuVO getMenu(@PathVariable int menuId){
+		MenuVO menu = (MenuVO)menuService.selectOne(menuId);
+		return menu;
+	}
+	
 	@RequestMapping(value="/new", method=RequestMethod.POST)
 	@ResponseBody
 	public List<MenuVO> newPrivateMenu(){

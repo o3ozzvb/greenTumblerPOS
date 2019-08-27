@@ -35,6 +35,10 @@
 			<mapping path="/mobile/**"/>
 			<beans:ref bean="cors"/>
 		</interceptor>
+		<interceptor>
+			<mapping path="/fcm/**"/>
+			<beans:ref bean="cors"/>
+		</interceptor>
 	</interceptors>
 	
 </beans:beans>
