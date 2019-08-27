@@ -155,6 +155,18 @@ public class HomeController extends ApplicationController {
 		return orderService.selectOne(accountId);
 	}
 	
+	@RequestMapping(value="/recipe", method=RequestMethod.GET)
+	public String showRecipe(Model model) {
+		return "/pos/recipe";
+	}
 	
+	@RequestMapping(value="/getRecipe", method=RequestMethod.POST)
+	@ResponseBody
+	public RecentOrderVO getRecipe(String nfcId) {
+		TumblerVO tumbler = (TumblerVO)(tumbService.selectOne(nfcId));
+		RecentOrderVO recntOrder = (RecentOrderVO)(orderService.selectOne(tumbler.getAccount_id()));
+		System.out.println(recntOrder);
+		return recntOrder;
+	}
 	
 }

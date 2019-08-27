@@ -48,10 +48,10 @@ public class MTumblerController {
 		return result;
 	}
 	
-	@RequestMapping(value="/charge", method=RequestMethod.POST)
+	@RequestMapping(value="/charge/{chargeMoney}", method=RequestMethod.POST)
 	@ResponseBody
-	public int chargeTumbler(int chargeMoney, TumblerVO tumbler){
-		System.out.println("charge money : " + chargeMoney);
+	public int chargeTumbler(@PathVariable int chargeMoney, TumblerVO tumbler){
+		System.out.println("charge money : ");
 		int tumbMoney = tumbler.getTumbler_Money();
 		int afterMoney = tumbMoney + chargeMoney;
 		tumbler.setTumbler_Money(afterMoney);
