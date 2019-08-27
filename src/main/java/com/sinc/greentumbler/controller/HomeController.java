@@ -148,4 +148,9 @@ public class HomeController extends ApplicationController {
 		System.out.println((RecentOrderVO)(orderService.selectOne(accountId)));
 		return orderService.selectOne(accountId);
 	}
+	
+	@RequestMapping(value="/recipe", method=RequestMethod.GET)
+	public String showReceipe(Model model) {
+		return "/pos/recipe";
+	}
 }
