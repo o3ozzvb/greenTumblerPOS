@@ -125,12 +125,12 @@
                 </div>
             </div>
             <!-- 하단 메뉴 영역 -->
-            <p class="menu-font mt-1">사이즈</p>
+            <p class="bold menu-font mt-1">사이즈</p>
             <div class="row mt-3">
                 <div class="button-area col-4">
-                    <button class="btn btn-danger btn-lg size-btn" data-size="tall">Tall</button>
-                    <button class="btn btn-danger btn-lg size-btn" data-size="grande">Grande</button>
-                    <button class="btn btn-danger btn-lg size-btn" data-size="venti">Venti</button>
+                    <button class="bold btn btn-danger btn-lg size-btn" data-size="tall">Tall</button>
+                    <button class="bold btn btn-danger btn-lg size-btn" data-size="grande">Grande</button>
+                    <button class="bold btn btn-danger btn-lg size-btn" data-size="venti">Venti</button>
                 </div>
                 <div class="col-6 offset-2 tumbler-info-area">
                 	<p>충전 금액 : <span id="tumblerMoney"></span>원</p>
@@ -142,36 +142,36 @@
             	<div class="col-6 offset-6" style="background-color: #C8D0D8;">
             		<div class="row">
             			<div class="col-3 offset-1">
-            				<button class="btn border-green no-padding-vertical transparent"
-            					data-toggle="modal" data-target="#myMenuModal">나만의 메뉴</button>
+            				<button class="middle-btn btn border-green no-padding-vertical transparent"
+            					data-toggle="modal" data-target="#myMenuModal">나만의<br/>메뉴</button>
             			</div>
             			<div class="col-3 offset-1">
-            				<button class="btn border-green no-padding-vertical transparent"
-            					data-toggle="modal" data-target="#recentOrderModal">최근주문정보</button>
+            				<button class="middle-btn btn border-green no-padding-vertical transparent"
+            					data-toggle="modal" data-target="#recentOrderModal">최근<br/>주문정보</button>
             			</div>
             			<div class="col-3 offset-1">
-            				<button class="btn border-red no-padding-vertical transparent"
-            					data-toggle="modal" data-target="#lostTumblerModal">텀블러 분실신고</button>
+            				<button class="middle-btn btn border-red no-padding-vertical transparent"
+            					data-toggle="modal" data-target="#lostTumblerModal">텀블러<br/>분실신고</button>
             			</div>
             		</div>
             	</div>
             </div>
-            <p class="menu-font mt-2">퍼스널 옵션</p>
+            <p class="bold menu-font mt-2">퍼스널 옵션</p>
             <div class="row mt-3">
                 <div class="button-area col-6">
-                    <button data-personal="shot" class="btn btn-secondary btn-lg personal-btn">샷</button>
-                    <button data-personal="syrup" class="btn btn-secondary btn-lg personal-btn">시럽</button>
-                    <button data-personal="whipped_cream" class="btn btn-secondary btn-lg personal-btn">휘핑</button>
-                    <button data-personal="drizzle" class="btn btn-secondary btn-lg personal-btn">드리즐</button>
+                    <button data-personal="shot" class="bold btn btn-secondary btn-lg personal-btn">샷</button>
+                    <button data-personal="syrup" class="bold btn btn-secondary btn-lg personal-btn">시럽</button>
+                    <button data-personal="whipped_cream" class="bold btn btn-secondary btn-lg personal-btn">휘핑</button>
+                    <button data-personal="drizzle" class="bold btn btn-secondary btn-lg personal-btn">드리즐</button>
                 </div>
                	<div class="col-2">
-            		<button class="btn btn-success pay-btn float-right" data-toggle="modal" data-target="#chargeModal">충전</button>
+            		<button class="bold btn btn-success pay-btn float-right" data-toggle="modal" data-target="#chargeModal">충전</button>
                 </div>
                 <div class="col-2">
-            		<button class="btn btn-success pay-btn float-right" data-toggle="modal" data-target="#tumblerModal">텀블러</button>
+            		<button class="bold btn btn-success pay-btn float-right" data-toggle="modal" data-target="#tumblerModal">텀블러</button>
                 </div>
             	<div class="col-2">
-            		<button id="payBtn" class="btn btn-danger pay-btn float-right">결제</button>
+            		<button id="payBtn" class="bold btn btn-danger pay-btn float-right">결제</button>
                 </div>
             </div>
         </div>

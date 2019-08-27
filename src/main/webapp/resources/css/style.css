@@ -6,6 +6,15 @@ hr {
 	margin: 1px 0px;
 }
 
+.bold {
+	font-weight: 600;
+}
+
+.middle-btn {
+	font-size: 13px;
+	font-weight: 600;
+}
+
 .white-font {
 	color: white;
 	margin-left: 1.3rem;
