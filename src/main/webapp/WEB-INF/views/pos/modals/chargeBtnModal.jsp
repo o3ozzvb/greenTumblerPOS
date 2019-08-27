@@ -62,6 +62,7 @@
 			
 			sendTumblerRequest(url, method, data, function(tumbler){
 				let msg = tumblerInfo.nickName + "님의 텀블러 잔액이 " + tumbler.tumbler_Money + " 원 으로 변경되었습니다.";
+				$("#tumblerMoney").text(tumbler.tumbler_Money);
 				showAlert(msg, "chargeModal", "alertModal");
 			});
 		}

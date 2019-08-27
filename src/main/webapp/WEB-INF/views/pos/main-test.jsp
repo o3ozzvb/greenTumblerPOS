@@ -8,8 +8,25 @@
 <title>Insert title here</title>
 </head>
 <body>
+	<h3>메뉴</h3>
 	<c:forEach items="${ menus }" var="item">
-		<img src="${ item.image }" style="width: 100px; height: 100px;" />
+		<div class="row">
+			<img src="${ item.image }" style="width: 100px; height: 100px;" />
+			<a target="_blank" href="${ item.image }">${ item.image }</a>
+		</div>
 	</c:forEach>
+	<h3>텀블러</h3>
+	<c:forEach items="${ tumblers }" var="item">
+		<div class="row">
+			<img src="${ item.image }" style="width: 100px; height: 100px;" />
+			<a target="_blank" href="${ item.image }">${ item.image }</a>
+		</div>
+	</c:forEach>
+	<script>
+		let menus = JSON.parse('${ menuJson }');
+		console.log(menus);
+		let tumblers = JSON.parse('${ tumblerJson }');
+		console.log(tumblers);
+	</script>
 </body>
 </html>

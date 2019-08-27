@@ -14,6 +14,10 @@ public class TumblerDAO {
 	@Resource(name="sqlSession")
 	private SqlSession session;
 	
+	public List<TumblerVO> selectAll() {
+		return session.selectList("com.sinc.greentumbler.tumbler.selectAll");
+	}
+	
 	public TumblerVO selectOne(String nfcId) {
 		return session.selectOne("com.sinc.greentumbler.tumbler.selectOne", nfcId);
 	}

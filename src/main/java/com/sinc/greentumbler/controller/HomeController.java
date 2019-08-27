@@ -53,7 +53,13 @@ public class HomeController extends ApplicationController {
 	@RequestMapping("/main-test")
 	public String mainTest(Model model) {
 		List<MenuVO> menu = menuService.selectAll();
+		List<TumblerVO> tumbler = (List<TumblerVO>)tumbService.selectAll();
+		String menuJson = super.convertToJSON(menu);
+		String tumblerJson = super.convertToJSON(tumbler);
 		model.addAttribute("menus", menu);
+		model.addAttribute("menuJson", menuJson);
+		model.addAttribute("tumblers", tumbler);
+		model.addAttribute("tumblerJson", tumblerJson);
 		return "/pos/main-test";
 	}
 	@RequestMapping("/main")

@@ -28,13 +28,13 @@
 
 	$(function(){
 		let typingTimer;
-		let doneTypingInterval = 300;
+		let doneTypingInterval = 300; //0.3초
 		
 		
 		$('#tumblerModal').on("shown.bs.modal", function (e) {
 		  $("#nfcId").focus();
 		})
-		
+		// 인풋 필드가 끝까지 입력되었을 때에만 ajax 날리기
 		$('#nfcId').on("keyup", function (e) {
 			clearTimeout(typingTimer);
 			
@@ -44,11 +44,7 @@
 		})
 		
 		$('#nfcId').on("keydown", function (e) {
-			if(e.keyCode==13) {
-				
-				//$("#nfcId").val($("#nfcId").val().slice(0, -1));
-				
-			}
+			
 			clearTimeout(typingTimer);
 		});
 		

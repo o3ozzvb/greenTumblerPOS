@@ -17,7 +17,7 @@ public class TumblerService implements DefaultService{
 	
 	@Override
 	public List<? extends Object> selectAll() {
-		return null;
+		return dao.selectAll();
 	}
 
 	@Override
