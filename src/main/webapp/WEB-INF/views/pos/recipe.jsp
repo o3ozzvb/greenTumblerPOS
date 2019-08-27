@@ -14,18 +14,20 @@
 	font-family: 'Nanum Pen Script', cursive;
 }
 
-body {
+body, html {
 	width: 100%;
 	height: 100%;
+	margin: 0;
+	padding: 0;
 }
 
 img {
-	width: 90%;
-	height: 90%;
-	
-	margin-left: auto;
-	margin-right: auto;
-	text-align: center;
+	width: 100%;
+	height: 100%;
+	min-width: 100%;
+	min-height: 100%;
+	margin: 0;
+	padding: 0;
 }
 
 .menu_name {
@@ -108,50 +110,49 @@ input:focus {
 	<script>
 		$("#nfcId").focus();
 		let typingTimer;
-		let doneTypingInterval=200;
-		
+		let doneTypingInterval = 200;
+
 		// 인풋 필드가 끝까지 입력되었을 때에만 ajax 날리기
-		$('#nfcId').on("keyup", function (e) {
+		$('#nfcId').on("keyup", function(e) {
 			clearTimeout(typingTimer);
-			
-			typingTimer = setTimeout(function(){
+
+			typingTimer = setTimeout(function() {
 				console.log($("#nfcId").val());
 				$.ajax({
-					url: "/greenTumblerServer/pos/getRecipe",
-					data:{
-						nfcId: $("#nfcId").val()
+					url : "/greenTumblerServer/pos/getRecipe",
+					data : {
+						nfcId : $("#nfcId").val()
 					},
-					type:"POST",
-					dataType:"json",
-					success: function(order){
-						
+					type : "POST",
+					dataType : "json",
+					success : function(order) {
+
 						console.log(order);
 						$('#menu_name').text(order.menu_name);
-						if(order.whipped_cream){
+						if (order.whipped_cream) {
 							$('#whip').text('O');
-						}else{
+						} else {
 							$('#whip').text('X');
 						}
 						$('#shots').text(order.shot);
 						$('#syrup').text(order.syrup);
-						if(order.drizzle){
+						if (order.drizzle) {
 							$('#drizzle').text('O');
-						}
-						else{
+						} else {
 							$('#drizzle').text('X');
 						}
 						$('#order_time').text(order.order_date);
 					}
 				})
-				
+
 			}, doneTypingInterval);
 		})
-		
-		$('#nfcId').on("keydown", function (e) {
-			
+
+		$('#nfcId').on("keydown", function(e) {
+
 			clearTimeout(typingTimer);
 		});
-		
+
 		/* $('#recentOrderModal').on(
 				'shown.bs.modal',
 				function(e) {
