@@ -18,7 +18,7 @@ public class MHomeController {
 	@Resource(name="accountService")
 	AccountService accountService;
 	
-	@RequestMapping(value="/accounts/{accountId}", method=RequestMethod.GET)
+	@RequestMapping(value="/accounts/{accountId}", method=RequestMethod.POST)
 	@ResponseBody
 	public Object Main(@PathVariable String accountId) {
 		System.out.println(accountId);

@@ -28,13 +28,13 @@
 
 	$(function(){
 		let typingTimer;
-		let doneTypingInterval = 300;
+		let doneTypingInterval = 300; //0.3초
 		
 		
 		$('#tumblerModal').on("shown.bs.modal", function (e) {
 		  $("#nfcId").focus();
 		})
-		
+		// 인풋 필드가 끝까지 입력되었을 때에만 ajax 날리기
 		$('#nfcId').on("keyup", function (e) {
 			clearTimeout(typingTimer);
 			
@@ -44,11 +44,7 @@
 		})
 		
 		$('#nfcId').on("keydown", function (e) {
-			if(e.keyCode==13) {
-				
-				//$("#nfcId").val($("#nfcId").val().slice(0, -1));
-				
-			}
+			
 			clearTimeout(typingTimer);
 		});
 		
@@ -94,14 +90,13 @@
 					if(result == "" || result == null) {
 						console.log("텀블러 조회 정보 실패");
 						deactiveSpinner();
-						$("#errorMsg").text("텀블러 정보 조회 실패");
-						$("#tumblerModal").modal("hide");
-						$("#errorModal").modal("show");
 						
+						showAlert("텀블러 정보 조회 실패", "tumblerModal", "alertModal");
 							
 					} else {
 						tumblerConfirmed(result);	
 					}
+					$("#nfcId").val("");
 				}
 			});
 		})

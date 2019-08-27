@@ -17,7 +17,7 @@ public class TumblerService implements DefaultService{
 	
 	@Override
 	public List<? extends Object> selectAll() {
-		return null;
+		return dao.selectAll();
 	}
 
 	@Override
@@ -72,6 +72,10 @@ public class TumblerService implements DefaultService{
 		return dao.chargeTumbler(tumbler);
 	}
 	
+	
+	public TumblerVO selectOneById(int tumblerId) {
+		return dao.selectOneById(tumblerId);
+	}
 	public int lostTumbler(int tumblerId) {
 		System.out.println("service lostTumbler");
 		return dao.lostTumbler(tumblerId);

@@ -14,6 +14,10 @@ public class TumblerDAO {
 	@Resource(name="sqlSession")
 	private SqlSession session;
 	
+	public List<TumblerVO> selectAll() {
+		return session.selectList("com.sinc.greentumbler.tumbler.selectAll");
+	}
+	
 	public TumblerVO selectOne(String nfcId) {
 		return session.selectOne("com.sinc.greentumbler.tumbler.selectOne", nfcId);
 	}
@@ -43,6 +47,9 @@ public class TumblerDAO {
 		return session.update("com.sinc.greentumbler.tumbler.chargeTumbler",tumbler);
 	}
 	
+	public TumblerVO selectOneById(int tumblerId) {
+		return session.selectOne("com.sinc.greentumbler.tumbler.selectOneById", tumblerId);
+	}
 	public int lostTumbler(int tumblerId) {
 		System.out.println(session.update("com.sinc.greentumbler.tumbler.lostTumbler",tumblerId));
 		return session.update("com.sinc.greentumbler.tumbler.lostTumbler",tumblerId);

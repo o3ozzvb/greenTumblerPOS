@@ -98,11 +98,18 @@ CREATE TABLE SGT_ORDERDETAILS (
 
 -- USER DUMMY
 INSERT INTO SGT_ACCOUNT VALUES ( 'test', 'test', 'testuser', 'gold', 1);
+INSERT INTO SGT_ACCOUNT VALUES ( 'hojun', 'hojun', '김호준', 'gold', 1);
 
 INSERT INTO SGT_TUMBLER (TUMBLER_ID, IMAGE, NFC_ID, ACCOUNT_ID, TUMBLER_NAME, TUMBLER_PIN)
-VALUES ( NEXTVAL('SGT_TUMBLER_SEQ'), 'TEST','0002360456', 'test', 'test_sgt', '0002360456');
+VALUES ( NEXTVAL('SGT_TUMBLER_SEQ'), 'https://green-tumbler-server-s3.s3.ap-northeast-2.amazonaws.com/tumblers/busan_tumbler.jpg','0002360456', 'hojun', '호준이의 텀블러', '0002360456');
 INSERT INTO SGT_TUMBLER (TUMBLER_ID, IMAGE, NFC_ID, ACCOUNT_ID, TUMBLER_NAME, TUMBLER_PIN)
-VALUES ( NEXTVAL('SGT_TUMBLER_SEQ'), 'TEST', '0001705096', 'test', 'test_sgt', '0001705096');
+VALUES ( NEXTVAL('SGT_TUMBLER_SEQ'), 'https://green-tumbler-server-s3.s3.ap-northeast-2.amazonaws.com/tumblers/incheon_tumbler.jpg', '0001705096', 'test', 'test_sgt', '0001705096');
+INSERT INTO SGT_TUMBLER (TUMBLER_ID, IMAGE, NFC_ID, ACCOUNT_ID, TUMBLER_NAME, TUMBLER_PIN)
+VALUES ( NEXTVAL('SGT_TUMBLER_SEQ'), 'https://green-tumbler-server-s3.s3.ap-northeast-2.amazonaws.com/tumblers/busan_tumbler.jpg', '1234567890', 'hojun', '호준이의 텀블러', '0001705096');
+INSERT INTO SGT_TUMBLER (TUMBLER_ID, IMAGE, NFC_ID, ACCOUNT_ID, TUMBLER_NAME, TUMBLER_PIN)
+VALUES ( NEXTVAL('SGT_TUMBLER_SEQ'), 'https://green-tumbler-server-s3.s3.ap-northeast-2.amazonaws.com/tumblers/jeju_eco.jpg', '0987654321', 'test', 'test_sgt', '0001705096');
+INSERT INTO SGT_TUMBLER (TUMBLER_ID, IMAGE, NFC_ID, ACCOUNT_ID, TUMBLER_NAME, TUMBLER_PIN)
+VALUES ( NEXTVAL('SGT_TUMBLER_SEQ'), 'https://green-tumbler-server-s3.s3.ap-northeast-2.amazonaws.com/tumblers/reserve_white.jpg', '1234512345', 'test', 'test_sgt', '0001705096');
 
 -- MENU DUMMY
 -- ESPRESSO
