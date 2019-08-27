@@ -85,6 +85,7 @@
 										WHEN 'G' THEN 'Grande'
 										WHEN 'V' THEN 'Venti' END) SIZE,
 						O.ORDER_TIME ORDER_TIME,
+						TO_CHAR(O.ORDER_TIME,'HH:mm:SS') ORDER_TIME2,
 						O.STORE_NAME STORE_NAME,
 						O.PRICE PRICE,
 						OD.PRICE AS DETAIL_PRICE,

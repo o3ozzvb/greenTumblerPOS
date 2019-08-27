@@ -5,6 +5,8 @@ import java.io.FileInputStream;
 import java.io.InputStream;
 import java.util.Arrays;
 
+import javax.annotation.Resource;
+
 import org.json.simple.JSONObject;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.http.HttpEntity;
@@ -14,22 +16,44 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.client.RestTemplate;
 
 import com.google.api.client.googleapis.auth.oauth2.GoogleCredential;
+import com.sinc.greentumbler.service.AccountService;
+import com.sinc.greentumbler.vo.AccountVO;
 
 @Controller
 @RequestMapping("/fcm")
 public class FCMController {
-
-	@RequestMapping(value="/fcmTest", method=RequestMethod.GET, produces="text/plain;charset=UTF-8")
-    public void fcmTest() throws Exception {
+	
+	@Resource(name="accountService")
+	AccountService accountService;
+	
+	@RequestMapping(value="/sendLostMsg", method=RequestMethod.POST)
+	@ResponseBody
+	public Object sendLostMsg(String accountId, String msg) {
+		AccountVO account = (AccountVO)accountService.selectOne(accountId);
+		String fcmToken = account.getFcm_token();
+		Object result = null;
+		try {
+			result = doSend(fcmToken, msg);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
+	
+	@ResponseBody
+	@RequestMapping(value="/sendMessage", method=RequestMethod.POST, produces="text/plain;charset=UTF-8")
+    public Object doSend(String fcmToken, String msg) throws Exception {
         try {    
-            
-            // String path = "classpath:google/starbucks-greentumbler-firebase-adminsdk-055c3-1535f9c042.json";   
-            
+            System.out.println(msg);
+            System.out.println("Send Message Called");
+            System.out.println(fcmToken);
             ClassPathResource resource = new ClassPathResource("google/starbucks-greentumbler-firebase-adminsdk-055c3-1535f9c042.json");
             String path = resource.getPath();
             File file = resource.getFile();
@@ -38,7 +62,6 @@ public class FCMController {
             String MESSAGING_SCOPE = "https://www.googleapis.com/auth/firebase.messaging";
             String[] SCOPES = { MESSAGING_SCOPE };
             
-            //GoogleCredential googleCredential = GoogleCredential.fromStream(new FileInputStream(path)).createScoped(Arrays.asList(SCOPES));
             GoogleCredential googleCredential = GoogleCredential.fromStream(fileStream).createScoped(Arrays.asList(SCOPES));
            
             googleCredential.refreshToken();
@@ -48,11 +71,14 @@ public class FCMController {
             headers.add("Authorization", "Bearer " + googleCredential.getAccessToken());
             
             JSONObject notification = new JSONObject();
-            notification.put("body", "분실 메세지");
-            notification.put("title", "알림메세지");
+            
+            notification.put("title", "스타벅스");
+            notification.put("body", msg);
             
             JSONObject message = new JSONObject();
-            message.put("token", "csv18gJFRoM:APA91bHXSQ_sYIjDvb5-fbaI8fI2p8mZPylGWks6CuzjZQec-ecmvy37BxYhVke8po14qwHu3gkt3J6_SWlD5Ihrw9mkhY03-oytRN9MsV1M3Z6JcJv6oCoAfwlM_YFY8TAXXXvkTl2N");
+            
+            
+            message.put("token", fcmToken);
             message.put("notification", notification);
             
             JSONObject jsonParams = new JSONObject();
@@ -78,9 +104,11 @@ public class FCMController {
                 System.out.println(res.getBody().toLowerCase());
                 
             }
+            return res;
         } catch (Exception e) {
             e.printStackTrace();
         }
+        return null;
     }
-
+	
 }

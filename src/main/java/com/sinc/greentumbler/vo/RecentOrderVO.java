@@ -4,6 +4,7 @@ public class RecentOrderVO {
 	private int order_id;
 	private String account_id;
 	private String order_time;
+	private String order_time2;
 	private int price;
 	private String store_name;
 	private int tumbler_id;
@@ -30,7 +31,7 @@ public class RecentOrderVO {
 
 	
 
-	public RecentOrderVO(int order_id, String account_id, String order_time, int price, String store_name, int tumbler_id,
+	public RecentOrderVO(int order_id, String account_id, String order_time, String order_time2, int price, String store_name, int tumbler_id,
 			int line_id, boolean private_menu_yn, int private_menu_id, int menu_id, String menu_name,
 			boolean is_tumbler, int shot, int syrup, boolean whipped_cream, boolean drizzle, String size,
 			int option_sum, int menu_cnt, int detail_price) {
@@ -38,6 +39,7 @@ public class RecentOrderVO {
 		this.order_id = order_id;
 		this.account_id = account_id;
 		this.order_time = order_time;
+		this.order_time2 = order_time2;
 		this.price = price;
 		this.store_name = store_name;
 		this.tumbler_id = tumbler_id;
@@ -81,6 +83,14 @@ public class RecentOrderVO {
 
 	public void setOrder_time(String order_time) {
 		this.order_time = order_time;
+	}
+
+	public String getOrder_time2() {
+		return order_time2;
+	}
+
+	public void setOrder_time2(String order_time2) {
+		this.order_time2 = order_time2;
 	}
 
 	public int getPrice() {

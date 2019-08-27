@@ -9,7 +9,7 @@
 		FROM SGT_PRIVATE_MENU AS PM
 		JOIN SGT_MENU M 
 		ON PM.MENU_ID=M.MENU_ID
-		WHERE ACCOUNT_ID=#{ accountId } LIMIT 3
+		WHERE ACCOUNT_ID=#{ accountId }
 	</select>
 	<select id="insertRow" parameterType="privateMenu" resultType="int">
 		INSERT INTO SGT_PRIVATE_MENU (PRIVATE_MENU_ID, MENU_ID, ACCOUNT_ID, SHOT, SYRUP, WHIPPED_CREAM, DRIZZLE, SIZE, OPTION_SUM, PRICE, CUP)

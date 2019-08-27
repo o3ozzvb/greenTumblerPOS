@@ -9,7 +9,7 @@
 		FROM    SGT_ACCOUNT
 	</select>
 	<select id="selectOne" resultType="account">
-		SELECT  ACCOUNT_ID, PWD, NICKNAME, STAR_TYPE, STAR_CNT
+		SELECT  ACCOUNT_ID, PWD, NICKNAME, STAR_TYPE, STAR_CNT, FCM_TOKEN
 		FROM    SGT_ACCOUNT
 		WHERE 	ACCOUNT_ID=#{ account_id }
 	</select>

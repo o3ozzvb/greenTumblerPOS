@@ -14,7 +14,9 @@
 	font-family: 'Nanum Pen Script', cursive;
 }
 
-body, html {
+body {
+	margin: 0;
+	padding: 0;
 	width: 100%;
 	height: 100%;
 	margin: 0;
@@ -22,18 +24,20 @@ body, html {
 }
 
 img {
-	width: 100%;
-	height: 100%;
-	min-width: 100%;
-	min-height: 100%;
 	margin: 0;
 	padding: 0;
+	width: 90%;
+	height: 90%;
+	
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
 }
 
 .menu_name {
 	position: absolute;
-	top: 340px;
-	left: 520px;
+	top: 300px;
+	left: 420px;
 	width: 170px;
 	font-size: 3em;
 	font-weight: bold;
@@ -41,48 +45,48 @@ img {
 
 .whip {
 	position: absolute;
-	top: 240px;
-	left: 215px;
+	top: 160px; /* -100 */
+	left: 165px; /* -50 */
 	font-size: 5.4em;
 	font-weight: bold;
 }
 
 .shots {
 	position: absolute;
-	top: 240px;
-	left: 380px;
+	top: 155px;
+	left: 315px;
 	font-size: 5.4em;
 	font-weight: bold;
 }
 
 .syrup {
 	position: absolute;
-	top: 415px;
-	left: 290px;
+	top: 300px;
+	left: 240px;
 	font-size: 5.4em;
 	font-weight: bold;
 }
 
 .drizzle {
 	position: absolute;
-	top: 555px;
-	left: 290px;
+	top: 420px;
+	left: 240px;
 	font-size: 5.4em;
 	font-weight: bold;
 }
 
 .custom {
 	position: absolute;
-	top: 690px;
-	left: 230px;
+	top: 570px;
+	left: 180px;
 	font-size: 5.4em;
 	font-weight: bold;
 }
 
 .ordertime {
 	position: absolute;
-	top: 800px;
-	left: 520px;
+	top: 640px;
+	left: 450px;
 	font-size: 3em;
 }
 
@@ -141,7 +145,7 @@ input:focus {
 						} else {
 							$('#drizzle').text('X');
 						}
-						$('#order_time').text(order.order_date);
+						$('#order_time').text(order.order_time2);
 					}
 				})
 
