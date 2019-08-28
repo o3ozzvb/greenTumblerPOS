@@ -47,24 +47,31 @@
 		$("#after-charge").text(amount+beforeCharge);
 				
 	})
-	$("#chargeBtn").on("click", function(e){
-		let afterCharge = parseInt($("#after-charge").data("amount")); 
+	$("#chargeBtn").on("click touchstart", function(e){
+		let handled = false;
 		
-		if(tumblerMoney < 0 ) {
-			alert("텀블러 정보가 로드되지 않았습니다.");
-		} else if (afterCharge < 0) {
-			alert("충전 금액을 선택해 주세요.");
-		} else {
-			chargeTumblerInfo["tumbler_Money"] = parseInt($("#after-charge").data("amount"));
-			let url = "/greenTumblerServer/pos/chargeTumbler";
-			let method = "POST";
-			let data = chargeTumblerInfo;
+		if(e.type == "touchend") {
+			handled = true;
+		} else if(e.type=="click" && !handled) {
+			let afterCharge = parseInt($("#after-charge").data("amount")); 
 			
-			sendTumblerRequest(url, method, data, function(tumbler){
-				let msg = tumblerInfo.nickName + "님의 텀블러 잔액이 " + tumbler.tumbler_Money + " 원 으로 변경되었습니다.";
-				$("#tumblerMoney").text(tumbler.tumbler_Money);
-				showAlert(msg, "chargeModal", "alertModal");
-			});
+			if(tumblerMoney < 0 ) {
+				alert("텀블러 정보가 로드되지 않았습니다.");
+			} else if (afterCharge < 0) {
+				alert("충전 금액을 선택해 주세요.");
+			} else {
+				chargeTumblerInfo["tumbler_Money"] = parseInt($("#after-charge").data("amount"));
+				let url = "/greenTumblerServer/pos/chargeTumbler";
+				let method = "POST";
+				let data = chargeTumblerInfo;
+				console.log("clicked");
+				sendTumblerRequest(url, method, data, function(tumbler){
+					console.log(tumbler);
+					let msg = tumblerInfo.nickName + "님의 텀블러 잔액이 " + tumbler.tumbler_Money + " 원 으로 충전되었습니다.";
+					$("#tumblerMoney").text(tumbler.tumbler_Money);
+					showAlert(msg, "chargeModal", "alertModal");
+				});
+			}
 		}
 	})
 </script>

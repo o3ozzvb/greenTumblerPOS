@@ -32,6 +32,14 @@ public class MTumblerController {
 		return tumblerList;
 	}
 	
+	@RequestMapping(value="getTumblerById/{tumblerId}", method=RequestMethod.POST)
+	@ResponseBody
+	public TumblerVO getTumblerById(@PathVariable int tumblerId){
+		TumblerVO tumbler = service.selectOneById(tumblerId);
+		
+		return tumbler;
+	}
+	
 	@RequestMapping(value="/payYn", method=RequestMethod.POST)
 	@ResponseBody
 	public TumblerVO updatePayYn(TumblerVO tumbler){

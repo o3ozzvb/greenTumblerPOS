@@ -325,8 +325,10 @@
 						console.log(tumbler);
 						let msg = "";
 						if(tumbler.account_id == null && tumbler.nickName == null) {
+							$("#pay-modal-title").text("결제 실패");
 							msg = "잔액이 부족합니다";
 						} else {
+							$("#pay-modal-title").text("결제 완료");
 							msg += tumbler.account_id + " / 잔액 : " + tumbler.tumbler_Money; 
 						}
 						$("#paymentMsg").text(msg);

@@ -19,11 +19,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.sinc.greentumbler.service.AccountService;
+import com.sinc.greentumbler.service.AlarmService;
 import com.sinc.greentumbler.service.MenuService;
 import com.sinc.greentumbler.service.OrderService;
 import com.sinc.greentumbler.service.PrivateMenuService;
 import com.sinc.greentumbler.service.TumblerService;
-import com.sinc.greentumbler.vo.AccountVO;
+import com.sinc.greentumbler.vo.AlarmVO;
 import com.sinc.greentumbler.vo.MenuVO;
 import com.sinc.greentumbler.vo.OrderDetailVO;
 import com.sinc.greentumbler.vo.OrderVO;
@@ -46,6 +47,9 @@ public class HomeController extends ApplicationController {
 	
 	@Resource(name="orderService")
 	private OrderService orderService;
+	
+	@Resource(name="alarmService")
+	private AlarmService alarmService;
 	
 	@Resource(name="accountService")
 	private AccountService accountService;
@@ -102,7 +106,22 @@ public class HomeController extends ApplicationController {
 	@ResponseBody
 	public TumblerVO chargeTumbler(TumblerVO tumbler) {
 		System.out.println(tumbler);
-		return tumbService.updateRow(tumbler);
+		tumbler = tumbService.updateRow(tumbler);
+		
+		
+		// 결제가 정상적으로 이루어 진 경우 알람을 쌓는다.
+		System.out.println("Add Alarm");
+		
+		AlarmVO alarm = new AlarmVO();
+		String msg = "";
+		msg += (tumbler.getTumbler_name() + "의 잔액이 " + tumbler.getTumbler_Money() + "원으로 충전되었습니다.");
+		alarm.setMsg(msg);
+		alarm.setAccount_id(tumbler.getAccount_id());
+		alarm.setAlarm_type("charge");
+		
+		alarmService.insertRow(alarm);
+		
+		return tumbler;
 	}
 	
 	@RequestMapping(value="/pay/{nfcId}", method=RequestMethod.POST)
@@ -141,8 +160,19 @@ public class HomeController extends ApplicationController {
 			}
 			
 			tumbler.setTumbler_Money(tumbler.getTumbler_Money() - order.getPrice());
-			return tumbService.updateRow(tumbler);
-			
+			tumbler = tumbService.updateRow(tumbler);
+			if(order.getPrice() == price) {
+				// 결제가 정상적으로 이루어 진 경우 알람을 쌓는다.
+				System.out.println("Add Alarm");
+				
+				AlarmVO alarm = new AlarmVO();
+				alarm.setMsg("결제가 성공적으로 수행되었습니다.");
+				alarm.setAccount_id(order.getAccount_id());
+				alarm.setAlarm_type("pay");
+				alarm.setOrder_id(order.getOrder_id());
+				alarmService.insertRow(alarm);
+			}
+			return tumbler;
 		}
 		
 	}
