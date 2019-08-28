@@ -80,6 +80,7 @@ public class FCMController {
             
             message.put("token", fcmToken);
             message.put("notification", notification);
+            //message.put("data", notification);
             
             JSONObject jsonParams = new JSONObject();
             jsonParams.put("message", message);

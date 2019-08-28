@@ -27,10 +27,17 @@ public class OrderDAO {
 	public RecentOrderVO selectOne(String account_id) {
 		return session.selectOne("com.sinc.greentumbler.order.selectOne", account_id);
 	}
+	public OrderVO selectOneOrder(int order_id) {
+		return session.selectOne("com.sinc.greentumbler.order.selectOneOrder", order_id);
+	}
 	public List<RecentOrderVO> selectOrderListWithAccountId(String account_id) {
 		return session.selectList("com.sinc.greentumbler.order.selectOrderListWithAccountId", account_id);
 	}
 	public List<RecentOrderVO> selectOrderListWithTumblerId(int tumbler_id) {
 		return session.selectList("com.sinc.greentumbler.order.selectOrderListWithTumblerId", tumbler_id);
 	}
+	public List<OrderDetailVO> selectOrderListWithOrderId(int order_id) {
+		return session.selectList("com.sinc.greentumbler.order.selectOrderListWithOrderId", order_id);
+	}
+	
 }

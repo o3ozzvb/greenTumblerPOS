@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.sinc.greentumbler.dao.AccountDAO;
 import com.sinc.greentumbler.vo.AccountVO;
+import com.sinc.greentumbler.vo.AlarmVO;
 import com.sinc.greentumbler.vo.MenuVO;
 
 
@@ -26,7 +27,11 @@ public class AccountService implements DefaultService {
 	public List<MenuVO> getMyMenus(String accountId) {
 		return (List<MenuVO>)dao.getMyMenus(accountId);
 	}
-
+	
+	public List<AlarmVO> getMyAlarms(String accountId) {
+		return dao.getMyAlarms(accountId);
+	}
+	
 	@Override
 	public Object selectOne(Object obj) {
 		String accountId = (String)obj;

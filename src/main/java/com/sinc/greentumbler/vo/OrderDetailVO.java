@@ -16,8 +16,6 @@ public class OrderDetailVO {
 	private int menu_cnt;
 	private int price;
 	
-	
-	
 	private String menu_name;
 	private String cup;
 	private String category2;

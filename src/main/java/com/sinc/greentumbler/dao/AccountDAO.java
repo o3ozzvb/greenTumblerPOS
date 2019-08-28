@@ -8,6 +8,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Service;
 
 import com.sinc.greentumbler.vo.AccountVO;
+import com.sinc.greentumbler.vo.AlarmVO;
 import com.sinc.greentumbler.vo.MenuVO;
 
 @Service("accountDAO")
@@ -26,5 +27,9 @@ public class AccountDAO {
 	public List<MenuVO> getMyMenus(String accountId) {
 		System.out.println("AccountDAO#getMyMenus");
 		return session.selectList("com.sinc.greentumbler.account.getMyMenus", accountId);
+	}
+	public List<AlarmVO> getMyAlarms(String accountId) {
+		System.out.println("AccountDAO#getMyAlarms");
+		return session.selectList("com.sinc.greentumbler.alarm.selectAll", accountId);
 	}
 }

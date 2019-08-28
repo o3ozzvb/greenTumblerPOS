@@ -25,6 +25,14 @@ public class OrderService implements DefaultService {
 		return dao.insertOrderItem(od);
 	}
 	
+	public List<OrderDetailVO> selectOrderListWithOrderId(int orderId) {
+		return dao.selectOrderListWithOrderId(orderId);
+	}
+	
+	public OrderVO selectOneOrder(int orderId) {
+		return dao.selectOneOrder(orderId);
+	}
+	
 	@Override
 	public List<? extends Object> selectAll() {
 		// TODO Auto-generated method stub
