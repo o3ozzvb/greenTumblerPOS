@@ -47,7 +47,7 @@
 		$("#after-charge").text(amount+beforeCharge);
 				
 	})
-	$("#chargeBtn").on("click touchstart", function(e){
+	$("#chargeBtn").on("click", function(e){
 		let handled = false;
 		
 		if(e.type == "touchend") {
@@ -64,13 +64,17 @@
 				let url = "/greenTumblerServer/pos/chargeTumbler";
 				let method = "POST";
 				let data = chargeTumblerInfo;
-				console.log("clicked");
+				
+			
 				sendTumblerRequest(url, method, data, function(tumbler){
 					console.log(tumbler);
+					
 					let msg = tumblerInfo.nickName + "님의 텀블러 잔액이 " + tumbler.tumbler_Money + " 원 으로 충전되었습니다.";
-					$("#tumblerMoney").text(tumbler.tumbler_Money);
 					showAlert(msg, "chargeModal", "alertModal");
-				});
+					$("#tumblerMoney").text(tumblerInfo.tumbler_Money);
+				});	
+				
+				
 			}
 		}
 	})

@@ -35,7 +35,7 @@ import com.sinc.greentumbler.vo.TumblerVO;
 
 @Controller
 @RequestMapping(value="/pos")
-public class HomeController extends ApplicationController {
+public class HomeController extends FCMController {
 	@Resource(name="menuService")
 	private MenuService  menuService;
 	
@@ -66,6 +66,7 @@ public class HomeController extends ApplicationController {
 		model.addAttribute("tumblerJson", tumblerJson);
 		return "/pos/main-test";
 	}
+	
 	@RequestMapping("/main")
 	public String posMain(Model model) {
 		List<MenuVO> menu = menuService.selectAll();
@@ -114,12 +115,16 @@ public class HomeController extends ApplicationController {
 		
 		AlarmVO alarm = new AlarmVO();
 		String msg = "";
+		String accountId = tumbler.getAccount_id();
 		msg += (tumbler.getTumbler_name() + "의 잔액이 " + tumbler.getTumbler_Money() + "원으로 충전되었습니다.");
 		alarm.setMsg(msg);
 		alarm.setAccount_id(tumbler.getAccount_id());
 		alarm.setAlarm_type("charge");
 		
 		alarmService.insertRow(alarm);
+		
+		// send message
+		super.sendLostMsg(accountId, msg);
 		
 		return tumbler;
 	}
@@ -166,11 +171,17 @@ public class HomeController extends ApplicationController {
 				System.out.println("Add Alarm");
 				
 				AlarmVO alarm = new AlarmVO();
-				alarm.setMsg("결제가 성공적으로 수행되었습니다.");
+				String accountId = tumbler.getAccount_id();
+				String msg = "결제가 성공적으로 수행되었습니다.";
+				alarm.setMsg(msg);
 				alarm.setAccount_id(order.getAccount_id());
 				alarm.setAlarm_type("pay");
 				alarm.setOrder_id(order.getOrder_id());
 				alarmService.insertRow(alarm);
+				
+				// send fcm message
+				super.sendLostMsg(accountId, msg);
+				
 			}
 			return tumbler;
 		}
@@ -198,5 +209,25 @@ public class HomeController extends ApplicationController {
 		System.out.println(recntOrder);
 		return recntOrder;
 	}
+	
+	@RequestMapping(value="/addLostAlarm", method=RequestMethod.POST)
+	@ResponseBody
+	public int addLostAlarm(TumblerVO tumbler) {
+		AlarmVO alarm = new AlarmVO();
+		String msg = "";
+		String accountId = tumbler.getAccount_id();
+		
+		msg += ("분실된 " + tumbler.getTumbler_name() + " 가 남산스테이트점에서 조회되었습니다.");
+		alarm.setMsg(msg);
+		alarm.setAccount_id(tumbler.getAccount_id());
+		alarm.setAlarm_type("lost");
+		
+		int result = alarmService.insertRow(alarm);
+		
+		super.sendLostMsg(accountId, msg);
+		return result;
+		
+	}
+	
 	
 }

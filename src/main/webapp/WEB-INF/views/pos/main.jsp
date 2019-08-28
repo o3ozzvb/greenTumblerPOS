@@ -197,6 +197,7 @@
 			
 			function sendTumblerRequest(url, method, data, success) {
 				$.ajaxSettings.traditional = true;
+				
 				$.ajax({
 					url: url,
 					type: method,
@@ -322,7 +323,11 @@
 					$("#payingModal").modal("show");
 					
 					sendTumblerRequestWithJSON(url, method, JSON.stringify(orderList), function(tumbler){
-						console.log(tumbler);
+						
+						let data = {
+			                accountId: tumblerInfo.account_id,
+			                msg: tumblerInfo.nickName + " 님의 분실 텀블러가 남산스테이트점에서 결제 시도되었습니다."
+			            };
 						let msg = "";
 						if(tumbler.account_id == null && tumbler.nickName == null) {
 							$("#pay-modal-title").text("결제 실패");
@@ -331,7 +336,9 @@
 							$("#pay-modal-title").text("결제 완료");
 							msg += tumbler.account_id + " / 잔액 : " + tumbler.tumbler_Money; 
 						}
+						
 						$("#paymentMsg").text(msg);
+						
 					}); 
 				})
 			})

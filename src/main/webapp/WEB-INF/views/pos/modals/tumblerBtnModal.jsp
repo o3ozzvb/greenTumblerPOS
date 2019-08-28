@@ -56,7 +56,15 @@
 			chargeTumblerInfo = tumbler;
 			
 			if(tumbler.lost_yn) {
-				$("#lostTumblerModal").modal("show");				
+				/* let url = "/greenTumblerServer/pos/addLostAlarm";
+				let method = "POST";
+				let data = tumblerInfo;
+				
+				sendTumblerRequest(url, method, data, function(result){
+					console.log(result);
+				}); */
+				$("#lostTumblerModal").modal("show");
+				
 			}
 			
 			if(tumbler == null || tumbler == "") {

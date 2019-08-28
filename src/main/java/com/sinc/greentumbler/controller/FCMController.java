@@ -2,11 +2,15 @@ package com.sinc.greentumbler.controller;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.IOException;
 import java.io.InputStream;
 import java.util.Arrays;
 
 import javax.annotation.Resource;
 
+import org.codehaus.jackson.JsonGenerationException;
+import org.codehaus.jackson.map.JsonMappingException;
+import org.codehaus.jackson.map.ObjectMapper;
 import org.json.simple.JSONObject;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.http.HttpEntity;
@@ -16,7 +20,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -36,7 +40,8 @@ public class FCMController {
 	@RequestMapping(value="/sendLostMsg", method=RequestMethod.POST)
 	@ResponseBody
 	public Object sendLostMsg(String accountId, String msg) {
-		AccountVO account = (AccountVO)accountService.selectOne(accountId);
+		
+		AccountVO account = (AccountVO)(accountService.selectOne(accountId));
 		String fcmToken = account.getFcm_token();
 		Object result = null;
 		try {
@@ -111,5 +116,19 @@ public class FCMController {
         }
         return null;
     }
+	
+	protected String convertToJSON(Object obj) {
+		String json = null;
+		try {
+			json = new ObjectMapper().writeValueAsString(obj);
+		} catch (JsonGenerationException e) {
+			e.printStackTrace();
+		} catch (JsonMappingException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return json;
+	}
 	
 }
