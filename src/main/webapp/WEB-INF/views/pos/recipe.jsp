@@ -146,6 +146,7 @@ input:focus {
 							$('#drizzle').text('X');
 						}
 						$('#order_time').text(order.order_time2);
+						$('#nfcId').val('');
 					}
 				})
 

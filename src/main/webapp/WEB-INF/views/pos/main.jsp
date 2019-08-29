@@ -125,12 +125,12 @@
                 </div>
             </div>
             <!-- 하단 메뉴 영역 -->
-            <p class="bold menu-font mt-1">사이즈</p>
+            <img style="margin-top:7px" src="/greenTumblerServer/resources/images/txt_size.png" height="40px"/>
             <div class="row mt-3">
                 <div class="button-area col-4">
-                    <button class="bold btn btn-danger btn-lg size-btn" data-size="tall">Tall</button>
-                    <button class="bold btn btn-danger btn-lg size-btn" data-size="grande">Grande</button>
-                    <button class="bold btn btn-danger btn-lg size-btn" data-size="venti">Venti</button>
+                	<img class="size-btn" data-size="tall" src="/greenTumblerServer/resources/images/tall_size.png" width="70px"/>
+                	<img class="size-btn" data-size="grande" src="/greenTumblerServer/resources/images/grande_size.png" width="100px"/>
+                	<img class="size-btn" data-size="venti" src="/greenTumblerServer/resources/images/venti_size.png" width="80px"/>
                 </div>
                 <div class="col-6 offset-2 tumbler-info-area">
                 	<p>충전 금액 : <span id="tumblerMoney"></span>원</p>
@@ -156,7 +156,7 @@
             		</div>
             	</div>
             </div>
-            <p class="bold menu-font mt-2">퍼스널 옵션</p>
+            <img style="margin-top:7px" src="/greenTumblerServer/resources/images/txt_peropt.png" height="40px"/>
             <div class="row mt-3">
                 <div class="button-area col-6">
                     <button data-personal="shot" class="bold btn btn-secondary btn-lg personal-btn">샷</button>

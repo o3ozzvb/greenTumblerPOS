@@ -48,23 +48,20 @@
 		 		for(var i = 0 ; i < tumbler.length ; i++) {
 		 			
 		 			$("#my-menu-area").append(`
-		 				<div class="col-9 mt-2">
-		 					<input readonly="true" type="text" class="form-control" 
-		 						placeholder="`
-		 							+ tumbler[i].menu_name 
-		 							+ ` / `
-		 							+ (tumbler[i].size=="T" ? `Tall` : tumbler[i].size=="G" ? `Grande` : `Venti` ) 
-		 							+ ` / `
-		 							+ (tumbler[i].cup=="T" ? `텀블러` : `개인컵`) 
-		 							+ ` / `
-		 							+ (tumbler[i].drizzle ? `드리즐` : ``)
-		 							+ (tumbler[i].shot ? `샷` : ``)
-		 							+ (tumbler[i].whipped_cream? `휘핑` : ``)
-		 							+ (tumbler[i].syrup ? `시럽` : ``) + ` " />	
-		 				</div>
-		 				<div class="col-3 mt-2">
+		 				<div class="col-4 mt-2">
+		 					<img style="border-radius: 25px;" src="`+tumbler[i].image+`" width="100%" />
+		 					<div style="border-radius: 15px; background-color: #F1F3F5; margin-top: 3px; width: 100%;">
+		 					<div style="vertical-align:middle; text-align:center; height:52px;">
+		 						<span style="color:black; font-size:1.1rem; font-weight:bold; "> ` + tumbler[i].menu_name + `</span>
+		 					</div>
+		 						<p style="color:black; text-align:center"> ` + (tumbler[i].size=="T" ? `Tall` : tumbler[i].size=="G" ? `Grande` : `Venti` ) + `</p>
+		 						<p style="color:black; text-align:center"> ` + `샷     : ` + tumbler[i].shot + `</p>
+		 						<p style="color:black; text-align:center"> ` + `시럽   : ` + tumbler[i].syrup + `</p>
+		 						<p style="color:black; text-align:center"> ` + `휘핑   : ` + (tumbler[i].whipped_cream? `Y` : `N`) + `</p>
+		 						<p style="color:black; text-align:center"> ` + `드리즐 : ` + (tumbler[i].drizzle ? `Y` : `N`) + `</p>
+		 					</div>
 		 					<button type="button" 
-		 							class="btn btn-light"
+		 							class="btn btn-light" style="margin-top: 5px; width:100% background-color: "
 		 							data-menu_name="`+ tumbler[i].menu_name +`"
 		 							data-size="`+ tumbler[i].size +`"
 		 							data-cup="`+ tumbler[i].cup +`"
