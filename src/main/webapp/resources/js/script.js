@@ -58,6 +58,8 @@ $(function(){
 	    		        		posMenuBtns[idx].dataset.category2 = myMenu[i].category2;
 	    		        		posMenuBtns[idx].dataset.shot = myMenu[i].shot;
 	    		        		posMenuBtns[idx].dataset.syrup = myMenu[i].syrup;
+	    		        		posMenuBtns[idx].dataset.menu_cnt = 1;
+	    		        		posMenuBtns[idx].dataset.size = myMenu[i].size;
 	    		        		posMenuBtns[idx].dataset.whipped_cream = myMenu[i].whipped_cream;
 	    		        		posMenuBtns[idx++].dataset.drizzle = myMenu[i].drizzle;
 	    		        		
@@ -80,9 +82,13 @@ $(function(){
 	        				<img src="`+ menus[i].image +`" style="width: 80%; border-radius: 40%" />
 	        			</div>
 	        		`;
+	        		
 	        		posMenuBtns[idx].dataset.price = menus[i].price;
 	        		posMenuBtns[idx].dataset.menu_id = menus[i].menu_id;
+	        		posMenuBtns[idx].dataset.menu_name = menus[i].menu_name;
 	        		posMenuBtns[idx++].dataset.category2 = menus[i].category2;
+	        		
+	        		
 	        	}
 	        }
 			
@@ -105,6 +111,8 @@ $(function(){
 	        selectedMenu["menu_id"] = parseInt(element.menu_id);
 	        selectedMenu["menu_name"] = element.menu_name;
 	        selectedMenu["price"] = element.price;
+	        selectedMenu["menu_cnt"] = parseInt(element.menu_cnt);
+	        selectedMenu["size"] = element.size;
 	        selectedMenu["category2"] = element.category2;
 	        selectedMenu["shot"] = parseInt(element.shot);
 	        selectedMenu["syrup"] = parseInt(element.syrup);
