@@ -22,6 +22,10 @@ public class TumblerDAO {
 		return session.selectOne("com.sinc.greentumbler.tumbler.selectOne", nfcId);
 	}
 	
+	public TumblerVO selectOneByTumblerId(int tumblerId) {
+		return session.selectOne("com.sinc.greentumbler.tumbler.selectOneByTumblerId", tumblerId);
+	}
+	
 	public TumblerVO updateRow(TumblerVO tumbler) {
 		System.out.println(session.selectOne("com.sinc.greentumbler.tumbler.updateRow", tumbler));
 		return session.selectOne("com.sinc.greentumbler.tumbler.updateRow", tumbler);
@@ -40,6 +44,9 @@ public class TumblerDAO {
 	public int addTumbler(TumblerVO tumbler) {
 		System.out.println(session.update("com.sinc.greentumbler.tumbler.addTumbler",tumbler));
 		return session.update("com.sinc.greentumbler.tumbler.addTumbler",tumbler);
+	}
+	public int addTumblerWithPIN(TumblerVO tumbler) {
+		return session.update("com.sinc.greentumbler.tumbler.addTumblerWithPIN",tumbler);
 	}
 	
 	public int chargeTumbler(TumblerVO tumbler) {

@@ -52,10 +52,19 @@ public class MTumblerController extends FCMController {
 		return result;
 	}
 	
-	@RequestMapping(value="/create", method=RequestMethod.POST)
+	@RequestMapping(value="/create/{accountId}", method=RequestMethod.POST)
 	@ResponseBody
-	public int addTumbler(String accountId, TumblerVO tumbler){
-		System.out.println("accountId : " + accountId);
+	public int addTumbler(@PathVariable String accountId, TumblerVO tumbler){
+		System.out.println("tumbler : " + tumbler);
+		tumbler.setAccount_id(accountId);
+		int result = service.addTumblerWithPIN(tumbler);
+		return result;
+	}
+	
+	@RequestMapping(value="/create-nfc/{accountId}/{tumblerId}", method=RequestMethod.POST)
+	@ResponseBody
+	public int addTumblerWithNFC(@PathVariable String accountId, @PathVariable int tumblerId){
+		TumblerVO tumbler = service.selectOneByTumblerId(tumblerId);
 		tumbler.setAccount_id(accountId);
 		int result = service.addTumbler(tumbler);
 		return result;

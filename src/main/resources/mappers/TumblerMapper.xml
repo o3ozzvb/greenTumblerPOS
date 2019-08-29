@@ -8,6 +8,11 @@
 		SELECT	*
 		FROM	SGT_TUMBLER	
 	</select>
+	<select id="selectOneByTumblerId" parameterType="int" resultType="tumbler">
+		SELECT	*
+		FROM	SGT_TUMBLER
+		WHERE	TUMBLER_ID=#{tumbler_id}
+	</select>
 	<select id="selectOne" parameterType="String" resultType="tumbler">
 		SELECT	T.TUMBLER_ID, T.TUMBLER_MONEY, T.NFC_ID, A.ACCOUNT_ID, A.NICKNAME, T.LOST_YN, T.PAY_YN, T.IMAGE, T.GREEN_SEED, T.TUMBLER_NAME
 		FROM	SGT_TUMBLER	T
@@ -44,8 +49,12 @@
 		RETURNING NFC_ID, ACCOUNT_ID, TUMBLER_MONEY, LOST_YN, PAY_YN
 	</select>
 	<update id="addTumbler" parameterType="tumbler" >
-		UPDATE SGT_TUMBLER SET ACCOUNT_ID = #{account_id} 
+		UPDATE SGT_TUMBLER SET ACCOUNT_ID = #{account_id}, TUMBLER_NAME= CONCAT(#{account_id}, '의 텀블러')
 		WHERE TUMBLER_ID = #{tumbler_id}
+	</update>
+	<update id="addTumblerWithPIN" parameterType="tumbler" >
+		UPDATE SGT_TUMBLER SET ACCOUNT_ID = #{account_id}, TUMBLER_NAME= #{ tumbler_name }
+		WHERE TUMBLER_PIN = #{tumbler_pin}
 	</update>
 	<update id="chargeTumbler" parameterType="tumbler">
 		UPDATE SGT_TUMBLER SET TUMBLER_MONEY = #{tumbler_Money}

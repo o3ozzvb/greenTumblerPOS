@@ -15,12 +15,22 @@ $(function(){
         })
         
         for(var i = 0 ; i < menus.length ; i++) {
-        	
-        	if(menus[i].category2 == category2) {
+        	if(category2 == '나만의메뉴'){
+        		console.log("나만의메뉴");
+        	}
+        	else if(menus[i].category2 == category2) {
         		
-        		posMenuBtns[idx].innerText = menus[i].menu_name;
+        		posMenuBtns[idx].innerHTML += `
+        			<div class="menu-name" style="height: 55px;">
+        				`+ menus[i].menu_name +`
+        			</div>
+        		`;
+        		posMenuBtns[idx].innerHTML += `
+        			<div style="text-center">
+        				<img src="`+ menus[i].image +`" style="width: 80%; border-radius: 40%" />
+        			</div>
+        		`;
         		posMenuBtns[idx].dataset.price = menus[i].price;
-        		posMenuBtns[idx].dataset.menu_name = menus[i].menu_name;
         		posMenuBtns[idx].dataset.menu_id = menus[i].menu_id;
         		posMenuBtns[idx++].dataset.category2 = menus[i].category2;
         	}
@@ -31,11 +41,11 @@ $(function(){
     $(".pos-menu-btn").on("click touchend", function(e){
         $(".pos-menu-btn").removeClass("selected");
         $(this).addClass("selected");
-        
-        selectedMenu["menu_id"] = parseInt(e.target.dataset.menu_id);
-        selectedMenu["menu_name"] = e.target.dataset.menu_name;
-        selectedMenu["price"] = e.target.dataset.price;
-        selectedMenu["category2"] = e.target.dataset.category2;
+        console.log(e.target.parentNode)
+        selectedMenu["menu_id"] = parseInt(e.target.parentNode.dataset.menu_id);
+        selectedMenu["menu_name"] = e.target.parentNode.dataset.menu_name;
+        selectedMenu["price"] = e.target.parentNode.dataset.price;
+        selectedMenu["category2"] = e.target.parentNode.dataset.category2;
     });	
 })
 

@@ -138,14 +138,15 @@ VALUES ( 'hojun', 'hojun', 'esSQVmVLZDc:APA91bGRjJd10xJKjg95y4e4K9sFAX7_mPF8owrA
 -- TUMBLER DUMMY
 INSERT INTO SGT_TUMBLER (TUMBLER_ID, IMAGE, NFC_ID, ACCOUNT_ID, TUMBLER_NAME, TUMBLER_PIN, GREEN_SEED)
 VALUES ( NEXTVAL('SGT_TUMBLER_SEQ'), 'https://green-tumbler-server-s3.s3.ap-northeast-2.amazonaws.com/tumblers/busan_tumbler.png','0002360456', 'hojun', '호준이의 텀블러', '0002360456', 148);
---INSERT INTO SGT_TUMBLER (TUMBLER_ID, IMAGE, NFC_ID, ACCOUNT_ID, TUMBLER_NAME, TUMBLER_PIN, GREEN_SEED)
---VALUES ( NEXTVAL('SGT_TUMBLER_SEQ'), 'https://green-tumbler-server-s3.s3.ap-northeast-2.amazonaws.com/tumblers/busan_tumbler.jpg', '1234567890', 'hojun', '호준이의 텀블러', '1234567890', 148);
+INSERT INTO SGT_TUMBLER (TUMBLER_ID, IMAGE, NFC_ID, ACCOUNT_ID, TUMBLER_NAME, TUMBLER_PIN, LOST_YN, PAY_YN, GREEN_SEED)
+VALUES ( NEXTVAL('SGT_TUMBLER_SEQ'), 'https://green-tumbler-server-s3.s3.ap-northeast-2.amazonaws.com/tumblers/reserve_white.png', '0001705096', 'test', '분실텀블러', '0001705096', TRUE, FALSE, 148);
+INSERT INTO SGT_TUMBLER (TUMBLER_ID, IMAGE, NFC_ID, ACCOUNT_ID, TUMBLER_NAME, TUMBLER_PIN, GREEN_SEED)
+VALUES ( NEXTVAL('SGT_TUMBLER_SEQ'), 'https://green-tumbler-server-s3.s3.ap-northeast-2.amazonaws.com/tumblers/busan_tumbler.jpg', '1234567890', NULL, NULL, '1234567890', 148);
 --INSERT INTO SGT_TUMBLER (TUMBLER_ID, IMAGE, NFC_ID, ACCOUNT_ID, TUMBLER_NAME, TUMBLER_PIN, GREEN_SEED)
 --VALUES ( NEXTVAL('SGT_TUMBLER_SEQ'), 'https://green-tumbler-server-s3.s3.ap-northeast-2.amazonaws.com/tumblers/jeju_eco.jpg', '0987654321', 'test', 'test_sgt', '0987654321', 148);
 --INSERT INTO SGT_TUMBLER (TUMBLER_ID, IMAGE, NFC_ID, ACCOUNT_ID, TUMBLER_NAME, TUMBLER_PIN, LOST_YN, PAY_YN, GREEN_SEED)
 --VALUES ( NEXTVAL('SGT_TUMBLER_SEQ'), 'https://green-tumbler-server-s3.s3.ap-northeast-2.amazonaws.com/tumblers/reserve_white.jpg', '1234512345', 'test', 'test_sgt', '1234512345', TRUE, FALSE, 148);
-INSERT INTO SGT_TUMBLER (TUMBLER_ID, IMAGE, NFC_ID, ACCOUNT_ID, TUMBLER_NAME, TUMBLER_PIN, LOST_YN, PAY_YN, GREEN_SEED)
-VALUES ( NEXTVAL('SGT_TUMBLER_SEQ'), 'https://green-tumbler-server-s3.s3.ap-northeast-2.amazonaws.com/tumblers/reserve_white.png', '0001705096', 'test', '분실텀블러', '0001705096', TRUE, FALSE, 148);
+
 
 -- USER_TUMBLER DUMMY (주 사용 텀블러 지정)
 INSERT INTO SGT_ACCOUNT_TUMBLER (ACCOUNT_ID, TUMBLER_ID)
