@@ -17,6 +17,7 @@ public class OrderService implements DefaultService {
 	@Resource(name="orderDAO")
 	OrderDAO dao;
 	
+	
 	public OrderVO insertRow(OrderVO order) {
 		return dao.insertRow(order);
 	}
