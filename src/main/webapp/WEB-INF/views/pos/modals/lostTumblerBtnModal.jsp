@@ -34,10 +34,10 @@
   </div>
 </div>
 <script>
-	$('#lostTumblerModal').on('show.bs.modal', function(e){
+	$('#lostTumblerModal').on('shown.bs.modal', function(e){
 		if(validateTumbler(tumblerInfo) != 0) {
 			// 분실된 텀블러의 경우
-			e.preventDefault();
+			$("#lostTumblerModal").modal("hide");
 			let msg = "분실된 텀블러가 아닙니다.";
 			showAlert(msg, "lostTumblerModal", "alertModal");	
 		}
