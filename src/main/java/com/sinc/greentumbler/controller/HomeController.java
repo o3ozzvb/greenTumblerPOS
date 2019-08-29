@@ -24,6 +24,7 @@ import com.sinc.greentumbler.service.MenuService;
 import com.sinc.greentumbler.service.OrderService;
 import com.sinc.greentumbler.service.PrivateMenuService;
 import com.sinc.greentumbler.service.TumblerService;
+import com.sinc.greentumbler.vo.AlarmOrderVO;
 import com.sinc.greentumbler.vo.AlarmVO;
 import com.sinc.greentumbler.vo.MenuVO;
 import com.sinc.greentumbler.vo.OrderDetailVO;
@@ -155,6 +156,7 @@ public class HomeController extends FCMController {
 		} else {
 			OrderVO order = new OrderVO(tumbler.getAccount_id(), tumbler.getTumbler_id(), price, Arrays.asList(orderList));
 			order = orderService.insertRow(order);
+			
 			int orderId = order.getOrder_id();
 			
 			for(OrderDetailVO od: orderList) { 
@@ -165,9 +167,9 @@ public class HomeController extends FCMController {
 			
 			tumbler.setTumbler_Money(tumbler.getTumbler_Money() - order.getPrice());
 			tumbler = tumbService.updateRow(tumbler);
+			
 			if(order.getPrice() == price) {
 				// 결제가 정상적으로 이루어 진 경우 알람을 쌓는다.
-				System.out.println("Add Alarm");
 				
 				AlarmVO alarm = new AlarmVO();
 				String accountId = tumbler.getAccount_id();
@@ -176,7 +178,11 @@ public class HomeController extends FCMController {
 				alarm.setAccount_id(order.getAccount_id());
 				alarm.setAlarm_type("pay");
 				alarm.setOrder_id(order.getOrder_id());
-				alarmService.insertRow(alarm);
+				alarm = alarmService.insertRow(alarm);
+				System.out.println(alarm);
+				
+				AlarmOrderVO alarmOrder = new AlarmOrderVO(alarm.getAlarm_id(), order.getOrder_id());
+				alarmService.insertAlarmOrder(alarmOrder);
 				
 				// send fcm message
 				super.sendLostMsg(accountId, msg);
@@ -211,7 +217,7 @@ public class HomeController extends FCMController {
 	
 	@RequestMapping(value="/addLostAlarm", method=RequestMethod.POST)
 	@ResponseBody
-	public int addLostAlarm(TumblerVO tumbler) {
+	public AlarmVO addLostAlarm(TumblerVO tumbler) {
 		AlarmVO alarm = new AlarmVO();
 		String msg = "";
 		String accountId = tumbler.getAccount_id();
@@ -221,10 +227,10 @@ public class HomeController extends FCMController {
 		alarm.setAccount_id(tumbler.getAccount_id());
 		alarm.setAlarm_type("lost");
 		
-		int result = alarmService.insertRow(alarm);
+		AlarmVO resultAlarm = alarmService.insertRow(alarm);
 		
 		super.sendLostMsg(accountId, msg);
-		return result;
+		return resultAlarm;
 		
 	}
 	

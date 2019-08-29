@@ -13,6 +13,7 @@
 		INSERT INTO SGT_ORDERDETAILS (ORDER_ID, LINE_ID, MENU_ID, SHOT, SYRUP, WHIPPED_CREAM, DRIZZLE, SIZE, OPTION_SUM, MENU_CNT, PRICE, PRIVATE_MENU_YN, IS_TUMBLER)
 		VALUES (#{ order_id }, #{ line_id }, #{ menu_id }, #{ shot }, #{ syrup }, #{ whipped_cream }, #{ drizzle }, #{ size }, #{ option_sum }, #{ menu_cnt }, #{ price }, #{ private_menu_yn }, #{ is_tumbler })
 	</select>
+	
 	<select id="selectOrderListWithOrderId" parameterType="int" resultType="orderDetail">
 		SELECT *  
 		FROM (
@@ -41,7 +42,7 @@
 			JOIN		SGT_ORDERDETAILS OD ON O.ORDER_ID = OD.ORDER_ID
 			JOIN		SGT_MENU M ON OD.MENU_ID = M.MENU_ID
 			WHERE 		OD.ORDER_ID = #{ orderId }
-			AND			OD.IS_TUMBLER = TRUE
+			<!-- AND			OD.IS_TUMBLER = TRUE -->
 		) AS RO
 		ORDER BY RO.ORDER_TIME DESC
 	</select>

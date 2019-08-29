@@ -24,5 +24,6 @@
 		<typeAlias type="com.sinc.greentumbler.vo.OrderDetailVO" alias="orderDetail"/>
 		<typeAlias type="com.sinc.greentumbler.vo.RecentOrderVO" alias="recentOrder"/>
 		<typeAlias type="com.sinc.greentumbler.vo.AlarmVO" alias="alarm"/>
+		<typeAlias type="com.sinc.greentumbler.vo.AlarmOrderVO" alias="alarmOrder"/>
     </typeAliases> 
 </configuration>
