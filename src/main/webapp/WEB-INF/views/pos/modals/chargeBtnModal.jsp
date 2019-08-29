@@ -40,6 +40,15 @@
   </div>
 </div>
 <script>
+	$('#chargeModal').on('shown.bs.modal', function(e){
+		if(validateTumbler(tumblerInfo) <= 0) {
+			
+			let msg = "텀블러 정보가 유효한지 확인해 주세요.";
+			
+			showAlert(msg, "chargeModal", "alertModal");	
+		}
+	});
+	
 	$(".charge-amount").on("click", function(){
 		let amount = parseInt($(this).data("amount"));
 		let beforeCharge = parseInt($("#before-charge").data("amount"));

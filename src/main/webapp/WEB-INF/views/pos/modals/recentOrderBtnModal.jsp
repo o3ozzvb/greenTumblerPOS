@@ -33,20 +33,26 @@
 
 
 <script>
+	
 	$('#recentOrderModal').on('shown.bs.modal', function (e) {
 		// let tumbler = JSON.parse('${ sessionScope.tumblerJson }');
-	 	let url = "/greenTumblerServer/pos/getRecentOrder/" + tumblerInfo.account_id;
-	 	let method = "POST";
-	 	
-	 	sendTumblerRequest(url, method, {}, function(order){
-	 		console.log(order);
-	 		$('#menu_name').text(order.menu_name);
-	 		$('#size').text(order.size);
-	 		$('#order_date').text(order.order_date);
-	 		$('#store_name').text(order.store_name);
-	 		$('#price').text(order.detail_price);
-	 	})
-	 	
+		if(validateTumbler(tumblerInfo) <= 0) {
+			let msg = "텀블러 정보가 유효한지 확인해 주세요.";
+			showAlert(msg, "recentOrderModal", "alertModal");	
+			
+		} else {
+			let url = "/greenTumblerServer/pos/getRecentOrder/" + tumblerInfo.account_id;
+		 	let method = "POST";
+		 	
+		 	sendTumblerRequest(url, method, {}, function(order){
+		 		console.log(order);
+		 		$('#menu_name').text(order.menu_name);
+		 		$('#size').text(order.size);
+		 		$('#order_date').text(order.order_date);
+		 		$('#store_name').text(order.store_name);
+		 		$('#price').text(order.detail_price);
+		 	})
+		}
 	})
 
 </script>

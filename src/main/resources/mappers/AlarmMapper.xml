@@ -5,11 +5,12 @@
 	
 <mapper namespace="com.sinc.greentumbler.alarm">
 	<select id="selectAll" parameterType="String" resultType="alarm">
-		SELECT A.ALARM_ID, A.MSG, A.ACCOUNT_ID, A.ALARM_TYPE, AO.ORDER_ID
+		SELECT A.ALARM_ID, A.MSG, A.ACCOUNT_ID, A.ALARM_TYPE, AO.ORDER_ID, TO_CHAR(ALARM_TIME, 'YYYY.MM.DD HH:MI') AS ALARM_TIME
 		FROM SGT_ALARM A
 		LEFT JOIN SGT_ALARM_ORDER AO
 		ON A.ALARM_ID= AO.ALARM_ID
 		WHERE A.ACCOUNT_ID=#{ account_id }
+		ORDER BY ALARM_TIME DESC
 	</select>
 	<select id="insertRow" parameterType="alarm" resultType="int">
 		INSERT INTO SGT_ALARM (ALARM_ID, MSG, ACCOUNT_ID, ALARM_TYPE)

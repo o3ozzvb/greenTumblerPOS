@@ -176,15 +176,7 @@
             </div>
         </div>
         
-        <%@include file="./modals/myMenuBtnModal.jsp"%>
-        <%@include file="./modals/recentOrderBtnModal.jsp"%>
-        <%@include file="./modals/lostTumblerBtnModal.jsp"%>
-        <%@include file="./modals/chargeBtnModal.jsp"%>
-        <%@include file="./modals/tumblerBtnModal.jsp"%>
-        <%@include file="./modals/payingModal.jsp"%>
-        <%@include file="./modals/alertModal.jsp"%>
-        <%@include file="./spinner.jsp"%>
-
+        
 		<script>
 			let menus = JSON.parse('${ menus }');
 			let orderList = []; // OrderList 의 묶음. Order Model 에 들어가게 된다.
@@ -194,6 +186,30 @@
 			let tumblerMoney = -1; // 텀블러 잔액
 			let tumblerInfo = null; // 로드된 텀블러가 담기게 되는 변수
 			let chargeTumblerInfo = null; // 충전 시에 텀블러 정보가 담기게 되는 변수
+			
+			function validateTumbler(tumblerInfo) {
+				// -1 : 텀블러 정보 조회되지 않음
+				// 0 : 분실된 텀블러로 조회됨 (충전 가능)
+				// +1 : 정상 상황
+				if(tumblerInfo == null) {
+					return -1;
+				} else if(tumblerInfo.lost_yn) {
+					return 0;
+				} else {
+					return 1;
+				}
+
+			}
+		</script>
+		<%@include file="./modals/myMenuBtnModal.jsp"%>
+        <%@include file="./modals/recentOrderBtnModal.jsp"%>
+        <%@include file="./modals/lostTumblerBtnModal.jsp"%>
+        <%@include file="./modals/chargeBtnModal.jsp"%>
+        <%@include file="./modals/tumblerBtnModal.jsp"%>
+        <%@include file="./modals/payingModal.jsp"%>
+        <%@include file="./modals/alertModal.jsp"%>
+        <%@include file="./spinner.jsp"%>
+		<script>
 			
 			function sendTumblerRequest(url, method, data, success) {
 				$.ajaxSettings.traditional = true;
@@ -314,32 +330,48 @@
 				
 				// 결제 버튼이 클릭되었을 때
 				$("#payBtn").on("click", function(e){
+					let msg = "";
+					if(validateTumbler(tumblerInfo) <= 0) {
+						// 텀블러가 유효하지 않은 경우
+						msg = "유효한 텀블러 정보가 아닙니다.";
+						$("#errorMsg").text(msg);
+						$("#alertModal").modal("show");
 					
-					let url = "/greenTumblerServer/pos/pay/" + tumblerInfo.nfc_id;
-					let method = "POST";
-					orderList = validateOrderList(orderList);
-					
-					console.log(orderList);
-					$("#payingModal").modal("show");
-					
-					sendTumblerRequestWithJSON(url, method, JSON.stringify(orderList), function(tumbler){
+					}
+					else if(orderList.length <= 0) {
+						// 장바구니에 아무것도 담기지 않은 경우
+						msg = "주문 항목을 선택해 주세요.";
+						$("#errorMsg").text(msg);
+						$("#alertModal").modal("show");
 						
-						let data = {
-			                accountId: tumblerInfo.account_id,
-			                msg: tumblerInfo.nickName + " 님의 분실 텀블러가 남산스테이트점에서 결제 시도되었습니다."
-			            };
-						let msg = "";
-						if(tumbler.account_id == null && tumbler.nickName == null) {
-							$("#pay-modal-title").text("결제 실패");
-							msg = "잔액이 부족합니다";
-						} else {
-							$("#pay-modal-title").text("결제 완료");
-							msg += tumbler.account_id + " / 잔액 : " + tumbler.tumbler_Money; 
-						}
+					}
+					else {
+						let url = "/greenTumblerServer/pos/pay/" + tumblerInfo.nfc_id;
+						let method = "POST";
+						orderList = validateOrderList(orderList);
 						
-						$("#paymentMsg").text(msg);
+						console.log(orderList);
+						$("#payingModal").modal("show");
 						
-					}); 
+						sendTumblerRequestWithJSON(url, method, JSON.stringify(orderList), function(tumbler){
+							
+							let data = {
+				                accountId: tumblerInfo.account_id,
+				                msg: tumblerInfo.nickName + " 님의 분실 텀블러가 남산스테이트점에서 결제 시도되었습니다."
+				            };
+							let msg = "";
+							if(tumbler.account_id == null && tumbler.nickName == null) {
+								$("#pay-modal-title").text("결제 실패");
+								msg = "잔액이 부족합니다";
+							} else {
+								$("#pay-modal-title").text("결제 완료");
+								msg += tumbler.account_id + " / 잔액 : " + tumbler.tumbler_Money; 
+							}
+							
+							$("#paymentMsg").text(msg);
+							
+						});
+					}
 				})
 			})
 			
@@ -478,6 +510,7 @@
 				updateOrderList(orderList, null);
 				e.stopPropagation();
 			}
+			
 		</script>
           
 		<script src="/greenTumblerServer/resources/js/script.js"></script>       

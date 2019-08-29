@@ -25,56 +25,64 @@
 </div>
 
 <script>
+
 	$('#myMenuModal').on('shown.bs.modal', function (e) {
+		
 		// let tumbler = JSON.parse('${ sessionScope.tumblerJson }');
-	 	let url = "/greenTumblerServer/pos/getPrivateMenu" ;
-	 	let method = "GET";
-	 	
-	 	let data = {
-	 			accountId: tumblerInfo.account_id
-	 	}
-	 	
-	 	sendTumblerRequest(url, method, data, function(tumbler){
-	 		
-	 		console.log(tumbler);
-	 		$("#my-menu-area").html("");
-	 		for(var i = 0 ; i < tumbler.length ; i++) {
-	 			
-	 			$("#my-menu-area").append(`
-	 				<div class="col-9 mt-2">
-	 					<input readonly="true" type="text" class="form-control" 
-	 						placeholder="`
-	 							+ tumbler[i].menu_name 
-	 							+ ` / `
-	 							+ (tumbler[i].size=="T" ? `Tall` : tumbler[i].size=="G" ? `Grande` : `Venti` ) 
-	 							+ ` / `
-	 							+ (tumbler[i].cup=="T" ? `텀블러` : `개인컵`) 
-	 							+ ` / `
-	 							+ (tumbler[i].drizzle ? `드리즐` : ``)
-	 							+ (tumbler[i].shot ? `샷` : ``)
-	 							+ (tumbler[i].whipped_cream? `휘핑` : ``)
-	 							+ (tumbler[i].syrup ? `시럽` : ``) + ` " />	
-	 				</div>
-	 				<div class="col-3 mt-2">
-	 					<button type="button" 
-	 							class="btn btn-light"
-	 							data-menu_name="`+ tumbler[i].menu_name +`"
-	 							data-size="`+ tumbler[i].size +`"
-	 							data-cup="`+ tumbler[i].cup +`"
-	 							data-drizzle="`+ tumbler[i].drizzle +`"
-	 							data-shot="`+ tumbler[i].shot +`"
-	 							data-syrup="`+ tumbler[i].syrup +`"
-	 							data-whipped_cream="`+ tumbler[i].whipped_cream +`"
-	 							data-price="`+ tumbler[i].price +`"
-	 							data-menu_id="`+ tumbler[i].menu_id +`"
-	 							onclick="addMyMenuToOrderList(event)">
-	 						가져오기
-	 					</button>	
-	 				</div>	
-	 			`);
-	 			
-	 		}
-	 	})
+		if(validateTumbler(tumblerInfo) <= 0) {
+			let msg = "텀블러 정보가 유효한지 확인해 주세요.";
+			showAlert(msg, "myMenuModal", "alertModal");	
+			
+		} else {
+			let url = "/greenTumblerServer/pos/getPrivateMenu" ;
+		 	let method = "GET";
+		 	
+		 	let data = {
+		 			accountId: tumblerInfo.account_id
+		 	}
+		 	
+		 	sendTumblerRequest(url, method, data, function(tumbler){
+		 		
+		 		console.log(tumbler);
+		 		$("#my-menu-area").html("");
+		 		for(var i = 0 ; i < tumbler.length ; i++) {
+		 			
+		 			$("#my-menu-area").append(`
+		 				<div class="col-9 mt-2">
+		 					<input readonly="true" type="text" class="form-control" 
+		 						placeholder="`
+		 							+ tumbler[i].menu_name 
+		 							+ ` / `
+		 							+ (tumbler[i].size=="T" ? `Tall` : tumbler[i].size=="G" ? `Grande` : `Venti` ) 
+		 							+ ` / `
+		 							+ (tumbler[i].cup=="T" ? `텀블러` : `개인컵`) 
+		 							+ ` / `
+		 							+ (tumbler[i].drizzle ? `드리즐` : ``)
+		 							+ (tumbler[i].shot ? `샷` : ``)
+		 							+ (tumbler[i].whipped_cream? `휘핑` : ``)
+		 							+ (tumbler[i].syrup ? `시럽` : ``) + ` " />	
+		 				</div>
+		 				<div class="col-3 mt-2">
+		 					<button type="button" 
+		 							class="btn btn-light"
+		 							data-menu_name="`+ tumbler[i].menu_name +`"
+		 							data-size="`+ tumbler[i].size +`"
+		 							data-cup="`+ tumbler[i].cup +`"
+		 							data-drizzle="`+ tumbler[i].drizzle +`"
+		 							data-shot="`+ tumbler[i].shot +`"
+		 							data-syrup="`+ tumbler[i].syrup +`"
+		 							data-whipped_cream="`+ tumbler[i].whipped_cream +`"
+		 							data-price="`+ tumbler[i].price +`"
+		 							data-menu_id="`+ tumbler[i].menu_id +`"
+		 							onclick="addMyMenuToOrderList(event)">
+		 						가져오기
+		 					</button>	
+		 				</div>	
+		 			`);
+		 			
+		 		}
+		 	})
+		}
 	})
 	
 	function addMyMenuToOrderList(e) {

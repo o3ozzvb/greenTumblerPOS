@@ -109,7 +109,6 @@ public class HomeController extends FCMController {
 		System.out.println(tumbler);
 		tumbler = tumbService.updateRow(tumbler);
 		
-		
 		// 결제가 정상적으로 이루어 진 경우 알람을 쌓는다.
 		System.out.println("Add Alarm");
 		

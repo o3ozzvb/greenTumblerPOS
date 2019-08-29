@@ -34,13 +34,22 @@
   </div>
 </div>
 <script>
+	$('#lostTumblerModal').on('show.bs.modal', function(e){
+		if(validateTumbler(tumblerInfo) != 0) {
+			// 분실된 텀블러의 경우
+			e.preventDefault();
+			let msg = "분실된 텀블러가 아닙니다.";
+			showAlert(msg, "lostTumblerModal", "alertModal");	
+		}
+	});
+	
 	$("#sendLostMsg").on("click", function(e){
 		$.ajax({
             url: "/greenTumblerServer/fcm/sendLostMsg",
             type: "POST",
             data: {
                 accountId: tumblerInfo.account_id,
-                msg: tumblerInfo.nickName + " 님의 분실 텀블러가 남산스테이트점에서 결제 시도되었습니다."
+                msg: tumblerInfo.nickName + " 님의 분실 텀블러가 남산스테이트점에서 조회되었습니다."
             },
             success: function(e) {
                 console.log(e);
