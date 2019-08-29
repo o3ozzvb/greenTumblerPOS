@@ -54,6 +54,10 @@ public class TumblerService implements DefaultService{
 		return dao.selectTumb(accountId);
 	}
 	
+	public TumblerVO selectOneByTumblerId(int tumblerId) {
+		return dao.selectOneByTumblerId(tumblerId);
+	}
+	
 	//update payYn column 
 	public TumblerVO updatePayYn(TumblerVO tumbler) {
 		System.out.println("service updatePayYn");
@@ -64,6 +68,10 @@ public class TumblerService implements DefaultService{
 	public int addTumbler(TumblerVO tumbler) {
 		System.out.println("service addTumbler");
 		return dao.addTumbler(tumbler);
+	}
+	
+	public int addTumblerWithPIN(TumblerVO tumbler) {
+		return dao.addTumblerWithPIN(tumbler);
 	}
 
 	// charge moeny to Tumbler

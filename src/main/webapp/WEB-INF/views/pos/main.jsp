@@ -22,7 +22,7 @@
         <div class="container mt-3">
             <div class="row">
                 <div class="col-6 grid-upper grid-gray white">
-                    <div class="row">
+                    <div class="row mt-2">
                     	<div class="col-3">
                     		<div class="row">
                     			<div class="col-12">
@@ -36,6 +36,7 @@
                     						<div class="pos-btn pos-category-btn">${ item }</div>
                     					</c:if>
                     				</c:forEach>
+                    				<div class="pos-btn pos-category-btn">나만의메뉴</div>
                     			</div>
                     		</div>
                     	</div>
@@ -59,33 +60,7 @@
                     			<div class="col-4 pos-menu-grid">
                     				<div class="pos-btn pos-menu-btn"></div>
                     			</div>
-                    			<div class="col-4 pos-menu-grid">
-                    				<div class="pos-btn pos-menu-btn"></div>
-                    			</div>
-                    			<div class="col-4 pos-menu-grid">
-                    				<div class="pos-btn pos-menu-btn"></div>
-                    			</div>
-                    			<div class="col-4 pos-menu-grid">
-                    				<div class="pos-btn pos-menu-btn"></div>
-                    			</div>
-                    			<div class="col-4 pos-menu-grid">
-                    				<div class="pos-btn pos-menu-btn"></div>
-                    			</div>
-                    			<div class="col-4 pos-menu-grid">
-                    				<div class="pos-btn pos-menu-btn"></div>
-                    			</div>
-                    			<div class="col-4 pos-menu-grid">
-                    				<div class="pos-btn pos-menu-btn"></div>
-                    			</div>
-                    			<div class="col-4 pos-menu-grid">
-                    				<div class="pos-btn pos-menu-btn"></div>
-                    			</div>
-                    			<div class="col-4 pos-menu-grid">
-                    				<div class="pos-btn pos-menu-btn"></div>
-                    			</div>
-                    			<div class="col-4 pos-menu-grid">
-                    				<div class="pos-btn pos-menu-btn"></div>
-                    			</div>
+                    			
                     		</div>
                     	</div>
                     </div>
@@ -137,26 +112,10 @@
                 	<p>고객명 : <span id="nickName"></span></p>
                 	<p>분실 여부 : <span id="lostYn"></span> / 결제 가능 여부 : <span id="payYn"></span></p>
                 </div>
-            </div>
-            <div class="row">
-            	<div class="col-6 offset-6" style="background-color: #C8D0D8;">
-            		<div class="row">
-            			<div class="col-3 offset-1">
-            				<button class="middle-btn btn border-green no-padding-vertical transparent"
-            					data-toggle="modal" data-target="#myMenuModal">나만의<br/>메뉴</button>
-            			</div>
-            			<div class="col-3 offset-1">
-            				<button class="middle-btn btn border-green no-padding-vertical transparent"
-            					data-toggle="modal" data-target="#recentOrderModal">최근<br/>주문정보</button>
-            			</div>
-            			<div class="col-3 offset-1">
-            				<button class="middle-btn btn border-red no-padding-vertical transparent"
-            					data-toggle="modal" data-target="#lostTumblerModal">텀블러<br/>분실신고</button>
-            			</div>
-            		</div>
-            	</div>
-            </div>
+			</div>
+			
             <img style="margin-top:7px" src="/greenTumblerServer/resources/images/txt_peropt.png" height="40px"/>
+            
             <div class="row mt-3">
                 <div class="button-area col-6">
                     <button data-personal="shot" class="bold btn btn-secondary btn-lg personal-btn">샷</button>
@@ -164,12 +123,14 @@
                     <button data-personal="whipped_cream" class="bold btn btn-secondary btn-lg personal-btn">휘핑</button>
                     <button data-personal="drizzle" class="bold btn btn-secondary btn-lg personal-btn">드리즐</button>
                 </div>
+                
                	<div class="col-2">
             		<button class="bold btn btn-success pay-btn float-right" data-toggle="modal" data-target="#chargeModal">충전</button>
                 </div>
                 <div class="col-2">
             		<button class="bold btn btn-success pay-btn float-right" data-toggle="modal" data-target="#tumblerModal">텀블러</button>
                 </div>
+                
             	<div class="col-2">
             		<button id="payBtn" class="bold btn btn-danger pay-btn float-right">결제</button>
                 </div>
@@ -255,7 +216,16 @@
 		        	
 		        	if(menus[i].category2 == defaultCategory) {
 		        		
-		        		posMenuBtns[idx].innerText = menus[i].menu_name;
+		        		posMenuBtns[idx].innerHTML += `
+		        			<div class="menu-name" style="height: 55px;">
+		        				`+ menus[i].menu_name +`
+		        			</div>
+		        		`;
+		        		posMenuBtns[idx].innerHTML += `
+		        			<div style="text-center">
+		        				<img src="`+ menus[i].image +`" style="width: 80%; border-radius: 40%" />
+		        			</div>
+		        		`;
 		        		posMenuBtns[idx].dataset.price = menus[i].price;
 		        		posMenuBtns[idx].dataset.menu_id = menus[i].menu_id;
 		        		posMenuBtns[idx].dataset.menu_name = menus[i].menu_name;
