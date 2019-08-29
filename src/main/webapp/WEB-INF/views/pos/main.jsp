@@ -147,6 +147,7 @@
 			let tumblerMoney = -1; // 텀블러 잔액
 			let tumblerInfo = null; // 로드된 텀블러가 담기게 되는 변수
 			let chargeTumblerInfo = null; // 충전 시에 텀블러 정보가 담기게 되는 변수
+			let category2 = null;
 			
 			function validateTumbler(tumblerInfo) {
 				// -1 : 텀블러 정보 조회되지 않음

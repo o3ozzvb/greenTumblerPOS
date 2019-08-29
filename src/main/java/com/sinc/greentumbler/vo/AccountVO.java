@@ -11,6 +11,7 @@ public class AccountVO {
 	private int star_cnt;
 	private String fcm_token;
 	
+	
 	public AccountVO() {}
 
 	
