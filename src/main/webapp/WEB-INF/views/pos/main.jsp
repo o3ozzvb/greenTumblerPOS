@@ -1,144 +1,167 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta name="viewport" content="width=device-width, user-scalable=no">
-        <!-- CSS import -->
-        <link rel="stylesheet" href="/greenTumblerServer/resources/css/bootstrap.css">
-        <link rel="stylesheet" href="/greenTumblerServer/resources/css/style.css">
-        <link rel="stylesheet" href="/greenTumblerServer/resources/css/modal.css">
-        <!-- JS import -->
-        <script src="/greenTumblerServer/resources/js/jquery-3.3.1.js"></script>
-        <script src="/greenTumblerServer/resources/js/popper-1.14.7.js"></script>
-        <script src="/greenTumblerServer/resources/js/bootstrap.js"></script>  
-        <!-- IONICONS -->
-        <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
-    </head>
+<head>
+<meta name="viewport" content="width=device-width, user-scalable=no">
+<!-- CSS import -->
+<link rel="stylesheet"
+	href="/greenTumblerServer/resources/css/bootstrap.css">
+<link rel="stylesheet"
+	href="/greenTumblerServer/resources/css/style.css">
+<link rel="stylesheet"
+	href="/greenTumblerServer/resources/css/modal.css">
+<!-- JS import -->
+<script src="/greenTumblerServer/resources/js/jquery-3.3.1.js"></script>
+<script src="/greenTumblerServer/resources/js/popper-1.14.7.js"></script>
+<script src="/greenTumblerServer/resources/js/bootstrap.js"></script>
+<!-- IONICONS -->
+<script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+</head>
 
-    <body class="background">
-    	<%@include file="./navbar.jsp"%>
-        <div class="container mt-3">
-            <div class="row">
-                <div class="col-6 grid-upper grid-gray white">
-                    <div class="row mt-2">
-                    	<div class="col-3">
-                    		<div class="row">
-                    			<div class="col-12">
-                    				<c:forEach 	items="${ category2 }" 
-                    							var="item"
-                    							varStatus="status">
-                    					<c:if test="${ status.first == true }">
-                    						<div id="defaultCategory" class="pos-btn pos-category-btn selected">${ item }</div>
-                    					</c:if>
-                    					<c:if test="${ status.first == false }">
-                    						<div class="pos-btn pos-category-btn">${ item }</div>
-                    					</c:if>
-                    				</c:forEach>
-                    				<div class="pos-btn pos-category-btn">나만의메뉴</div>
-                    			</div>
-                    		</div>
-                    	</div>
-                    	<div class="col-9">
-                    		<div class="row">
-                    			<div class="col-4 pos-menu-grid">
-                    				<div class="pos-btn pos-menu-btn"></div>
-                    			</div>
-                    			<div class="col-4 pos-menu-grid">
-                    				<div class="pos-btn pos-menu-btn"></div>
-                    			</div>
-                    			<div class="col-4 pos-menu-grid">
-                    				<div class="pos-btn pos-menu-btn"></div>
-                    			</div>
-                    			<div class="col-4 pos-menu-grid">
-                    				<div class="pos-btn pos-menu-btn"></div>
-                    			</div>
-                    			<div class="col-4 pos-menu-grid">
-                    				<div class="pos-btn pos-menu-btn"></div>
-                    			</div>
-                    			<div class="col-4 pos-menu-grid">
-                    				<div class="pos-btn pos-menu-btn"></div>
-                    			</div>
-                    			
-                    		</div>
-                    	</div>
-                    </div>
-                </div>
-                
-                <div class="col-5 offset-1 grid-upper grid-black white">
-                    <div class="row text-center">
-                    	<div class="col-5">
-                    		<p>상품</p>
-                    	</div>
-                    	<div class="col-3">
-                    		<p>#</p>
-                    	</div>
-                    	<div class="col-1">
-                    		<p>Size</p>
-                    	</div>
-                    	<div class="col-3">
-                    		<p>가격</p>
-                    	</div>
-                    </div>
-                    <div class="col-12">
-                    	<hr/>
-                    </div>
-                    <div id="order-list-area" class="row text-center">
-                    
-                    </div>
-                    <div style="position: absolute; top: 90%; width: 100%;">
-	                    <div id="total-area" class="row">
-	                    	<div class="col-6">
-	                    		<h5>개수 : <span id="totalCount">0</span>건</h5>
-	                    	</div>
-	                    	<div class="col-6" style="text-align: left;">
-	                    		<h5>합계 : <span id="totalPrice">0</span>원</h5>
-	                    	</div>
-	                    </div>
-	                </div>
-                </div>
-            </div>
-            <!-- 하단 메뉴 영역 -->
-            <img style="margin-top:7px" src="/greenTumblerServer/resources/images/txt_size.png" height="40px"/>
-            <div class="row mt-3">
-                <div class="button-area col-4">
-                	<img class="size-btn" data-size="tall" src="/greenTumblerServer/resources/images/tall_size.png" width="70px"/>
-                	<img class="size-btn" data-size="grande" src="/greenTumblerServer/resources/images/grande_size.png" width="100px"/>
-                	<img class="size-btn" data-size="venti" src="/greenTumblerServer/resources/images/venti_size.png" width="80px"/>
-                </div>
-                <div class="col-6 offset-2 tumbler-info-area">
-                	<p>충전 금액 : <span id="tumblerMoney"></span>원</p>
-                	<p>고객명 : <span id="nickName"></span></p>
-                	<p>분실 여부 : <span id="lostYn"></span> / 결제 가능 여부 : <span id="payYn"></span></p>
-                </div>
+<body class="background">
+	<%@include file="./navbar.jsp"%>
+	<div class="container mt-3">
+		<div class="row">
+			<div class="col-6 grid-upper grid-gray white">
+				<div class="row mt-2">
+					<div class="col-3">
+						<div class="row">
+							<div class="col-12">
+								<c:forEach items="${ category2 }" var="item" varStatus="status">
+									<c:if test="${ status.first == true }">
+										<div id="defaultCategory"
+											class="pos-btn pos-category-btn selected">${ item }</div>
+									</c:if>
+									<c:if test="${ status.first == false }">
+										<div class="pos-btn pos-category-btn">${ item }</div>
+									</c:if>
+								</c:forEach>
+								<div class="pos-btn pos-category-btn">나만의메뉴</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-9">
+						<div class="row">
+							<div class="col-4 pos-menu-grid">
+								<div class="pos-btn pos-menu-btn"></div>
+							</div>
+							<div class="col-4 pos-menu-grid">
+								<div class="pos-btn pos-menu-btn"></div>
+							</div>
+							<div class="col-4 pos-menu-grid">
+								<div class="pos-btn pos-menu-btn"></div>
+							</div>
+							<div class="col-4 pos-menu-grid">
+								<div class="pos-btn pos-menu-btn"></div>
+							</div>
+							<div class="col-4 pos-menu-grid">
+								<div class="pos-btn pos-menu-btn"></div>
+							</div>
+							<div class="col-4 pos-menu-grid">
+								<div class="pos-btn pos-menu-btn"></div>
+							</div>
+
+						</div>
+					</div>
+				</div>
 			</div>
-			
-            <img style="margin-top:7px" src="/greenTumblerServer/resources/images/txt_peropt.png" height="40px"/>
-            
-            <div class="row mt-3">
-                <div class="button-area col-6">
-                    <button data-personal="shot" class="bold btn btn-secondary btn-lg personal-btn">샷</button>
-                    <button data-personal="syrup" class="bold btn btn-secondary btn-lg personal-btn">시럽</button>
-                    <button data-personal="whipped_cream" class="bold btn btn-secondary btn-lg personal-btn">휘핑</button>
-                    <button data-personal="drizzle" class="bold btn btn-secondary btn-lg personal-btn">드리즐</button>
-                </div>
-                
-               	<div class="col-2">
-            		<button class="bold btn btn-success pay-btn float-right" data-toggle="modal" data-target="#chargeModal">충전</button>
-                </div>
-                <div class="col-2">
-            		<button class="bold btn btn-success pay-btn float-right" data-toggle="modal" data-target="#tumblerModal">텀블러</button>
-                </div>
-                
-            	<div class="col-2">
-            		<button id="payBtn" class="bold btn btn-danger pay-btn float-right">결제</button>
-                </div>
-            </div>
-        </div>
-        
-        
-		<script>
+
+			<div class="col-5 offset-1 grid-upper grid-black white">
+				<div class="row text-center">
+					<div class="col-5">
+						<p>상품</p>
+					</div>
+					<div class="col-3">
+						<p>#</p>
+					</div>
+					<div class="col-1">
+						<p>Size</p>
+					</div>
+					<div class="col-3">
+						<p>가격</p>
+					</div>
+				</div>
+				<div class="col-12">
+					<hr />
+				</div>
+				<div id="order-list-area" class="row text-center"></div>
+				<div style="position: absolute; top: 90%; width: 100%;">
+					<div id="total-area" class="row">
+						<div class="col-6">
+							<h5>
+								개수 : <span id="totalCount">0</span>건
+							</h5>
+						</div>
+						<div class="col-6" style="text-align: left;">
+							<h5>
+								합계 : <span id="totalPrice">0</span>원
+							</h5>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- 하단 메뉴 영역 -->
+		<img style="margin-top: 7px"
+			src="/greenTumblerServer/resources/images/txt_size.png" height="40px" />
+		<div class="row mt-3">
+			<div class="button-area col-4">
+				<img class="size-btn" data-size="tall"
+					src="/greenTumblerServer/resources/images/tall_size.png"
+					width="60px" /> <img class="size-btn" data-size="grande"
+					src="/greenTumblerServer/resources/images/grande_size.png"
+					width="90px" /> <img class="size-btn" data-size="venti"
+					src="/greenTumblerServer/resources/images/venti_size.png"
+					width="60px" />
+			</div>
+			<div class="col-5 offset-3 tumbler-info-area">
+				<p>
+					충전 금액 : <span id="tumblerMoney"></span>원
+				</p>
+				<p>
+					고객명 : <span id="nickName"></span>
+				</p>
+				<p>
+					분실 여부 : <span id="lostYn"></span> / 결제 가능 여부 : <span id="payYn"></span>
+				</p>
+			</div>
+		</div>
+
+		<img style="margin-top: 7px"
+			src="/greenTumblerServer/resources/images/txt_peropt.png"
+			height="40px" />
+
+		<div class="row mt-2">
+			<div class="button-area col-6">
+				<button data-personal="shot"
+					class="bold btn btn-secondary btn-lg personal-btn">샷</button>
+				<button data-personal="syrup"
+					class="bold btn btn-secondary btn-lg personal-btn">시럽</button>
+				<button data-personal="whipped_cream"
+					class="bold btn btn-secondary btn-lg personal-btn">휘핑</button>
+				<button data-personal="drizzle"
+					class="bold btn btn-secondary btn-lg personal-btn">드리즐</button>
+			</div>
+
+			<div class="col-2">
+				<button class="bold btn btn-success pay-btn float-right"
+					data-toggle="modal" data-target="#chargeModal">충전</button>
+			</div>
+			<div class="col-2">
+				<button class="bold btn btn-success pay-btn float-right"
+					data-toggle="modal" data-target="#tumblerModal">텀블러</button>
+			</div>
+
+			<div class="col-2">
+				<button id="payBtn" class="bold btn btn-danger pay-btn float-right">결제</button>
+			</div>
+		</div>
+	</div>
+
+
+	<script>
 			let menus = JSON.parse('${ menus }');
 			let orderList = []; // OrderList 의 묶음. Order Model 에 들어가게 된다.
 			let selectedMenu = {}; // 가장 최근에 선택된 메뉴를 나타낸다.
@@ -162,15 +185,15 @@
 
 			}
 		</script>
-		<%@include file="./modals/myMenuBtnModal.jsp"%>
-        <%@include file="./modals/recentOrderBtnModal.jsp"%>
-        <%@include file="./modals/lostTumblerBtnModal.jsp"%>
-        <%@include file="./modals/chargeBtnModal.jsp"%>
-        <%@include file="./modals/tumblerBtnModal.jsp"%>
-        <%@include file="./modals/payingModal.jsp"%>
-        <%@include file="./modals/alertModal.jsp"%>
-        <%@include file="./spinner.jsp"%>
-		<script>
+	<%@include file="./modals/myMenuBtnModal.jsp"%>
+	<%@include file="./modals/recentOrderBtnModal.jsp"%>
+	<%@include file="./modals/lostTumblerBtnModal.jsp"%>
+	<%@include file="./modals/chargeBtnModal.jsp"%>
+	<%@include file="./modals/tumblerBtnModal.jsp"%>
+	<%@include file="./modals/payingModal.jsp"%>
+	<%@include file="./modals/alertModal.jsp"%>
+	<%@include file="./spinner.jsp"%>
+	<script>
 			
 			function sendTumblerRequest(url, method, data, success) {
 				$.ajaxSettings.traditional = true;
@@ -482,7 +505,7 @@
 			}
 			
 		</script>
-          
-		<script src="/greenTumblerServer/resources/js/script.js"></script>       
-    </body>
+
+	<script src="/greenTumblerServer/resources/js/script.js"></script>
+</body>
 </html>

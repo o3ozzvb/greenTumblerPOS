@@ -4,9 +4,9 @@
 
 <div class="container mt-3">
 	<div class="row">
-		<div class="col-12">
+		<div class="col-6">
 			<img class="starbucks-logo" src="/greenTumblerServer/resources/images/starbucks-logo.png" />
-			<span class="white-font">스타벅스 POS</span>
+			<img src="/greenTumblerServer/resources/images/starbucks_pos.png" height="50px"/>
 		</div>
 	</div>
 </div>
