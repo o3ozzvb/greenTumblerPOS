@@ -48,4 +48,10 @@ public class MHomeController extends FCMController {
 		System.out.println(accountId);
 		return accountService.getMyAlarms(accountId);
 	}
+	
+	@RequestMapping(value="/updateFCM", method=RequestMethod.POST)
+	@ResponseBody
+	public int updateFCM(AccountVO account) {
+		return accountService.updateFCMToken(account);
+	}
 }

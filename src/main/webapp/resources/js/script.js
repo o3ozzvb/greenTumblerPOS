@@ -109,6 +109,11 @@ $(function(){
 	        $(this).addClass("selected");
 	        
 	        let element = e.target.parentNode.dataset;
+	        if(!(element.menu_id)) {
+	        	element = e.target.parentNode.parentNode.dataset;
+	        }
+	        console.log(element);
+	        
 	        selectedMenu["menu_id"] = parseInt(element.menu_id);
 	        selectedMenu["menu_name"] = element.menu_name;
 	        selectedMenu["price"] = element.price;

@@ -32,6 +32,10 @@ public class AccountService implements DefaultService {
 		return dao.getMyAlarms(accountId);
 	}
 	
+	public int updateFCMToken(AccountVO account) {
+		return dao.updateFCMToken(account);
+	}
+	
 	@Override
 	public Object selectOne(Object obj) {
 		String accountId = (String)obj;

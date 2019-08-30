@@ -116,7 +116,7 @@
 					src="/greenTumblerServer/resources/images/venti_size.png"
 					width="60px" />
 			</div>
-			<div class="col-5 offset-3 tumbler-info-area">
+			<div class="col-5 offset-3 tumbler-info-area" id="tumblerInfo">
 				<p style="position:absolute; margin-top:12px; font-size: 18px; font-weight: 500;">
 					<span id="nickName"></span> 고객님,</br>
 					충전 금액 : <span id="tumblerMoney"></span>원</br>
@@ -130,7 +130,7 @@
 			src="/greenTumblerServer/resources/images/txt_peropt.png"
 			height="40px" />
 		
-		<img src="/greenTumblerServer/resources/images/tumbler.png" style="position:absolute; top:490px; left:415px; width:120px"
+		<img id="tumblerIcon" src="/greenTumblerServer/resources/images/tumbler.png" style="position:absolute; top:490px; left:415px; width:120px"
 		data-toggle="modal" data-target="#tumblerModal" />
 		<button class="bold btn btn-success pay-btn float-right" style="position:absolute; margin-top:50px; left:590px;"
 			data-toggle="modal" data-target="#chargeModal">충전</button>

@@ -16,6 +16,10 @@ hr {
 	margin: 1px 0px;
 }
 
+#tumblerIcon:hover {
+	transform: rotate( 28deg );
+}
+
 .bold {
 	font-weight: 600;
 }

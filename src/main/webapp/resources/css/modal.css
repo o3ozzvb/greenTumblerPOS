@@ -4,6 +4,10 @@
 	background-color: black;
 	color: white;
 }
+.modal-content.tumblerModal {
+	width: 70%;
+	margin: 0 auto; 
+}
 
 .modal-title {
 	color: white;

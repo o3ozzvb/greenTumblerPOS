@@ -22,6 +22,10 @@
 		ON		PM.MENU_ID = M.MENU_ID
 		WHERE 	PM.ACCOUNT_ID=#{ account_id }
 	</select>
+	<select id="updateFCMToken" resultType="int">
+		UPDATE  SGT_ACCOUNT SET FCM_TOKEN=#{ fcm_token }
+		WHERE	ACCOUNT_ID=#{ account_id }
+	</select>
 </mapper> 
  
 

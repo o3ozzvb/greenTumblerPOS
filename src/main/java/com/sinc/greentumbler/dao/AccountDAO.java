@@ -32,4 +32,7 @@ public class AccountDAO {
 		System.out.println("AccountDAO#getMyAlarms");
 		return session.selectList("com.sinc.greentumbler.alarm.selectAll", accountId);
 	}
+	public int updateFCMToken(AccountVO account) {
+		return session.update("com.sinc.greentumbler.account.updateFCMToken", account);
+	}
 }

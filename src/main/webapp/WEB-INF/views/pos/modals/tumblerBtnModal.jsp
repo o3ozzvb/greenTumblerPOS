@@ -4,17 +4,17 @@
 
 <!-- Modal -->
 <div class="modal fade" id="tumblerModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content tumblerModal">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">텀블러 가져오기</h5>
       </div>
       <div class="modal-body">
    		<div class="row">
-   			<div class="col-7">
+   			<div class="col-12">
    				<input id="nfcId" type="text" class="form-control" autofocus placeholder="텀블러 번호" />	
    			</div>
-   			<div class="col-5">
+   			<div style="display: none;" class="col-5">
       			<button id="getTumblerBtn" type="button" class="btn btn-light">불러오기</button>
       			<button type="button" class="btn btn-secondary" data-dismiss="modal">취소</button>	
    			</div>
@@ -39,7 +39,9 @@
 			clearTimeout(typingTimer);
 			
 			typingTimer = setTimeout(function(){
-				$("#getTumblerBtn").click();	
+				$("#getTumblerBtn").click();
+				
+				
 			}, doneTypingInterval);
 		})
 		
@@ -56,13 +58,7 @@
 			chargeTumblerInfo = tumbler;
 			
 			if(tumbler.lost_yn) {
-				/* let url = "/greenTumblerServer/pos/addLostAlarm";
-				let method = "POST";
-				let data = tumblerInfo;
-				
-				sendTumblerRequest(url, method, data, function(result){
-					console.log(result);
-				}); */
+		
 				$("#lostTumblerModal").modal("show");
 				
 			}
@@ -79,10 +75,9 @@
 				tumblerMoney = tumbler.tumbler_Money;
 				$("#before-charge").text(tumblerMoney);
 				$("#before-charge").data("amount", tumblerMoney);
+				$('#tumblerIcon').css('transform','rotate(0deg)');
 			}
 		}
-		
-		
 		
 		$("#getTumblerBtn").on("click", function() {
 			activateSpinner();
