@@ -61,6 +61,7 @@ $(function(){
 	    		        		posMenuBtns[idx].dataset.menu_cnt = 1;
 	    		        		posMenuBtns[idx].dataset.size = myMenu[i].size;
 	    		        		posMenuBtns[idx].dataset.whipped_cream = myMenu[i].whipped_cream;
+	    		        		posMenuBtns[idx].dataset.is_tumbler = true;
 	    		        		posMenuBtns[idx++].dataset.drizzle = myMenu[i].drizzle;
 	    		        		
 	        		        }
@@ -122,6 +123,7 @@ $(function(){
 	        
 	        if(category2 == "나만의메뉴") {
 	        	selectedMenu["line_id"] = orderIdx++;
+	        	selectedMenu["is_tumbler"] = element.is_tumbler=="true";
 	        	updateOrderList(orderList, selectedMenu);
 	        }
 			
