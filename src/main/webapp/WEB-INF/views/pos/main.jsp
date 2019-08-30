@@ -32,13 +32,13 @@
 								<c:forEach items="${ category2 }" var="item" varStatus="status">
 									<c:if test="${ status.first == true }">
 										<div id="defaultCategory"
-											class="pos-btn pos-category-btn selected">${ item }</div>
+											class="pos-btn pos-category-btn vertical-center selected">${ item }</div>
 									</c:if>
 									<c:if test="${ status.first == false }">
-										<div class="pos-btn pos-category-btn">${ item }</div>
+										<div class="pos-btn pos-category-btn vertical-center">${ item }</div>
 									</c:if>
 								</c:forEach>
-								<div class="pos-btn pos-category-btn">나만의메뉴</div>
+								<div class="pos-btn pos-category-btn vertical-center">나만의메뉴</div>
 							</div>
 						</div>
 					</div>
@@ -104,7 +104,7 @@
 			</div>
 		</div>
 		<!-- 하단 메뉴 영역 -->
-		<img style="margin-top: 7px"
+		<img style="margin-top: 10px"
 			src="/greenTumblerServer/resources/images/txt_size.png" height="40px" />
 		<div class="row mt-3">
 			<div class="button-area col-4">
@@ -117,14 +117,11 @@
 					width="60px" />
 			</div>
 			<div class="col-5 offset-3 tumbler-info-area">
-				<p>
-					충전 금액 : <span id="tumblerMoney"></span>원
-				</p>
-				<p>
-					고객명 : <span id="nickName"></span>
-				</p>
-				<p>
-					분실 여부 : <span id="lostYn"></span> / 결제 가능 여부 : <span id="payYn"></span>
+				<p style="position:absolute; margin-top:12px; font-size: 18px; font-weight: 500;">
+					<span id="nickName"></span> 고객님,</br>
+					충전 금액 : <span id="tumblerMoney"></span>원</br>
+					분실 여부 : <span id="lostYn"></span></br>
+					결제 가능 여부 : <span id="payYn"></span>
 				</p>
 			</div>
 		</div>
@@ -132,7 +129,13 @@
 		<img style="margin-top: 7px"
 			src="/greenTumblerServer/resources/images/txt_peropt.png"
 			height="40px" />
-
+		
+		<img src="/greenTumblerServer/resources/images/tumbler.png" style="position:absolute; top:490px; left:415px; width:120px"
+		data-toggle="modal" data-target="#tumblerModal" />
+		<button class="bold btn btn-success pay-btn float-right" style="position:absolute; margin-top:50px; left:590px;"
+			data-toggle="modal" data-target="#chargeModal">충전</button>
+		<button id="payBtn" class="bold btn btn-danger pay-btn float-right" style="position:absolute; margin-top:50px; left:800px;">결제</button>
+		
 		<div class="row mt-2">
 			<div class="button-area col-6">
 				<button data-personal="shot"
@@ -145,18 +148,7 @@
 					class="bold btn btn-secondary btn-lg personal-btn">드리즐</button>
 			</div>
 
-			<div class="col-2">
-				<button class="bold btn btn-success pay-btn float-right"
-					data-toggle="modal" data-target="#chargeModal">충전</button>
-			</div>
-			<div class="col-2">
-				<button class="bold btn btn-success pay-btn float-right"
-					data-toggle="modal" data-target="#tumblerModal">텀블러</button>
-			</div>
-
-			<div class="col-2">
-				<button id="payBtn" class="bold btn btn-danger pay-btn float-right">결제</button>
-			</div>
+			
 		</div>
 	</div>
 
@@ -241,7 +233,7 @@
 		        	if(menus[i].category2 == defaultCategory) {
 		        		
 		        		posMenuBtns[idx].innerHTML += `
-		        			<div class="menu-name" style="height: 55px;">
+		        			<div class="menu-name">
 		        				`+ menus[i].menu_name +`
 		        			</div>
 		        		`;
