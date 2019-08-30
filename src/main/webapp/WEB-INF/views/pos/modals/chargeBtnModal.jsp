@@ -7,32 +7,32 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">최근주문정보</h5>
+        <h5 class="modal-title" id="exampleModalLabel">텀블러 충전</h5>
       </div>
       <div class="modal-body">
    		<div class="row">
    			<div class="col-3">
-   				<button class="btn btn-light charge-amount" data-amount="10000">10000원</button>
+   				<button class="btn btn-light charge-amount" style="width:105px; height:40px; padding:3px;" data-amount="10000" >10000원</button>
    			</div>
    			<div class="col-3">
-   				<button class="btn btn-light charge-amount" data-amount="20000">20000원</button>
+   				<button class="btn btn-light charge-amount" style="width:105px; height:40px; padding:3px;" data-amount="20000">20000원</button>
    			</div>
    			<div class="col-3">
-   				<button class="btn btn-light charge-amount" data-amount="30000">30000원</button>
+   				<button class="btn btn-light charge-amount" style="width:105px; height:40px; padding:3px;" data-amount="30000">30000원</button>
    			</div>
    			<div class="col-3">
-   				<button class="btn btn-light charge-amount" data-amount="50000">50000원</button>
+   				<button class="btn btn-light charge-amount" style="width:105px; height:40px; padding:3px;" data-amount="50000">50000원</button>
    			</div>
    		</div>
    		<div class="row mt-3">
    			<div class="col-6">
    				<div class="white-box charge-box">
-  					<p>충전 전 금액 : <span id="before-charge" data-amount="-1"></span> 원</p>
-  					<p>충전 후 금액 : <span id="after-charge" data-amount="-1"></span> 원</p>
+  					<p style="font-size:16.5px; margin-left:5px;">충전 전 금액 : <span id="before-charge" data-amount="-1"></span> 원</br>
+  					충전 후 금액 : <span id="after-charge" data-amount="-1"></span> 원</p>
    				</div>
    			</div>
 			<div class="col-3 offset-3">
-				<button id="chargeBtn" type="button" class="btn btn-success float-right">충전하기</button>
+				<button id="chargeBtn" type="button" class="btn btn-success float-right" style="width:105px; height:40px; padding:3px;">충전하기</button>
 			</div>
 		</div>
       </div>
@@ -59,6 +59,8 @@
 	$("#chargeBtn").on("click", function(e){
 		let handled = false;
 		
+		activateSpinner();
+		
 		if(e.type == "touchend") {
 			handled = true;
 		} else if(e.type=="click" && !handled) {
@@ -77,7 +79,7 @@
 			
 				sendTumblerRequest(url, method, data, function(tumbler){
 					console.log(tumbler);
-					
+					deactiveSpinner();
 					let msg = tumblerInfo.nickName + "님의 텀블러 잔액이 " + tumbler.tumbler_Money + " 원 으로 충전되었습니다.";
 					showAlert(msg, "chargeModal", "alertModal");
 					$("#tumblerMoney").text(tumblerInfo.tumbler_Money);
