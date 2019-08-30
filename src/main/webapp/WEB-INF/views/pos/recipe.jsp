@@ -125,7 +125,7 @@ input:focus {
 				$.ajax({
 					url : "/greenTumblerServer/pos/getRecipe",
 					data : {
-						nfcId : $("#nfcId").val()
+						nfcId : $("#nfcId").val().replace(/\s/g, '')
 					},
 					type : "POST",
 					dataType : "json",

@@ -45,9 +45,10 @@ public class MTumblerController extends FCMController {
 		return tumbler;
 	}
 	
-	@RequestMapping(value="/payYn", method=RequestMethod.POST)
+	@RequestMapping(value="/payYn/{tumblerId}", method=RequestMethod.POST)
 	@ResponseBody
-	public TumblerVO updatePayYn(TumblerVO tumbler){
+	public TumblerVO updatePayYn(@PathVariable int tumblerId){
+		TumblerVO tumbler = service.selectOneById(tumblerId);
 		TumblerVO result = service.updatePayYn(tumbler);
 		return result;
 	}

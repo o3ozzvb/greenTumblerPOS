@@ -331,6 +331,12 @@
 						$("#alertModal").modal("show");
 						
 					}
+					else if(tumblerInfo.pay_yn == false) {
+						// 장바구니에 아무것도 담기지 않은 경우
+						msg = "결제기능이 비활성화된 텀블러입니다.";
+						$("#errorMsg").text(msg);
+						$("#alertModal").modal("show");
+					}
 					else {
 						let url = "/greenTumblerServer/pos/pay/" + tumblerInfo.nfc_id;
 						let method = "POST";
