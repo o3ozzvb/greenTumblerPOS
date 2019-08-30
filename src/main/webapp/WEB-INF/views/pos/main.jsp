@@ -365,6 +365,7 @@
 						});
 					}
 				})
+				$("#defaultCategory").click();
 			})
 			
 			function validateOrderList(orderList) {
