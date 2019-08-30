@@ -5,8 +5,8 @@
 <div class="container mt-3">
 	<div class="row">
 		<div class="col-6">
-			<img class="starbucks-logo" src="/greenTumblerServer/resources/images/starbucks-logo.png" />
-			<img src="/greenTumblerServer/resources/images/starbucks_pos.png" height="50px"/>
+			<img class="starbucks-logo" src="/greenTumblerServer/resources/images/starbucks-logo.png" style="width:40px; height: 40px;"/>
+			<img src="/greenTumblerServer/resources/images/starbucks_pos.png" style="height: 40px;"/>
 		</div>
 	</div>
 </div>
