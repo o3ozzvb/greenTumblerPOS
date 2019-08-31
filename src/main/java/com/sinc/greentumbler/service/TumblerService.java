@@ -37,6 +37,9 @@ public class TumblerService implements DefaultService{
 		return 0;
 	}
 
+	public int updateGreenSeed(TumblerVO tumbler) {
+		return dao.updateGreenSeed(tumbler);
+	}
 	
 	public TumblerVO updateRow(TumblerVO tumbler) {
 		return dao.updateRow(tumbler);

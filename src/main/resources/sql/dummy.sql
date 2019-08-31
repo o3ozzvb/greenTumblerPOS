@@ -158,7 +158,7 @@ VALUES ( NEXTVAL('SGT_TUMBLER_SEQ'), 'https://green-tumbler-server-s3.s3.ap-nort
 INSERT INTO SGT_TUMBLER (TUMBLER_ID, IMAGE, NFC_ID, ACCOUNT_ID, TUMBLER_NAME, TUMBLER_PIN, GREEN_SEED, TUMBLER_MONEY)
 VALUES ( NEXTVAL('SGT_TUMBLER_SEQ'), 'https://green-tumbler-server-s3.s3.ap-northeast-2.amazonaws.com/tumblers/reserve_white.png','0015598728', 'ujeong', '유정의 텀블러', '0015598728', 148, 10000);
 INSERT INTO SGT_TUMBLER (TUMBLER_ID, IMAGE, NFC_ID, ACCOUNT_ID, TUMBLER_NAME, TUMBLER_PIN, LOST_YN, PAY_YN, GREEN_SEED, TUMBLER_MONEY)
-VALUES ( NEXTVAL('SGT_TUMBLER_SEQ'), 'https://green-tumbler-server-s3.s3.ap-northeast-2.amazonaws.com/tumblers/jeju_eco.png', '0016188552', 'heejae', '희재의 텀블러', '0016188552', TRUE, FALSE, 148, 10000);
+VALUES ( NEXTVAL('SGT_TUMBLER_SEQ'), 'https://green-tumbler-server-s3.s3.ap-northeast-2.amazonaws.com/tumblers/jeju_eco.jpg', '0016188552', 'heejae', '희재의 텀블러', '0016188552', TRUE, FALSE, 148, 10000);
 INSERT INTO SGT_TUMBLER (TUMBLER_ID, IMAGE, NFC_ID, ACCOUNT_ID, TUMBLER_NAME, TUMBLER_PIN, GREEN_SEED, TUMBLER_MONEY)
 VALUES ( NEXTVAL('SGT_TUMBLER_SEQ'), 'https://green-tumbler-server-s3.s3.ap-northeast-2.amazonaws.com/tumblers/busan_tumbler.png', '0000197768', NULL, NULL, '0000197768', 148, 10000);
 

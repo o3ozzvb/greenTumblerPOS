@@ -26,6 +26,10 @@ public class TumblerDAO {
 		return session.selectOne("com.sinc.greentumbler.tumbler.selectOneByTumblerId", tumblerId);
 	}
 	
+	public int updateGreenSeed(TumblerVO tumbler) {
+		return session.update("com.sinc.greentumbler.tumbler.updateGreenSeed", tumbler);
+	}
+	
 	public TumblerVO updateRow(TumblerVO tumbler) {
 		System.out.println(session.selectOne("com.sinc.greentumbler.tumbler.updateRow", tumbler));
 		return session.selectOne("com.sinc.greentumbler.tumbler.updateRow", tumbler);

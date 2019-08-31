@@ -134,15 +134,16 @@ public class HomeController extends FCMController {
 	@Transactional
 	public TumblerVO pay(@RequestBody OrderDetailVO[] orderList, @PathVariable String nfcId, HttpSession session) {
 		
-		System.out.println(nfcId);
-		
 		TumblerVO tumbler = getTumbler(nfcId, session);
 		
 		// 잔액이 부족한 경우 고려해야 됨
 		
 		int price = 0;
+		int totalMenuCnt = 0;
+		
 		for(OrderDetailVO vo : orderList) {
 			int menuCnt = vo.getMenu_cnt();
+			totalMenuCnt += menuCnt;
 			int menuPrice = vo.getPrice();
 			int optionSum = vo.getOption_sum();
 			price += menuCnt * menuPrice;
@@ -161,7 +162,7 @@ public class HomeController extends FCMController {
 			
 			for(OrderDetailVO od: orderList) { 
 				od.setOrder_id(orderId);
-				System.out.println(od); 
+				
 				orderService.insertOrderItem(od); 
 			}
 			
@@ -169,6 +170,9 @@ public class HomeController extends FCMController {
 			tumbler = tumbService.updateRow(tumbler);
 			
 			if(order.getPrice() == price) {
+				// totalMenuCnt 만큼 그린씨드를 추가시켜야 한다.
+				tumbler.setGreen_seed(tumbler.getGreen_seed() + totalMenuCnt);
+				tumbService.updateGreenSeed(tumbler);
 				// 결제가 정상적으로 이루어 진 경우 알람을 쌓는다.
 				
 				AlarmVO alarm = new AlarmVO();
@@ -179,7 +183,8 @@ public class HomeController extends FCMController {
 				alarm.setAlarm_type("pay");
 				alarm.setOrder_id(order.getOrder_id());
 				alarm = alarmService.insertRow(alarm);
-				System.out.println(alarm);
+
+				
 				
 				AlarmOrderVO alarmOrder = new AlarmOrderVO(alarm.getAlarm_id(), order.getOrder_id());
 				alarmService.insertAlarmOrder(alarmOrder);

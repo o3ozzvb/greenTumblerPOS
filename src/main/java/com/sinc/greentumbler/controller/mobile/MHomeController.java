@@ -50,7 +50,7 @@ public class MHomeController extends FCMController {
 	@RequestMapping(value="/getMyAlarms/{accountId}", method=RequestMethod.POST)
 	@ResponseBody
 	public List<AlarmVO> getMyAlarms(@PathVariable String accountId) {
-		System.out.println(accountId);
+		
 		return accountService.getMyAlarms(accountId);
 	}
 	
