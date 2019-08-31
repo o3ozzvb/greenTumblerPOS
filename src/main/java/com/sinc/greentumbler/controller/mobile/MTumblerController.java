@@ -56,9 +56,14 @@ public class MTumblerController extends FCMController {
 	@RequestMapping(value="/create/{accountId}", method=RequestMethod.POST)
 	@ResponseBody
 	public int addTumbler(@PathVariable String accountId, TumblerVO tumbler){
-		System.out.println("tumbler : " + tumbler);
+		
 		tumbler.setAccount_id(accountId);
 		int result = service.addTumblerWithPIN(tumbler);
+		if(result > 0) {
+			sendTumblerMsg(accountId, "텀블러가 성공적으로 등록되었습니다.");
+		} else {
+			sendTumblerMsg(accountId, "텀블러가 등록에 실패하였습니다.");
+		}
 		return result;
 	}
 	
@@ -67,14 +72,21 @@ public class MTumblerController extends FCMController {
 	public int addTumblerWithNFC(@PathVariable String accountId, @PathVariable int tumblerId){
 		TumblerVO tumbler = service.selectOneByTumblerId(tumblerId);
 		tumbler.setAccount_id(accountId);
+		
 		int result = service.addTumbler(tumbler);
+		if(result > 0) {
+			sendTumblerMsg(accountId, "텀블러가 성공적으로 등록되었습니다.");
+		} else {
+			sendTumblerMsg(accountId, "텀블러가 등록에 실패하였습니다.");
+		}
+		
 		return result;
 	}
 	
 	@RequestMapping(value="/charge/{chargeMoney}", method=RequestMethod.POST)
 	@ResponseBody
 	public int chargeTumbler(@PathVariable int chargeMoney, TumblerVO tumbler){
-		System.out.println("charge money : ");
+		
 		int tumbMoney = tumbler.getTumbler_Money();
 		int afterMoney = tumbMoney + chargeMoney;
 		tumbler = service.selectOneById(tumbler.getTumbler_id());
@@ -98,7 +110,7 @@ public class MTumblerController extends FCMController {
 	@RequestMapping(value="/greenSeed/{tumblerId}", method=RequestMethod.POST)
 	@ResponseBody
 	public int getGreenSeed(@PathVariable int tumblerId){
-		System.out.println("tumblerId : " + tumblerId);
+		
 		TumblerVO tumbler = service.selectOneById(tumblerId);
 		return tumbler.getGreen_seed();
 	}
@@ -107,5 +119,9 @@ public class MTumblerController extends FCMController {
 	public int lostTumbler(int tumblerId){
 		int result = service.lostTumbler(tumblerId);
 		return result;
+	}
+	
+	public Object sendTumblerMsg(String accountId, String msg) {
+		return super.sendLostMsg(accountId, msg);
 	}
 }

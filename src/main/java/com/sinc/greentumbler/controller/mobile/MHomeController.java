@@ -34,7 +34,12 @@ public class MHomeController extends FCMController {
 	public Object Main(@PathVariable String accountId, Model model) {
 		
 		AccountVO account = (AccountVO)(accountService.selectOne(accountId));
-		TumblerVO tumbler = (TumblerVO)(tumblerService.selectTumb(accountId)).get(0);
+		List<TumblerVO> tumblerList = (tumblerService.selectTumb(accountId));
+		TumblerVO tumbler = null;
+		
+		if(tumblerList.size() > 0) {
+			tumbler = (TumblerVO)tumblerList.get(0);
+		}
 		
 		model.addAttribute("account", account);
 		model.addAttribute("tumbler", tumbler);
