@@ -112,8 +112,16 @@
 		ORDER BY RO.ORDER_TIME DESC
 	</select>
 	<select id="selectOneOrder" parameterType="int" resultType="order">
-		SELECT  ORDER_ID, ACCOUNT_ID, PRICE, STORE_NAME, TUMBLER_ID, TO_CHAR(ORDER_TIME, 'YYYY년 MM월 DD일 HH24:MI') AS ORDER_TIME
-		FROM	SGT_ORDER
+		SELECT  A.NICKNAME, 
+				O.ORDER_ID, 
+				O.ACCOUNT_ID, 
+				O.PRICE, 
+				O.STORE_NAME, 
+				O.TUMBLER_ID, 
+				TO_CHAR(O.ORDER_TIME, 'YYYY년 MM월 DD일 HH24:MI') AS ORDER_TIME
+		FROM	SGT_ORDER O
+		JOIN	SGT_ACCOUNT A
+		ON		O.ACCOUNT_ID=A.ACCOUNT_ID
 		WHERE	ORDER_ID=#{order_id}
 	</select>
 	<select id="selectOne" parameterType="String" resultType="recentOrder">

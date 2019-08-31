@@ -11,6 +11,8 @@ public class OrderVO {
 	private int tumbler_id;
 	private List<OrderDetailVO> orderList;
 	
+	private String nickname;
+	
 	public OrderVO() {}
 	
 	public OrderVO(String account_id, int tumbler_id, int price, List<OrderDetailVO> orderList) {
@@ -20,8 +22,11 @@ public class OrderVO {
 		this.orderList = orderList;
 	}
 	
+	
+
+	
 	public OrderVO(String account_id, int order_id, String order_time, int price, String store_name, int tumbler_id,
-			List<OrderDetailVO> orderList) {
+	        List<OrderDetailVO> orderList, String nickname) {
 		super();
 		this.account_id = account_id;
 		this.order_id = order_id;
@@ -30,8 +35,17 @@ public class OrderVO {
 		this.store_name = store_name;
 		this.tumbler_id = tumbler_id;
 		this.orderList = orderList;
+		this.nickname = nickname;
 	}
 	
+	public String getNickname() {
+		return nickname;
+	}
+
+	public void setNickname(String nickname) {
+		this.nickname = nickname;
+	}
+
 	public String getAccount_id() {
 		return account_id;
 	}
@@ -81,9 +95,11 @@ public class OrderVO {
 	@Override
 	public String toString() {
 		return "OrderVO [account_id=" + account_id + ", order_id=" + order_id + ", order_time=" + order_time
-				+ ", price=" + price + ", store_name=" + store_name + ", tumbler_id=" + tumbler_id + ", orderList="
-				+ orderList + "]";
+		        + ", price=" + price + ", store_name=" + store_name + ", tumbler_id=" + tumbler_id + ", orderList="
+		        + orderList + ", nickname=" + nickname + "]";
 	}
+
+	
 	
 	
 }

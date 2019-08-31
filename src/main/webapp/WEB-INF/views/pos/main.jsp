@@ -106,6 +106,7 @@
 		<!-- 하단 메뉴 영역 -->
 		<img style="margin-top: 10px"
 			src="/greenTumblerServer/resources/images/txt_size.png" height="40px" />
+		<ion-icon id="resetBtn" size="large" style="float: right; color: white;" name="undo"></ion-icon>
 		<div class="row mt-3">
 			<div class="button-area col-4">
 				<img class="size-btn" data-size="tall"
@@ -163,6 +164,7 @@
 			let tumblerInfo = null; // 로드된 텀블러가 담기게 되는 변수
 			let chargeTumblerInfo = null; // 충전 시에 텀블러 정보가 담기게 되는 변수
 			let category2 = null;
+			let isFinished = false;
 			
 			function validateTumbler(tumblerInfo) {
 				// -1 : 텀블러 정보 조회되지 않음
@@ -358,6 +360,7 @@
 							} else {
 								$("#pay-modal-title").text("결제 완료");
 								msg += tumbler.account_id + " / 잔액 : " + tumbler.tumbler_Money; 
+								isFinished = true;
 							}
 							
 							$("#paymentMsg").text(msg);
@@ -365,6 +368,15 @@
 						});
 					}
 				})
+				
+				$("#resetBtn").on("click", function(e) {
+					orderIdx = 1;
+					selectedMenu = {};
+					orderList = [];
+					updateOrderList(orderList);
+				});
+				
+				// 포스 웹앱에서 초기에 메뉴가 선택되지 않던 이슈 해결
 				$("#defaultCategory").click();
 			})
 			
@@ -470,10 +482,12 @@
 					totalAmount += parseInt(optionSum);
 					totalCnt += parseInt(orderList[i].menu_cnt);
 					$("#order-list-area").append(orderItem);
-					$("#totalCount").text(totalCnt);
-					$("#totalPrice").text(totalAmount);
 					
 				}
+				
+				$("#totalCount").text(totalCnt);
+				$("#totalPrice").text(totalAmount);
+				
 			}
 			// 음료의 수량을 줄이는 함수
 			function reduceCount(e) {

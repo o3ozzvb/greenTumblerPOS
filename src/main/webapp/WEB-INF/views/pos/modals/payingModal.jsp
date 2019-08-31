@@ -23,7 +23,9 @@
 </div>
 <script>
 	$('#payingModal').on('hidden.bs.modal', function (e) {
-		window.location.reload();
+		if(isFinished) {
+			window.location.reload();	
+		}
 	});
 
 </script>
