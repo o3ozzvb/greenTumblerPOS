@@ -133,25 +133,27 @@ CREATE TABLE SGT_ACCOUNT_TUMBLER(
 -- USER DUMMY
 
 INSERT INTO SGT_ACCOUNT (ACCOUNT_ID, PWD, FCM_TOKEN, NICKNAME, STAR_TYPE, STAR_CNT)
-VALUES ( 'hojun', 'hojun', 'c4ygJ_hOHdY:APA91bEHg34GnshKvzj6FnLRcw__JCr1BxHvhVuxNnvcrYRQKId5A2V7sW-r0YfIGnXndpKOs5pxcyklEBqq3ydBgxGjZo6m7dwH6AapCZlrRVznDLq7lWFUYsaC2kEfHWb-CiIw9ivc', '붓싼싸나이', 'gold', 10);
+VALUES ( 'hojun', 'hojun', 'c1pS4pl2S54:APA91bFKIL6CaBEInIraBDz-bmT0AvG4StHfHnRkyZuZBXzqOHBXigSw6-4cSaG52puZtJGSPa_jzPk2ce2h4-B_ZK76Xk3cWtMrh3unPludjFHtkBo6SGWSfmeS4dDwZviLot6ulWac', '붓싼싸나이', 'gold', 10);
 INSERT INTO SGT_ACCOUNT (ACCOUNT_ID, PWD, FCM_TOKEN, NICKNAME, STAR_TYPE, STAR_CNT)
-VALUES ( 'hanbe', 'hanbe', 'c4ygJ_hOHdY:APA91bEHg34GnshKvzj6FnLRcw__JCr1BxHvhVuxNnvcrYRQKId5A2V7sW-r0YfIGnXndpKOs5pxcyklEBqq3ydBgxGjZo6m7dwH6AapCZlrRVznDLq7lWFUYsaC2kEfHWb-CiIw9ivc' ,'김한배', 'gold', 10);
+VALUES ( 'hanbe', 'hanbe', 'c1pS4pl2S54:APA91bFKIL6CaBEInIraBDz-bmT0AvG4StHfHnRkyZuZBXzqOHBXigSw6-4cSaG52puZtJGSPa_jzPk2ce2h4-B_ZK76Xk3cWtMrh3unPludjFHtkBo6SGWSfmeS4dDwZviLot6ulWac' ,'김한배', 'gold', 10);
 INSERT INTO SGT_ACCOUNT (ACCOUNT_ID, PWD, FCM_TOKEN, NICKNAME, STAR_TYPE, STAR_CNT)
-VALUES ( 'eunkyoung', 'eunkyoung', 'c4ygJ_hOHdY:APA91bEHg34GnshKvzj6FnLRcw__JCr1BxHvhVuxNnvcrYRQKId5A2V7sW-r0YfIGnXndpKOs5pxcyklEBqq3ydBgxGjZo6m7dwH6AapCZlrRVznDLq7lWFUYsaC2kEfHWb-CiIw9ivc' ,'오은경', 'gold', 10);
+VALUES ( 'eunkyoung', 'eunkyoung', 'c1pS4pl2S54:APA91bFKIL6CaBEInIraBDz-bmT0AvG4StHfHnRkyZuZBXzqOHBXigSw6-4cSaG52puZtJGSPa_jzPk2ce2h4-B_ZK76Xk3cWtMrh3unPludjFHtkBo6SGWSfmeS4dDwZviLot6ulWac' ,'오은경', 'gold', 10);
 INSERT INTO SGT_ACCOUNT (ACCOUNT_ID, PWD, FCM_TOKEN, NICKNAME, STAR_TYPE, STAR_CNT)
-VALUES ( 'sanghyeon', 'sanghyeon', 'c4ygJ_hOHdY:APA91bEHg34GnshKvzj6FnLRcw__JCr1BxHvhVuxNnvcrYRQKId5A2V7sW-r0YfIGnXndpKOs5pxcyklEBqq3ydBgxGjZo6m7dwH6AapCZlrRVznDLq7lWFUYsaC2kEfHWb-CiIw9ivc' ,'안상현', 'gold', 10);
+VALUES ( 'sanghyeon', 'sanghyeon', 'c1pS4pl2S54:APA91bFKIL6CaBEInIraBDz-bmT0AvG4StHfHnRkyZuZBXzqOHBXigSw6-4cSaG52puZtJGSPa_jzPk2ce2h4-B_ZK76Xk3cWtMrh3unPludjFHtkBo6SGWSfmeS4dDwZviLot6ulWac' ,'안상현', 'gold', 10);
 INSERT INTO SGT_ACCOUNT (ACCOUNT_ID, PWD, FCM_TOKEN, NICKNAME, STAR_TYPE, STAR_CNT)
 VALUES ( 'heejae', 'heejae', 'dT-0Gwwyli8:APA91bFwnLd-Ms4YQj5CFZxn_ey2P2BYniVMjPLrqoIx2cbPSpgCdrH0Bh3rwOvB-sgVZ1IRflcFGijdo0VZQGVgLjo6e1cUtPMHMDrLUWxP9wxhtiCnisuDVECbgWLBKDt34sR2zX6e' ,'김희재', 'gold', 10);
 INSERT INTO SGT_ACCOUNT (ACCOUNT_ID, PWD, FCM_TOKEN, NICKNAME, STAR_TYPE, STAR_CNT)
-VALUES ( 'ujeong', 'ujeong', 'c4ygJ_hOHdY:APA91bEHg34GnshKvzj6FnLRcw__JCr1BxHvhVuxNnvcrYRQKId5A2V7sW-r0YfIGnXndpKOs5pxcyklEBqq3ydBgxGjZo6m7dwH6AapCZlrRVznDLq7lWFUYsaC2kEfHWb-CiIw9ivc' ,'이유정', 'gold', 10);
+VALUES ( 'ujeong', 'ujeong', 'c1pS4pl2S54:APA91bFKIL6CaBEInIraBDz-bmT0AvG4StHfHnRkyZuZBXzqOHBXigSw6-4cSaG52puZtJGSPa_jzPk2ce2h4-B_ZK76Xk3cWtMrh3unPludjFHtkBo6SGWSfmeS4dDwZviLot6ulWac' ,'이유정', 'gold', 10);
 INSERT INTO SGT_ACCOUNT (ACCOUNT_ID, PWD, FCM_TOKEN, NICKNAME, STAR_TYPE, STAR_CNT)
-VALUES ( 'test', 'test', 'dT-0Gwwyli8:APA91bFwnLd-Ms4YQj5CFZxn_ey2P2BYniVMjPLrqoIx2cbPSpgCdrH0Bh3rwOvB-sgVZ1IRflcFGijdo0VZQGVgLjo6e1cUtPMHMDrLUWxP9wxhtiCnisuDVECbgWLBKDt34sR2zX6e' ,'test', 'gold', 10);
+VALUES ( 'test', 'test', 'c1pS4pl2S54:APA91bFKIL6CaBEInIraBDz-bmT0AvG4StHfHnRkyZuZBXzqOHBXigSw6-4cSaG52puZtJGSPa_jzPk2ce2h4-B_ZK76Xk3cWtMrh3unPludjFHtkBo6SGWSfmeS4dDwZviLot6ulWac' ,'test', 'gold', 10);
 
 -- TUMBLER DUMMY
 INSERT INTO SGT_TUMBLER (TUMBLER_ID, IMAGE, NFC_ID, ACCOUNT_ID, TUMBLER_NAME, TUMBLER_PIN, GREEN_SEED, TUMBLER_MONEY)
 VALUES ( NEXTVAL('SGT_TUMBLER_SEQ'), 'https://green-tumbler-server-s3.s3.ap-northeast-2.amazonaws.com/tumblers/busan_tumbler.png','0012649608', 'hojun', '호준이의 텀블러', '0002360456', 148, 10000);
+--INSERT INTO SGT_TUMBLER (TUMBLER_ID, IMAGE, NFC_ID, ACCOUNT_ID, TUMBLER_NAME, TUMBLER_PIN, GREEN_SEED, TUMBLER_MONEY)
+--VALUES ( NEXTVAL('SGT_TUMBLER_SEQ'), 'https://green-tumbler-server-s3.s3.ap-northeast-2.amazonaws.com/tumblers/reserve_white.png','0013304968', 'hanbe', '한배의 텀블러', '0013304968', 148, 10000);
 INSERT INTO SGT_TUMBLER (TUMBLER_ID, IMAGE, NFC_ID, ACCOUNT_ID, TUMBLER_NAME, TUMBLER_PIN, GREEN_SEED, TUMBLER_MONEY)
-VALUES ( NEXTVAL('SGT_TUMBLER_SEQ'), 'https://green-tumbler-server-s3.s3.ap-northeast-2.amazonaws.com/tumblers/reserve_white.png','0013304968', 'hanbe', '한배의 텀블러', '0013304968', 148, 10000);
+VALUES ( NEXTVAL('SGT_TUMBLER_SEQ'), 'https://green-tumbler-server-s3.s3.ap-northeast-2.amazonaws.com/tumblers/reserve_white.png','0013304968', NULL, NULL, '0013304968', 148, 10000);
 INSERT INTO SGT_TUMBLER (TUMBLER_ID, IMAGE, NFC_ID, ACCOUNT_ID, TUMBLER_NAME, TUMBLER_PIN, GREEN_SEED, TUMBLER_MONEY)
 VALUES ( NEXTVAL('SGT_TUMBLER_SEQ'), 'https://green-tumbler-server-s3.s3.ap-northeast-2.amazonaws.com/tumblers/jeju_eco.png','0014222472', 'eunkyoung', '은경의 텀블러', '0014222472', 148, 10000);
 INSERT INTO SGT_TUMBLER (TUMBLER_ID, IMAGE, NFC_ID, ACCOUNT_ID, TUMBLER_NAME, TUMBLER_PIN, GREEN_SEED, TUMBLER_MONEY)
