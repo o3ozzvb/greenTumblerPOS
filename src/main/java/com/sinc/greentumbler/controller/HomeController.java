@@ -171,26 +171,34 @@ public class HomeController extends FCMController {
 			
 			if(order.getPrice() == price) {
 				// totalMenuCnt 만큼 그린씨드를 추가시켜야 한다.
-				tumbler.setGreen_seed(tumbler.getGreen_seed() + totalMenuCnt);
-				tumbService.updateGreenSeed(tumbler);
+				int beforeGreenSeed = tumbler.getGreen_seed();
+				int afterGreenSeed = tumbler.getGreen_seed() + totalMenuCnt;
+				tumbler.setGreen_seed(afterGreenSeed);
+				int result = tumbService.updateGreenSeed(tumbler);
+				
+				
+				
 				// 결제가 정상적으로 이루어 진 경우 알람을 쌓는다.
 				
 				AlarmVO alarm = new AlarmVO();
 				String accountId = tumbler.getAccount_id();
+				
 				String msg = "결제가 성공적으로 수행되었습니다.";
 				alarm.setMsg(msg);
 				alarm.setAccount_id(order.getAccount_id());
 				alarm.setAlarm_type("pay");
 				alarm.setOrder_id(order.getOrder_id());
 				alarm = alarmService.insertRow(alarm);
-
-				
 				
 				AlarmOrderVO alarmOrder = new AlarmOrderVO(alarm.getAlarm_id(), order.getOrder_id());
 				alarmService.insertAlarmOrder(alarmOrder);
 				
 				// send fcm message
 				super.sendLostMsg(accountId, msg);
+				
+				if(result > 0 && beforeGreenSeed < 150 && afterGreenSeed >= 150) {
+					super.sendLostMsg(accountId, "축하합니다 ! 그린씨드 150개 달성을 성공하였습니다.");
+				}
 				
 			}
 			return tumbler;
