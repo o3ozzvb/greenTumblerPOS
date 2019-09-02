@@ -79,7 +79,7 @@ $(function(){
 	        			</div>
 	        		`;
 	        		posMenuBtns[idx].innerHTML += `
-	        			<div style="text-center">
+	        			<div class="text-center mt-2">
 	        				<img src="`+ menus[i].image +`" style="width: 80%; border-radius: 40%" />
 	        			</div>
 	        		`;

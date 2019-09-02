@@ -242,7 +242,7 @@
 		        			</div>
 		        		`;
 		        		posMenuBtns[idx].innerHTML += `
-		        			<div style="text-center">
+		        			<div class="text-center mt-2">
 		        				<img src="`+ menus[i].image +`" style="width: 80%; border-radius: 40%" />
 		        			</div>
 		        		`;
@@ -461,17 +461,17 @@
 						        <div class="col-3">
 						            <p class="order-list-txt">`+ orderList[i].price +`</p>
 						        </div>
-						        <div class="col-3">
-									<p class="order-list-option bold"> 샷 : ` +  orderList[i].shot  + `</p>						        
+						        <div class="col-4">
+									<p class="order-list-option bold"> 샷: ` +  orderList[i].shot  + `</p>						        
 						        </div>
 						        <div class="col-3">
-									<p class="order-list-option bold"> 시럽 : ` +  orderList[i].syrup  + `</p>						        
+									<p class="order-list-option bold"> 시럽: ` +  orderList[i].syrup  + `</p>						        
+						        </div>
+						        <div class="col-2">
+									<p class="order-list-option bold"> 휘핑: ` +  (orderList[i].whipped_cream ? `Y` : `N`)  + `</p>						        
 						        </div>
 						        <div class="col-3">
-									<p class="order-list-option bold"> 휘핑 : ` +  (orderList[i].whipped_cream ? `Y` : `N`)  + `</p>						        
-						        </div>
-						        <div class="col-3">
-									<p class="order-list-option bold"> 드리즐 : ` +  (orderList[i].drizzle ? `Y` : `N`)  + `</p>						        
+									<p class="order-list-option bold"> 드리즐: ` +  (orderList[i].drizzle ? `Y` : `N`)  + `</p>						        
 						        </div>
 						        <div class="col-12">
 						        	<hr/>
