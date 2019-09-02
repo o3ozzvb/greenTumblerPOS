@@ -25,7 +25,7 @@
 	<div class="container mt-3">
 		<div class="row">
 			<div class="col-6 grid-upper grid-gray white">
-				<div class="row mt-2">
+				<div class="row mt-1">
 					<div class="col-3">
 						<div class="row">
 							<div class="col-12">
@@ -70,17 +70,17 @@
 
 			<div class="col-5 offset-1 grid-upper grid-black white">
 				<div class="row text-center">
-					<div class="col-5">
-						<p>상품</p>
+					<div class="col-4">
+						<p class="bold">상품</p>
 					</div>
 					<div class="col-3">
-						<p>#</p>
+						<p class="bold">#</p>
 					</div>
-					<div class="col-1">
-						<p>Size</p>
+					<div class="col-2">
+						<p class="bold">Size</p>
 					</div>
 					<div class="col-3">
-						<p>가격</p>
+						<p class="bold">가격</p>
 					</div>
 				</div>
 				<div class="col-12">
@@ -90,12 +90,12 @@
 				<div style="position: absolute; top: 90%; width: 100%;">
 					<div id="total-area" class="row">
 						<div class="col-6">
-							<h5>
+							<h5 class="bold">
 								개수 : <span id="totalCount">0</span>건
 							</h5>
 						</div>
 						<div class="col-6" style="text-align: left;">
-							<h5>
+							<h5 class="bold">
 								합계 : <span id="totalPrice">0</span>원
 							</h5>
 						</div>
@@ -104,10 +104,11 @@
 			</div>
 		</div>
 		<!-- 하단 메뉴 영역 -->
-		<img style="margin-top: 10px"
+		<img class="mt-2"
 			src="/greenTumblerServer/resources/images/txt_size.png" height="40px" />
-		<ion-icon id="resetBtn" size="large" style="float: right; color: white;" name="undo"></ion-icon>
-		<div class="row mt-3">
+		<ion-icon class="mt-2" id="resetBtn" size="large"
+			style="float: right; color: white;" name="undo"></ion-icon>
+		<div class="row mt-2">
 			<div class="button-area col-4">
 				<img class="size-btn" data-size="tall"
 					src="/greenTumblerServer/resources/images/tall_size.png"
@@ -118,25 +119,26 @@
 					width="60px" />
 			</div>
 			<div class="col-5 offset-3 tumbler-info-area" id="tumblerInfo">
-				<p style="position:absolute; margin-top:12px; font-size: 18px; font-weight: 500;">
-					<span id="nickName"></span> 고객님,</br>
-					충전 금액 : <span id="tumblerMoney"></span>원</br>
-					분실 여부 : <span id="lostYn"></span></br>
-					결제 가능 여부 : <span id="payYn"></span>
+				<p
+					style="position: absolute; margin-top: 12px; font-size: 18px; font-weight: 600;">
+					<span id="nickName"></span> 고객님,</br> 충전 금액 : <span id="tumblerMoney"></span>원</br>
+					분실 여부 : <span id="lostYn"></span></br> 결제 가능 여부 : <span id="payYn"></span>
 				</p>
 			</div>
 		</div>
 
 		<img style="margin-top: 7px"
 			src="/greenTumblerServer/resources/images/txt_peropt.png"
-			height="40px" />
-		
-		<img id="tumblerIcon" src="/greenTumblerServer/resources/images/tumbler.png" style="position:absolute; top:490px; left:415px; width:120px"
-		data-toggle="modal" data-target="#tumblerModal" />
-		<button class="bold btn btn-success pay-btn float-right" style="position:absolute; margin-top:50px; left:590px;"
+			height="40px" /> <img id="tumblerIcon"
+			src="/greenTumblerServer/resources/images/tumbler.png"
+			style="position: absolute; top: 490px; left: 415px; width: 120px"
+			data-toggle="modal" data-target="#tumblerModal" />
+		<button class="bold btn btn-success pay-btn float-right"
+			style="position: absolute; margin-top: 50px; left: 590px;"
 			data-toggle="modal" data-target="#chargeModal">충전</button>
-		<button id="payBtn" class="bold btn btn-danger pay-btn float-right" style="position:absolute; margin-top:50px; left:800px;">결제</button>
-		
+		<button id="payBtn" class="bold btn btn-danger pay-btn float-right"
+			style="position: absolute; margin-top: 50px; left: 800px;">결제</button>
+
 		<div class="row mt-2">
 			<div class="button-area col-6">
 				<button data-personal="shot"
@@ -149,7 +151,7 @@
 					class="bold btn btn-secondary btn-lg personal-btn">드리즐</button>
 			</div>
 
-			
+
 		</div>
 	</div>
 
@@ -446,30 +448,30 @@
 						        <div class="col-4">
 						            <p class="order-list-txt">`+ orderList[i].menu_name +`</p>
 						        </div>
-						        <div class="col-4">
+						        <div class="col-3">
 						            <p class="order-list-txt">
 						            	<ion-icon onclick="reduceCount(event)" data-id="`+ orderList[i].line_id +`" name="arrow-back"></ion-icon>`
 						            		+ orderList[i].menu_cnt +`
 						            	<ion-icon onclick="increaseCount(event)" data-id="`+ orderList[i].line_id +`" name="arrow-forward"></ion-icon>
 						            </p>
 						        </div>
-						        <div class="col-1">
+						        <div class="col-2">
 						            <p class="order-list-txt">`+ orderList[i].size +`</p>
 						        </div>
 						        <div class="col-3">
 						            <p class="order-list-txt">`+ orderList[i].price +`</p>
 						        </div>
 						        <div class="col-3">
-									<p class="order-list-option"> 샷 : ` +  orderList[i].shot  + `</p>						        
+									<p class="order-list-option bold"> 샷 : ` +  orderList[i].shot  + `</p>						        
 						        </div>
 						        <div class="col-3">
-									<p class="order-list-option"> 시럽 : ` +  orderList[i].syrup  + `</p>						        
+									<p class="order-list-option bold"> 시럽 : ` +  orderList[i].syrup  + `</p>						        
 						        </div>
 						        <div class="col-3">
-									<p class="order-list-option"> 휘핑 : ` +  (orderList[i].whipped_cream ? `Y` : `N`)  + `</p>						        
+									<p class="order-list-option bold"> 휘핑 : ` +  (orderList[i].whipped_cream ? `Y` : `N`)  + `</p>						        
 						        </div>
 						        <div class="col-3">
-									<p class="order-list-option"> 드리즐 : ` +  (orderList[i].drizzle ? `Y` : `N`)  + `</p>						        
+									<p class="order-list-option bold"> 드리즐 : ` +  (orderList[i].drizzle ? `Y` : `N`)  + `</p>						        
 						        </div>
 						        <div class="col-12">
 						        	<hr/>

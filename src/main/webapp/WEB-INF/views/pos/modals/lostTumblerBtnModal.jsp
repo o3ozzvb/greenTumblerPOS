@@ -14,20 +14,20 @@
       </div>
       <div class="modal-body">
    		<div class="row">
-   			<div class="col-12 no-padding">
-   				<div id="lost-message" class ="white-box">
-   					<p>분실된 텀블러로 조회되었습니다.</p>
-   					<p>고객님에게 푸시 메세지를 송신합니다.</p>
+   			<div class="col-12">
+   				<div id="lost-message">
+   					<p class="font-white">분실된 텀블러로 조회되었습니다.</p>
+   					<p class="font-white">고객님에게 푸시 메세지를 송신합니다.</p>
    				</div>
    			</div>
    		</div>
    		<div class="row mt-3">
-   			<div class="col-3 offset-6">
-				<button id="sendLostMsg" type="button" class="btn btn-light float-right" data-dismiss="modal">보내기</button>	
+   			<div class="col-3 offset-9">
+				<button id="sendLostMsg" type="button" class="btn btn-secondary float-right" data-dismiss="modal">보내기</button>	
 			</div>
-			<div class="col-3">
+			<!-- <div class="col-3 offset-9">
 				<button type="button" class="btn btn-secondary float-left" data-dismiss="modal">취소</button>	
-			</div>
+			</div> -->
 		</div>
       </div>
     </div>
