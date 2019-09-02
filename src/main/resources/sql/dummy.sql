@@ -272,7 +272,7 @@ INSERT INTO SGT_MENU (MENU_ID, IMAGE, CATEGORY1, CATEGORY2, MENU_NAME, MENU_NAME
 VALUES (NEXTVAL('SGT_MENU_SEQ'), 'https://green-tumbler-server-s3.s3.ap-northeast-2.amazonaws.com/menus/pink_jamong_figio.jpg', '음료', '피지오', '핑크 자몽 피지오', 'Pink Grapefruit Fizzio', 1, 6300);
 
 INSERT INTO SGT_MENU (MENU_ID, IMAGE, CATEGORY1, CATEGORY2, MENU_NAME, MENU_NAME_ENG, SIZE, PRICE)
-VALUES (NEXTVAL('SGT_MENU_SEQ'), 'https://green-tumbler-server-s3.s3.ap-northeast-2.amazonaws.com/menus/fashion_tango_tea_lemonade_figio.jpg', '음료', '피지오', '패션 탱고 티 레모네이드 피지오', 'Passion Tango Tea Lemonade Fizzio', 1, 5400);
+VALUES (NEXTVAL('SGT_MENU_SEQ'), 'https://green-tumbler-server-s3.s3.ap-northeast-2.amazonaws.com/menus/fashion_tango_tea_lemonade_figio.jpg', '음료', '피지오', '패션 탱고 레모네이드 피지오', 'Passion Tango Tea Lemonade Fizzio', 1, 5400);
 
 -- 티
 INSERT INTO SGT_MENU (MENU_ID, IMAGE, CATEGORY1, CATEGORY2, MENU_NAME, MENU_NAME_ENG, SIZE, PRICE)

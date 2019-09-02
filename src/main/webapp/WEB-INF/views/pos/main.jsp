@@ -24,7 +24,7 @@
 	<%@include file="./navbar.jsp"%>
 	<div class="container mt-3">
 		<div class="row">
-			<div class="col-6 grid-upper grid-gray white">
+			<div class="col-6 grid-upper grid-black white">
 				<div class="row mt-1">
 					<div class="col-3">
 						<div class="row">
@@ -118,7 +118,7 @@
 					src="/greenTumblerServer/resources/images/venti_size.png"
 					width="60px" />
 			</div>
-			<div class="col-5 offset-3 tumbler-info-area" id="tumblerInfo">
+			<div class="col-5 offset-3 tumbler-info-area grid-black" id="tumblerInfo">
 				<p
 					style="position: absolute; margin-top: 12px; font-size: 18px; font-weight: 600;">
 					<span id="nickName"></span> 고객님,</br> 충전 금액 : <span id="tumblerMoney"></span>원</br>
