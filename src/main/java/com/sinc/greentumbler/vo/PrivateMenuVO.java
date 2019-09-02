@@ -13,11 +13,15 @@ public class PrivateMenuVO {
 	private int option_sum;
 	private int price;
 	private String menu_name;
+	private String menu_name_eng;
 	
 	public PrivateMenuVO() {}
 	
+	
+	
 	public PrivateMenuVO(String cup, String account_id, String image, int menu_id, int shot, int syrup,
-			boolean whipped_cream, boolean drizzle, String size, int option_sum, int price, String menu_name) {
+	        boolean whipped_cream, boolean drizzle, String size, int option_sum, int price, String menu_name,
+	        String menu_name_eng) {
 		super();
 		this.cup = cup;
 		this.account_id = account_id;
@@ -31,8 +35,11 @@ public class PrivateMenuVO {
 		this.option_sum = option_sum;
 		this.price = price;
 		this.menu_name = menu_name;
+		this.menu_name_eng = menu_name_eng;
 	}
-	
+
+
+
 	public String getImage() {
 		return image;
 	}
@@ -110,12 +117,28 @@ public class PrivateMenuVO {
 		this.price = price;
 	}
 
+
+
+	public String getMenu_name_eng() {
+		return menu_name_eng;
+	}
+
+
+
+	public void setMenu_name_eng(String menu_name_eng) {
+		this.menu_name_eng = menu_name_eng;
+	}
+
+
+
 	@Override
 	public String toString() {
 		return "PrivateMenuVO [cup=" + cup + ", account_id=" + account_id + ", image=" + image + ", menu_id=" + menu_id
-				+ ", shot=" + shot + ", syrup=" + syrup + ", whipped_cream=" + whipped_cream + ", drizzle=" + drizzle
-				+ ", size=" + size + ", option_sum=" + option_sum + ", price=" + price + ", menu_name=" + menu_name
-				+ "]";
+		        + ", shot=" + shot + ", syrup=" + syrup + ", whipped_cream=" + whipped_cream + ", drizzle=" + drizzle
+		        + ", size=" + size + ", option_sum=" + option_sum + ", price=" + price + ", menu_name=" + menu_name
+		        + ", menu_name_eng=" + menu_name_eng + "]";
 	}
+
+	
 	
 }
