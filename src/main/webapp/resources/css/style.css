@@ -91,7 +91,7 @@ hr {
 }
 .pos-category-btn {
     background-color: gray;
-    border: 4px solid black;
+    border: 2px solid black;
     color: white;
 }
 .pos-menu-grid {
@@ -118,7 +118,7 @@ hr {
 .pos-btn.selected {
     background-color: #28A745;
     color: black;
-    border: 4px solid black;
+    border: 2px solid black;
 }
 .pay-btn {
     width: 190px;
