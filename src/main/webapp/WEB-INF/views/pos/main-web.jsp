@@ -118,7 +118,7 @@
 					src="/greenTumblerServer/resources/images/venti_size.png"
 					width="60px" />
 			</div>
-			<div class="col-5 offset-3 tumbler-info-area grid-black" id="tumblerInfo">
+			<div class="col-5 offset-3 tumbler-info-area grid-black" id="tumblerInfoArea">
 				<p
 					style="position: absolute; margin-top: 12px; font-size: 18px; font-weight: 600;">
 					<span id="nickName"></span> 고객님,</br> 충전 금액 : <span id="tumblerMoney"></span>원</br>
@@ -238,9 +238,9 @@
 				let chargeBtn = document.getElementById("chargeBtn");
 				let payBtn = document.getElementById("payBtn");
 				let personalArea = document.getElementById("personal-area");
-				let tumblerInfo = document.getElementById("tumblerInfo");
+				let tumblerInfoArea = document.getElementById("tumblerInfoArea");
 				let btnMargin = 20;
-				let btnWidth = (tumblerInfo.offsetWidth - btnMargin) / 2;
+				let btnWidth = (tumblerInfoArea.offsetWidth - btnMargin) / 2;
 				let tumblerIcon = document.getElementById("tumblerIcon");
 				let gridUpper = document.getElementById("grid-upper");
 				let tumblerPosition = gridUpper.offsetLeft + gridUpper.offsetWidth - tumblerIcon.offsetWidth;
@@ -251,8 +251,8 @@
 				payBtn.style.top = personalArea.offsetTop + "px";
 				chargeBtn.style.width = btnWidth + "px";
 				payBtn.style.width = btnWidth + "px";
-				chargeBtn.style.left = tumblerInfo.offsetLeft + "px";
-				payBtn.style.left = (tumblerInfo.offsetLeft + chargeBtn.offsetWidth + btnMargin) + "px";
+				chargeBtn.style.left = tumblerInfoArea.offsetLeft + "px";
+				payBtn.style.left = (tumblerInfoArea.offsetLeft + chargeBtn.offsetWidth + btnMargin) + "px";
 				
 				// 스타벅스 메뉴 불러오기
 				let posMenuBtns = document.getElementsByClassName("pos-menu-btn");	
@@ -369,6 +369,7 @@
 						$("#alertModal").modal("show");
 					}
 					else {
+						console.log(tumblerInfo.nfc_id)
 						let url = "/greenTumblerServer/pos/pay/" + tumblerInfo.nfc_id;
 						let method = "POST";
 						orderList = validateOrderList(orderList);
