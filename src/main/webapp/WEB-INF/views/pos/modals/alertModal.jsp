@@ -10,7 +10,7 @@
         <h5 class="modal-title" id="exampleModalLabel">알림</h5>
       </div>
       <div class="modal-body">
-   		<p id="errorMsg"></p>
+   		<p id="errorMsg">잠시만 기다려 주세요...</p>
       </div>
     </div>
   </div>

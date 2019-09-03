@@ -350,7 +350,7 @@
 						$("#payingModal").modal("show");
 						
 						sendTumblerRequestWithJSON(url, method, JSON.stringify(orderList), function(tumbler){
-							
+							console.log(tumbler);
 							let data = {
 				                accountId: tumblerInfo.account_id,
 				                msg: tumblerInfo.nickName + " 님의 분실 텀블러가 남산스테이트점에서 결제 시도되었습니다."

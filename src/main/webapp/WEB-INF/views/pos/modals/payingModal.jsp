@@ -23,6 +23,9 @@
 </div>
 <script>
 	$('#payingModal').on('hidden.bs.modal', function (e) {
+		$("#pay-modal-title").text("알림");
+		$("#paymentMsg").text("잠시만 기다려 주세요...");
+		
 		if(isFinished) {
 			window.location.reload();	
 		}
