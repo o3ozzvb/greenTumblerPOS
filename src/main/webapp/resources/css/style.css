@@ -115,8 +115,12 @@ hr {
 .grid-upper {
     height: 360px;
 }
+.pos-category-btn.selected {
+    background-color: rgb(40, 167, 69);
+    color: black;
+    border: 2px solid black;
+}
 .pos-btn.selected {
-    background-color: #28A745;
     color: black;
     border: 2px solid black;
 }
