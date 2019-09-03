@@ -90,13 +90,14 @@ public class MTumblerController extends FCMController {
 		int tumbMoney = tumbler.getTumbler_Money();
 		int afterMoney = tumbMoney + chargeMoney;
 		tumbler = service.selectOneById(tumbler.getTumbler_id());
+		int beforeMoney = tumbler.getTumbler_Money();
 		tumbler.setTumbler_Money(afterMoney);
 		int result = service.chargeTumbler(tumbler);
 		
 		// KHJ 8월 29일 추가
 		AlarmVO alarm = new AlarmVO();
 		String accountId = tumbler.getAccount_id();
-		String msg = (tumbler.getTumbler_name() + "의 잔액이 " + tumbler.getTumbler_Money() + "원으로 충전되었습니다.");
+		String msg = (tumbler.getTumbler_name() + "에 " + (afterMoney - beforeMoney) + "원 충전되었습니다.");
 		alarm.setMsg(msg);
 		alarm.setAccount_id(tumbler.getAccount_id());
 		alarm.setAlarm_type("charge");

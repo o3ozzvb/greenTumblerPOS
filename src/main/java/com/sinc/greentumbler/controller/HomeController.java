@@ -90,6 +90,28 @@ public class HomeController extends FCMController {
 		return "/pos/main";
 	}
 	
+	@RequestMapping("/main-web")
+	public String posMainWeb(Model model) {
+		List<MenuVO> menu = menuService.selectAll();
+		List<String> category2 = menuService.selectCategory2();
+		
+		Collections.sort(category2, new Comparator<String>() {
+			@Override
+			public int compare(String s1, String s2) {
+				return s2.length() - s1.length();
+			}
+		});
+		
+		String menuJson = super.convertToJSON(menu);
+		model.addAttribute("menus", menuJson);
+		System.out.println(menuJson);
+		model.addAttribute("category2", category2);
+		
+		// 샷, 시럽, 
+		
+		return "/pos/main-web";
+	}
+	
 	@RequestMapping(value="/test", method=RequestMethod.POST)
 	@ResponseBody
 	public TumblerVO getTumbler(String nfcId, HttpSession session) {
