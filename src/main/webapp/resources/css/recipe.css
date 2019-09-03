@@ -20,6 +20,7 @@
 
 .content-box {
 	margin-left: 1.3rem;
+	border-radius: 0.4rem;
 	width: 70%;
 	height: 80px;
 	border: 0.1rem solid white;
