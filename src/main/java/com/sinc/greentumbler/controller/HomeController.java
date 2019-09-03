@@ -219,6 +219,11 @@ public class HomeController extends FCMController {
 		return "/pos/recipe";
 	}
 	
+	@RequestMapping(value="/recipe-past", method=RequestMethod.GET)
+	public String showRecipePast(Model model) {
+		return "/pos/recipe_past";
+	}
+	
 	@RequestMapping(value="/getRecipe", method=RequestMethod.POST)
 	@ResponseBody
 	public RecentOrderVO getRecipe(String nfcId) {

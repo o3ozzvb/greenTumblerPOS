@@ -1,116 +1,90 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-
+    pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
-<!-- JS import -->
-<script src="/greenTumblerServer/resources/js/jquery-3.3.1.js"></script>
-<script src="/greenTumblerServer/resources/js/popper-1.14.7.js"></script>
-<style type="text/css">
-@import url(//fonts.googleapis.com/earlyaccess/nanumpenscript.css);
-
-.font {
-	font-family: 'Nanum Pen Script', cursive;
-}
-
-body {
-	margin: 0;
-	padding: 0;
-	width: 100%;
-	height: 100%;
-	margin: 0;
-	padding: 0;
-}
-
-img {
-	margin: 0;
-	padding: 0;
-	width: 90%;
-	height: 90%;
-	
-	margin-left: auto;
-	margin-right: auto;
-	text-align: center;
-}
-
-.menu_name {
-	position: absolute;
-	top: 300px;
-	left: 420px;
-	width: 170px;
-	font-size: 3em;
-	font-weight: bold;
-}
-
-.whip {
-	position: absolute;
-	top: 160px; /* -100 */
-	left: 165px; /* -50 */
-	font-size: 5.4em;
-	font-weight: bold;
-}
-
-.shots {
-	position: absolute;
-	top: 155px;
-	left: 315px;
-	font-size: 5.4em;
-	font-weight: bold;
-}
-
-.syrup {
-	position: absolute;
-	top: 300px;
-	left: 240px;
-	font-size: 5.4em;
-	font-weight: bold;
-}
-
-.drizzle {
-	position: absolute;
-	top: 420px;
-	left: 240px;
-	font-size: 5.4em;
-	font-weight: bold;
-}
-
-.custom {
-	position: absolute;
-	top: 570px;
-	left: 180px;
-	font-size: 5.4em;
-	font-weight: bold;
-}
-
-.ordertime {
-	position: absolute;
-	top: 640px;
-	left: 450px;
-	font-size: 3em;
-}
-
-input:focus {
-	outline: none !important;
-	border-color: white;
-}
-</style>
 <meta charset="UTF-8">
-<title>STARBUCKS My Recipe</title>
+	<title>STARBUCKS My Recipe</title>
+	
+	<meta name="viewport" content="width=device-width, user-scalable=no">
+	<!-- CSS import -->
+	<link rel="stylesheet"
+		href="/greenTumblerServer/resources/css/bootstrap.css">
+	<link rel="stylesheet"
+		href="/greenTumblerServer/resources/css/style.css">
+	<link rel="stylesheet"
+		href="/greenTumblerServer/resources/css/recipe.css">
+	<!-- JS import -->
+	<script src="/greenTumblerServer/resources/js/jquery-3.3.1.js"></script>
+	<script src="/greenTumblerServer/resources/js/popper-1.14.7.js"></script>
+	<script src="/greenTumblerServer/resources/js/bootstrap.js"></script>
+	
 </head>
-<body>
-	<div style="position: relative;">
-		<img
-			src="${pageContext.request.contextPath}/resources/images/recipe-img.png">
-		<span id="menu_name" class="font menu_name"></span>
-		<p id="whip" class="font whip"></p>
-		<p id="shots" class="font shots"></p>
-		<p id="syrup" class="font syrup"></p>
-		<p id="drizzle" class="font drizzle"></p>
-		<p id="custom" class="font custom"></p>
-		<p id="order_time" class="font ordertime"></p>
+<body class="background">
+	<%@include file="./navbar-partner.jsp"%>
+	<input class="transparent-input" id="nfcId"></input>
+	<div class="container white-container">
+		<div class="row">
+			<div class="col-7 mt-3" style="margin-bottom: 50px">
+				<div class="row">
+					<div class="col-6">
+						<p class="white-font font">whip</p>
+						<div class="content-box mt-3 text-center">
+							<p id="whip" class="font whip color-white"></p>
+						</div>
+					</div>
+					<div class="col-6">
+						<p class="white-font font">shots</p>
+						<div class="content-box mt-3 text-center">
+							<p id="shots" class="font shots color-white"></p>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-12">
+						<p class="white-font font">syrup</p>
+						<div class="content-box mt-3 text-center">
+							<p id="syrup" class="font shots color-white"></p>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-12">
+						<p class="white-font font">drizzle</p>
+						<div class="content-box mt-3 text-center">
+							<p id="drizzle" class="font shots color-white"></p>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-12">
+						<p class="white-font font">custom</p>
+						<div class="content-box mt-3 text-center">
+							<p id="custom" class="font shots color-white"></p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-1">
+				<div class="horizontal-line"></div>
+			</div>
+			<div class="col-4 mt-3">
+				<div class="row">
+					<p class="white-font font">메뉴</p>
+				</div>
+				<div class="row">
+					<p id="menu_name" class="font menu_name color-white"><br/><br/></p>
+				</div>
+				<div class="row">
+					<p class="white-font font">주문 시간</p>
+				</div>
+				<div class="row">
+					<p id="order_time" class="font ordertime color-white"><br/></p>
+				</div>
+			</div>
+		</div>
 	</div>
-	<input style="border: white; color: white" id="nfcId"></input>
 	<script>
 		$("#nfcId").focus();
 		let typingTimer;
@@ -147,6 +121,19 @@ input:focus {
 						}
 						$('#order_time').text(order.order_time2);
 						$('#nfcId').val('');
+						
+						$("#nfcId").focus();
+					},
+					error: function(e) {
+						$('#menu_name').text("");
+						$('#whip').text("");
+						$('#shots').text("");
+						$('#syrup').text("");
+						$('#drizzle').text("");
+						$('#order_time').text("");
+						
+						$('#nfcId').val('');
+						$("#nfcId").focus();
 					}
 				})
 
@@ -157,26 +144,6 @@ input:focus {
 
 			clearTimeout(typingTimer);
 		});
-
-		/* $('#recentOrderModal').on(
-				'shown.bs.modal',
-				function(e) {
-					// let tumbler = JSON.parse('${ sessionScope.tumblerJson }');
-					let url = "/greenTumblerServer/pos/getRecentOrder/"
-							+ tumblerInfo.account_id;
-					let method = "POST";
-
-					sendTumblerRequest(url, method, {}, function(order) {
-						console.log(order);
-						$('#decaf').text(order.menu_name);
-						$('#shots').text(order.size);
-						$('#syrup').text(order.order_date);
-						$('#milk').text(order.store_name);
-						$('#custom').text(order.detail_price);
-						$('#order_time').text(order.detail_price);
-					})
-
-				}) */
 	</script>
 </body>
 </html>
