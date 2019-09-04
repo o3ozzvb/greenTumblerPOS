@@ -550,6 +550,6 @@
 			
 		</script>
 
-	<script src="/greenTumblerServer/resources/js/script-web.js"></script>
+	<script src="/greenTumblerServer/resources/js/script.js"></script>
 </body>
 </html>
