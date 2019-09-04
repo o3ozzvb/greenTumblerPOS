@@ -241,6 +241,11 @@ public class HomeController extends FCMController {
 		return "/pos/recipe";
 	}
 	
+	@RequestMapping(value="/recipe-web", method=RequestMethod.GET)
+	public String showRecipeWeb(Model model) {
+		return "/pos/recipe-web";
+	}
+	
 	@RequestMapping(value="/recipe-past", method=RequestMethod.GET)
 	public String showRecipePast(Model model) {
 		return "/pos/recipe_past";

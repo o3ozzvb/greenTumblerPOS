@@ -12,19 +12,19 @@
 	<link rel="stylesheet"
 		href="/greenTumblerServer/resources/css/bootstrap.css">
 	<link rel="stylesheet"
-		href="/greenTumblerServer/resources/css/style.css">
+		href="/greenTumblerServer/resources/css/style-web.css">
 	<link rel="stylesheet"
-		href="/greenTumblerServer/resources/css/recipe.css">
+		href="/greenTumblerServer/resources/css/recipe-web.css">
 	<!-- JS import -->
 	<script src="/greenTumblerServer/resources/js/jquery-3.3.1.js"></script>
 	<script src="/greenTumblerServer/resources/js/popper-1.14.7.js"></script>
 	<script src="/greenTumblerServer/resources/js/bootstrap.js"></script>
 	
 </head>
-<body class="background">
+<body id="body" class="background">
 	<%@include file="./navbar-partner.jsp"%>
 	<input class="transparent-input" id="nfcId"></input>
-	<div class="container white-container">
+	<div id="container-partner" class="container white-container">
 		<div class="row">
 			<div class="col-7 mt-3" style="margin-bottom: 50px">
 				<div class="row">
@@ -71,13 +71,13 @@
 			</div>
 			<div class="col-4 mt-3">
 				<div class="row">
-					<p class="white-font font">메뉴</p>
+					<p class="white-font font right">메뉴</p>
 				</div>
 				<div class="row">
 					<p style="line-height: 1 !important;" id="menu_name" class="font menu_name color-white"><br/><br/></p>
 				</div>
-				<div class="row" >
-					<p class="white-font font" style="margin-top: 300px;">주문 시간</p>
+				<div class="row mt-3" >
+					<p class="white-font font right" style="margin-top: 200px;">주문 시간</p>
 				</div>
 				<div class="row">
 					<p id="order_time" class="font ordertime color-white"><br/></p>
@@ -86,7 +86,30 @@
 		</div>
 	</div>
 	<script>
-		$(function(){
+		$(function() {
+			
+			let bodyHeightPercent = 0.9;
+			let bodyWidthPercent = 0.3;
+			
+			let navbarPartner = document.getElementById("navbar-partner");
+			let containerPartner = document.getElementById("container-partner");
+			let nfcId = document.getElementById("nfcId");
+			
+			let windowHeight = window.innerHeight;
+			let windowWidth = window.innerWidth;
+			let body = document.getElementById("body");
+			body.style.height = (windowHeight * bodyHeightPercent) + "px";
+			let bodyMarginTop = (windowHeight * ((1-bodyHeightPercent)/2));
+			let bodyMarginLeft = (windowWidth - body.offsetLeft);
+			
+			//body.style.marginTop = bodyMarginTop + "px";
+			body.style.width = (windowWidth * bodyWidthPercent) + "px";
+			body.style.marginLeft = (windowWidth * ((1-bodyWidthPercent)/2)) + "px";
+			
+			let innerBodyHeight = navbarPartner.offsetHeight + containerPartner.offsetHeight + nfcId.offsetHeight;
+			body.style.paddingTop = (windowHeight - innerBodyHeight) * 0.9 /2 + "px";
+			
+			
 			$("#nfcId").focus();
 			let typingTimer;
 			let doneTypingInterval = 200;
@@ -144,7 +167,7 @@
 			$('#nfcId').on("keydown", function(e) {
 
 				clearTimeout(typingTimer);
-			});			
+			});
 		});
 	</script>
 </body>

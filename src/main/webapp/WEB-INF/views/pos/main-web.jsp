@@ -133,7 +133,7 @@
 			src="/greenTumblerServer/resources/images/tumbler.png"
 			style="position: absolute; top: 500px; left: 40%; width: 120px"
 			data-toggle="modal" data-target="#tumblerModal" />
-		<button id="chargeBtn" class="bold btn btn-success pay-btn float-right"
+		<button id="chargeBtn-ui" class="bold btn btn-success pay-btn float-right"
 			style="position: absolute;"
 			data-toggle="modal" data-target="#chargeModal">충전</button>
 		<button id="payBtn" class="bold btn btn-danger pay-btn float-right"
@@ -235,7 +235,7 @@
 				body.style.marginTop = bodyMargin + "px";
 				
 				// 버튼들 위치 조정
-				let chargeBtn = document.getElementById("chargeBtn");
+				let chargeBtn = document.getElementById("chargeBtn-ui");
 				let payBtn = document.getElementById("payBtn");
 				let personalArea = document.getElementById("personal-area");
 				let tumblerInfoArea = document.getElementById("tumblerInfoArea");

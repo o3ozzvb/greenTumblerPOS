@@ -4,7 +4,11 @@
 
 .font {
 	font-family: 'Nanum Pen Script', cursive;
-	font-size: 70px;
+	font-size: 60px;
+}
+
+.white-font.font.right {
+	font-size: 60px !important;
 }
 
 #menu-name {
@@ -12,31 +16,23 @@
 }
 
 .white-container {
-	border: 0.1rem solid white;
-	border-radius: 0.4rem;
+	border: 0.15rem solid white;
+	border-radius: 0.5rem;
 	margin-top: 20px;
 }
 
 .horizontal-line {
-	width: 1px;
+	width: 0.15rem;
 	height: 100%;
 	background-color: white;
 }
 
 .content-box {
 	margin-left: 1.3rem;
-	border-radius: 0.4rem;
+	border-radius: 0.5rem;
 	width: 70%;
 	height: 80px;
-	border: 0.1rem solid white;
-}
-
-.content-box.wide {
-	margin-left: 1.3rem;
-	border-radius: 0.4rem;
-	width: 86% !important;
-	height: 80px;
-	border: 0.1rem solid white;
+	border: 0.15rem solid white;
 }
 
 .color-white {
