@@ -196,17 +196,17 @@ INSERT INTO SGT_ALARM (ALARM_ID, MSG, ACCOUNT_ID, ALARM_TYPE)
 VALUES (NEXTVAL('SGT_ALARM_SEQ'), '결제 완료 되었습니다.', 'heejae', 'pay');
 
 INSERT INTO SGT_ALARM (ALARM_ID, MSG, ACCOUNT_ID, ALARM_TYPE)
-VALUES (NEXTVAL('SGT_ALARM_SEQ'), 'hojun의 텀블러에 10000원 충전 되었습니다.', 'hojun', 'charge');
+VALUES (NEXTVAL('SGT_ALARM_SEQ'), 'hojun의 텀블러에 10000원 충전되었습니다.', 'hojun', 'charge');
 INSERT INTO SGT_ALARM (ALARM_ID, MSG, ACCOUNT_ID, ALARM_TYPE)
-VALUES (NEXTVAL('SGT_ALARM_SEQ'), 'hanbe의 텀블러에 10000원 충전 되었습니다.', 'hanbe', 'charge');
+VALUES (NEXTVAL('SGT_ALARM_SEQ'), 'hanbe의 텀블러에 10000원 충전되었습니다.', 'hanbe', 'charge');
 INSERT INTO SGT_ALARM (ALARM_ID, MSG, ACCOUNT_ID, ALARM_TYPE)
-VALUES (NEXTVAL('SGT_ALARM_SEQ'), 'eunkyoung의 텀블러에 10000원 충전 되었습니다.', 'eunkyoung', 'charge');
+VALUES (NEXTVAL('SGT_ALARM_SEQ'), 'eunkyoung의 텀블러에 10000원 충전되었습니다.', 'eunkyoung', 'charge');
 INSERT INTO SGT_ALARM (ALARM_ID, MSG, ACCOUNT_ID, ALARM_TYPE)
-VALUES (NEXTVAL('SGT_ALARM_SEQ'), 'sanghyeon의 텀블러에 10000원 충전 되었습니다.', 'sanghyeon', 'charge');
+VALUES (NEXTVAL('SGT_ALARM_SEQ'), 'sanghyeon의 텀블러에 10000원 충전되었습니다.', 'sanghyeon', 'charge');
 INSERT INTO SGT_ALARM (ALARM_ID, MSG, ACCOUNT_ID, ALARM_TYPE)
-VALUES (NEXTVAL('SGT_ALARM_SEQ'), 'ujeong의 텀블러에 10000원 충전 되었습니다.', 'ujeong', 'charge');
+VALUES (NEXTVAL('SGT_ALARM_SEQ'), 'ujeong의 텀블러에 10000원 충전되었습니다.', 'ujeong', 'charge');
 INSERT INTO SGT_ALARM (ALARM_ID, MSG, ACCOUNT_ID, ALARM_TYPE)
-VALUES (NEXTVAL('SGT_ALARM_SEQ'), 'heejae의 텀블러에 10000원 충전 되었습니다.', 'heejae', 'charge');
+VALUES (NEXTVAL('SGT_ALARM_SEQ'), 'heejae의 텀블러에 10000원 충전되었습니다.', 'heejae', 'charge');
 
 INSERT INTO SGT_ALARM (ALARM_ID, MSG, ACCOUNT_ID, ALARM_TYPE)
 VALUES (NEXTVAL('SGT_ALARM_SEQ'), '분실 신고 되었습니다.', 'heejae', 'lost');
