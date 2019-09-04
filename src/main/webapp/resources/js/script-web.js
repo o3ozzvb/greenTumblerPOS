@@ -97,7 +97,7 @@ $(function(){
     	
     });	
     
-    // 우측 메뉴가 클릭되었을 때
+ // 우측 메뉴가 클릭되었을 때
     $(".pos-menu-btn").on("click touchend", function(e){
     	let handled = false;
 		
@@ -129,13 +129,25 @@ $(function(){
 	        
 	        
 	        if(category2 == "나만의메뉴") {
+	        	console.log(element);
+	        	let option_sum = 0;
+	        	option_sum += parseInt(element.shot) * optionPrice;
+	        	option_sum += parseInt(element.syrup) * optionPrice;
+	        	if(element.whipped_cream == "true") {
+	        		option_sum += optionPrice;
+	        	}
+	        	if(element.drizzle == "true") {
+	        		option_sum += optionPrice;
+	        	}
+	        	selectedMenu["option_sum"] = option_sum;
+	        	selectedMenu["price"] = parseInt(element.price) - option_sum;
 	        	selectedMenu["line_id"] = orderIdx++;
 	        	selectedMenu["is_tumbler"] = element.is_tumbler=="true";
 	        	updateOrderList(orderList, selectedMenu);
 	        }
 			
 		}
-    });	
+    });		
 })
 
 function activateSpinner() {
