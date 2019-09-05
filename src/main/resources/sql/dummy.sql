@@ -149,19 +149,19 @@ VALUES ( 'test', 'test', 'c1pS4pl2S54:APA91bFKIL6CaBEInIraBDz-bmT0AvG4StHfHnRkyZ
 
 -- TUMBLER DUMMY
 INSERT INTO SGT_TUMBLER (TUMBLER_ID, IMAGE, NFC_ID, ACCOUNT_ID, TUMBLER_NAME, TUMBLER_PIN, GREEN_SEED, TUMBLER_MONEY)
-VALUES ( NEXTVAL('SGT_TUMBLER_SEQ'), 'https://green-tumbler-server-s3.s3.ap-northeast-2.amazonaws.com/tumblers/spring_coldcup.png','0012649608', 'hojun', 'hojun의 텀블러', '0002360456', 148, 10000);
---INSERT INTO SGT_TUMBLER (TUMBLER_ID, IMAGE, NFC_ID, ACCOUNT_ID, TUMBLER_NAME, TUMBLER_PIN, GREEN_SEED, TUMBLER_MONEY)
+VALUES ( NEXTVAL('SGT_TUMBLER_SEQ'), 'https://green-tumbler-server-s3.s3.ap-northeast-2.amazonaws.com/tumblers/marvel_white.png','0012649608', 'hojun', 'hojun의 텀블러', '0002360456', 149, 10000);
+--INSERT INTO SGT_TUMBLER (TUMBLER_ID, IMAGE, NFC_ID, ACCOUNT_ID, TUMBLER_NAME, TUMBLER_PIN, GREEN_SEED, TUMBLER_MONEY)	
 --VALUES ( NEXTVAL('SGT_TUMBLER_SEQ'), 'https://green-tumbler-server-s3.s3.ap-northeast-2.amazonaws.com/tumblers/reserve_white.png','0013304968', 'hanbe', '한배의 텀블러', '0013304968', 148, 10000);
 INSERT INTO SGT_TUMBLER (TUMBLER_ID, IMAGE, NFC_ID, ACCOUNT_ID, TUMBLER_NAME, TUMBLER_PIN, GREEN_SEED, TUMBLER_MONEY)
-VALUES ( NEXTVAL('SGT_TUMBLER_SEQ'), 'https://green-tumbler-server-s3.s3.ap-northeast-2.amazonaws.com/tumblers/spring_coldcup.png','0013304968', NULL, NULL, '0013304968', 148, 10000);
+VALUES ( NEXTVAL('SGT_TUMBLER_SEQ'), 'https://green-tumbler-server-s3.s3.ap-northeast-2.amazonaws.com/tumblers/marvel_white.png','0013304968', NULL, NULL, '0013304968', 148, 10000);
 INSERT INTO SGT_TUMBLER (TUMBLER_ID, IMAGE, NFC_ID, ACCOUNT_ID, TUMBLER_NAME, TUMBLER_PIN, GREEN_SEED, TUMBLER_MONEY)
-VALUES ( NEXTVAL('SGT_TUMBLER_SEQ'), 'https://green-tumbler-server-s3.s3.ap-northeast-2.amazonaws.com/tumblers/spring_coldcup.png','0014222472', 'eunkyoung', 'eunkyoung의 텀블러', '0014222472', 148, 10000);
+VALUES ( NEXTVAL('SGT_TUMBLER_SEQ'), 'https://green-tumbler-server-s3.s3.ap-northeast-2.amazonaws.com/tumblers/holiday_coldcup.png','0014222472', 'eunkyoung', 'eunkyoung의 텀블러', '0014222472', 148, 10000);
 INSERT INTO SGT_TUMBLER (TUMBLER_ID, IMAGE, NFC_ID, ACCOUNT_ID, TUMBLER_NAME, TUMBLER_PIN, GREEN_SEED, TUMBLER_MONEY)
-VALUES ( NEXTVAL('SGT_TUMBLER_SEQ'), 'https://green-tumbler-server-s3.s3.ap-northeast-2.amazonaws.com/tumblers/holiday_coldcup.png','0014877832', 'sanghyeon', 'sanghyeon의 텀블러', '0014877832', 148, 10000);
+VALUES ( NEXTVAL('SGT_TUMBLER_SEQ'), 'https://green-tumbler-server-s3.s3.ap-northeast-2.amazonaws.com/tumblers/spring_coldcup.png','0014877832', 'sanghyeon', 'sanghyeon의 텀블러', '0014877832', 148, 10000);
 INSERT INTO SGT_TUMBLER (TUMBLER_ID, IMAGE, NFC_ID, ACCOUNT_ID, TUMBLER_NAME, TUMBLER_PIN, GREEN_SEED, TUMBLER_MONEY)
 VALUES ( NEXTVAL('SGT_TUMBLER_SEQ'), 'https://green-tumbler-server-s3.s3.ap-northeast-2.amazonaws.com/tumblers/spring_coldcup.png','0015598728', 'ujeong', 'ujeong의 텀블러', '0015598728', 148, 10000);
 INSERT INTO SGT_TUMBLER (TUMBLER_ID, IMAGE, NFC_ID, ACCOUNT_ID, TUMBLER_NAME, TUMBLER_PIN, LOST_YN, PAY_YN, GREEN_SEED, TUMBLER_MONEY)
-VALUES ( NEXTVAL('SGT_TUMBLER_SEQ'), 'https://green-tumbler-server-s3.s3.ap-northeast-2.amazonaws.com/tumblers/holiday_coldcup.png', '0016188552', 'heejae', 'heejae의 텀블러', '0016188552', TRUE, FALSE, 148, 10000);
+VALUES ( NEXTVAL('SGT_TUMBLER_SEQ'), 'https://green-tumbler-server-s3.s3.ap-northeast-2.amazonaws.com/tumblers/marvel_white.png', '0016188552', 'heejae', 'heejae의 텀블러', '0016188552', TRUE, FALSE, 148, 10000);
 INSERT INTO SGT_TUMBLER (TUMBLER_ID, IMAGE, NFC_ID, ACCOUNT_ID, TUMBLER_NAME, TUMBLER_PIN, GREEN_SEED, TUMBLER_MONEY)
 VALUES ( NEXTVAL('SGT_TUMBLER_SEQ'), 'https://green-tumbler-server-s3.s3.ap-northeast-2.amazonaws.com/tumblers/spring_coldcup.png', '0000197768', NULL, NULL, '0000197768', 148, 10000);
 

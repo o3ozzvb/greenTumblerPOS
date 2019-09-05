@@ -55,6 +55,11 @@ public class HomeController extends FCMController {
 	@Resource(name="accountService")
 	private AccountService accountService;
 	
+	@RequestMapping("/background")
+	public String background() {
+		return "/background";
+	}
+	
 	@RequestMapping("/main-test")
 	public String mainTest(Model model) {
 		List<MenuVO> menu = menuService.selectAll();
