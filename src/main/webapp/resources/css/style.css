@@ -16,6 +16,9 @@ hr {
 	margin: 1px 0px;
 }
 
+.modal-content {
+	margin: 0 auto;
+}
 
 #tumblerIcon:hover {
 	transform: rotate( 28deg );
